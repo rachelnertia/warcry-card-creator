@@ -5,17 +5,24 @@
 <html>
   <head>
     <style>
-        @font-face {
-          font-family: 'rodchenkoctt';
+      @font-face {
+        font-family: 'rodchenkoctt';
           src: url('rodchenkoctt.woff') format('woff');
           font-weight: normal;
           font-style: normal;
         }
-        body {
-          font-family:'rodchenkoctt';
+        label {
+          cursor: pointer;
         }
     </style>
+    
+    <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <title>Test.</title>
   </head>
   <body>    
@@ -23,8 +30,30 @@
     
     <img id="cardBackground" style="display: none" src="card-bg.png">
     <img id="weaponStatBlock" style="display: none" src="statblock.png">
-    
+
+    <br/>
+
     <canvas id="myCanvas" width="630" height="450" style="border:1px solid #000000;"></canvas>
+
+    <br/>
+
+    <div id="factionRunemarkSelect" class="d-flex flex-wrap">
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/iron-golems.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/untamed-beasts.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/corvus-cabal.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/cypher-lords.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/the-unmade.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/nighthaunt.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/scions-of-the-flame.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/legions-of-nagash.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/idoneth-deepkin.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/gloomspite-gitz.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/flesh-eater-courts.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/ironjawz.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/daughters-of-khaine.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/spire-tyrants.svg" %}
+      {% include runemarkSelectRadio.html radioGroup="faction" imgSrc="runemarks/stormcast-eternals.svg" %}
+    </div>
 
     <br/>
 
@@ -44,19 +73,20 @@
 
     <div id="weapon1">
       <input type="checkbox", id="weaponEnabled" oninput="onWeaponControlsToggled(this)" checked>Weapon 1</input>
-      <div id="weaponInputs">
-        {% include weaponInputs.html %}
+      <div id="weaponInputs" style="display:block">
+        {% include weaponInputs.html weapon="weapon1" %}
       </div>
     </div>
 
     <div id="weapon2">
       <input type="checkbox", id="weaponEnabled" oninput="onWeaponControlsToggled(this)">Weapon 2</input>
       <div id="weaponInputs" style="display:none">
-        {% include weaponInputs.html %}
+        {% include weaponInputs.html weapon="weapon2" %}
       </div>
     </div>
 
     <script src="scripts/jquery-3.4.1.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
