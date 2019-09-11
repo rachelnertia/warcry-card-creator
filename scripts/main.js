@@ -242,14 +242,14 @@ onWeaponMaxRangeChanged = function(maxRange) {
     onAnyChange();
 }
 
-onRunemarkSelectionChanged = function(radioButton)
+onRunemarkSelectionChanged = function(radioButton, backgroundColor)
 {
     var radioSection = radioButton.parentNode.parentNode;
     var allRadioButtons = $('input', radioSection);
 
     for (i = 0; i < allRadioButtons.length; i++)
     {
-        getImage(getLabel(allRadioButtons[i])).style.backgroundColor = "black";    
+        getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;    
     }
 
     getImage(getLabel(radioButton)).style.backgroundColor = "darkred"; 
