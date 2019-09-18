@@ -153,6 +153,21 @@ function getSelectedFactionRunemark() {
     return getSelectedRunemark($('#factionRunemarkSelect')[0]);
 }
 
+function drawTagRunemark(index, runemark) {
+    var positions = [{x: 330, y: 290}]; 
+    if (index > positions.length) return;
+
+    var img = $("#runemarkBg")[0];
+
+    var position = scalePixelPosition(positions[index]);
+    var size = scalePixelPosition({x: 90, y: 90});
+    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+
+    position = scalePixelPosition({x: positions[index].x + 10, y: positions[index].y + 10});
+    size = scalePixelPosition({x: 70, y: 70});
+    getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
+}
+
 render = function() {
     drawBackground();
 
@@ -211,6 +226,12 @@ render = function() {
     {
         drawWeapon(getWeapon2(), {x: 29, y: 463});
     }
+
+    var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
+    for (i = 0; i < checkedBoxes.length; i++)
+    {
+        drawTagRunemark(i, getImage(getLabel(checkedBoxes[0])));
+    }
 }
 
 window.onload = function() {
@@ -253,6 +274,25 @@ onRunemarkSelectionChanged = function(radioButton, backgroundColor)
     }
 
     getImage(getLabel(radioButton)).style.backgroundColor = "darkred"; 
+
+    onAnyChange();
+}
+
+onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
+{
+    // var radioSection = radioButton.parentNode.parentNode;
+    // var allRadioButtons = $('input', radioSection);
+
+    // for (i = 0; i < allRadioButtons.length; i++)
+    // {
+    //     getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;    
+    // }
+
+    // getImage(getLabel(radioButton)).style.backgroundColor = "darkred"; 
+
+    getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "darkred" : backgroundColor;
+
+    // console.log(checkbox, backgroundColor, checkbox.checked);
 
     onAnyChange();
 }

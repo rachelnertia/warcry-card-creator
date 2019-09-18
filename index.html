@@ -30,6 +30,7 @@
     
     <img id="cardBackground" style="display: none" src="card-bg.png">
     <img id="weaponStatBlock" style="display: none" src="statblock.png">
+    <img id="runemarkBg" style="display: none" src="runemark-bg.png">
 
     <br/>
 
@@ -68,6 +69,12 @@
 
     <label for="pointCost">Point Cost:</label>
     <input type="number" id="pointCost" name="pointCost" min="0" max="9999", value="100", oninput="onAnyChange()">
+
+    <br/>
+
+    <div id="tagRunemarkSelect" class="d-flex flex-wrap">
+        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/stormcast-eternals.svg" %}
+    </div>
 
     <br/>
 
