@@ -105,8 +105,8 @@ drawWeapon = function(weaponDiv, pixelPosition) {
     var runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]); 
     if (runemark != null)
     {
-        var position = scalePixelPosition({x: pixelPosition.x + 30, y: pixelPosition.y + 40});
-        var size = scalePixelPosition({x: 80, y: 80});
+        var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
+        var size = scalePixelPosition({x: 90, y: 90});
         getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
         //var img = new Image();
         //img.onload = function() {
@@ -154,8 +154,8 @@ function getSelectedFactionRunemark() {
 }
 
 function drawTagRunemark(index, runemark) {
-    var positions = [{x: 330, y: 290}]; 
-    if (index > positions.length) return;
+    var positions = [{x: 330, y: 290}, {x: 440, y: 290}, {x: 385, y: 200}]; 
+    if (index >= positions.length) return;
 
     var img = $("#runemarkBg")[0];
 
@@ -230,7 +230,7 @@ render = function() {
     var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
     for (i = 0; i < checkedBoxes.length; i++)
     {
-        drawTagRunemark(i, getImage(getLabel(checkedBoxes[0])));
+        drawTagRunemark(i, getImage(getLabel(checkedBoxes[i])));
     }
 }
 
