@@ -107,15 +107,7 @@ drawWeapon = function(weaponDiv, pixelPosition) {
     {
         var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
         var size = scalePixelPosition({x: 90, y: 90});
-        getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
-        //var img = new Image();
-        //img.onload = function() {
-        //    var position = scalePixelPosition({x: pixelPosition.x + 30, y: pixelPosition.y + 40});
-        //    var size = scalePixelPosition({x: 80, y: 80});
-        //
-        //    getContext().drawImage(img, position.x, position.y, size.x, size.y);
-        //};
-        //img.src = runemark.src;
+        getContext().drawImage(runemark, position.x, position.y, size.x, size.y);    
     }
 }
 
@@ -207,20 +199,6 @@ render = function() {
        getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
     }
 
-    // if (runemark != null)
-    // {
-    //     var img = new Image();
-    //     img.onload = function() {
-        
-    //        var position = scalePixelPosition({x: 45, y: 45});
-    //        var size = scalePixelPosition({x: 80, y: 80});
-        
-    //        getContext().drawImage(img, position.x, position.y, size.x, size.y);
-        
-    //     };
-    //     img.src = runemark.src;
-    // }
-
     getContext().font = "30px rodchenkoctt";
     getContext().fillStyle = "white";
     getContext().textBaseline = "top";
@@ -306,19 +284,7 @@ onRunemarkSelectionChanged = function(radioButton, backgroundColor)
 
 onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
 {
-    // var radioSection = radioButton.parentNode.parentNode;
-    // var allRadioButtons = $('input', radioSection);
-
-    // for (i = 0; i < allRadioButtons.length; i++)
-    // {
-    //     getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;    
-    // }
-
-    // getImage(getLabel(radioButton)).style.backgroundColor = "darkred"; 
-
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "darkred" : backgroundColor;
-
-    // console.log(checkbox, backgroundColor, checkbox.checked);
 
     onAnyChange();
 }
