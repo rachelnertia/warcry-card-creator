@@ -168,8 +168,34 @@ function drawTagRunemark(index, runemark) {
     getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
 }
 
+function drawModel()
+{
+    var imageSelect = $("#imageSelect")[0];
+
+    var imageOffsetX = $("#imageOffsetX")[0].valueAsNumber;
+    var imageOffsetY = $("#imageOffsetY")[0].valueAsNumber;
+    var imageScalePercent = $("#imageScalePercent")[0].valueAsNumber;
+
+    if (imageSelect.files.length > 0)
+    {
+        var image = new Image();
+        image.onload = function() {            
+            var position = scalePixelPosition({x: 590 + imageOffsetX, y: imageOffsetY});
+            var scale = imageScalePercent/100.0;
+            var width = image.width * scale;
+            var height = image.height * scale;
+            getContext().drawImage(image, position.x, position.y, width, height);
+
+            URL.revokeObjectURL(image.src);
+        };
+        image.src = URL.createObjectURL(imageSelect.files[0]);
+    }
+}
+
 render = function() {
     drawBackground();
+
+    drawModel();
 
     var runemark = getSelectedFactionRunemark(); 
     

@@ -38,6 +38,13 @@
 
     <br/>
 
+    <input type="file" id="imageSelect" oninput="onAnyChange()"> 
+    <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0"> 
+    <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0"> 
+    <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100"> 
+
+    <br/>
+
     <label for="factionRunemarkSelect">Faction Runemark:</label>
     <div id="factionRunemarkSelect" class="d-flex flex-wrap">
       {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/iron-golems.svg" %}
