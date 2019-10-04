@@ -288,3 +288,36 @@ onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
 
     onAnyChange();
 }
+
+addToImageRadioSelector = function(imageSrc, imageSelector, radioGroupName, bgColor)
+{
+    var div = document.createElement('div');
+    div.setAttribute('class', 'mr-0');
+    div.innerHTML = `
+        <label for="${ radioGroupName }-${ imageSrc }"><img src="${ imageSrc }" width="50" height="50" alt="" style="background-color:${ bgColor };"></label>
+        <input type="radio" style="display:none;" name="${ radioGroupName }" id="${ radioGroupName }-${ imageSrc }" onchange="onRunemarkSelectionChanged(this, '${ bgColor }')">
+    `;
+    imageSelector.appendChild(div);
+}
+
+onFactionRunemarkFileSelect = function()
+{
+    var imageSelect = $("#additionalFactionMarkSelect")[0];
+
+    for (i = 0; i < imageSelect.files.length; i++)
+    {
+        var selectGrid = $("#factionRunemarkSelect")[0];
+        addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "faction", "black");
+    }
+}
+
+onWeaponRunemarkFileSelect = function(input, weaponName)
+{
+    var grid = $(input.parentNode).find("#weaponRunemarkSelect")[0];
+
+    for (i = 0; i < input.files.length; i++)
+    {
+        addToImageRadioSelector(URL.createObjectURL(input.files[i]), grid, weaponName, "white");
+    }
+}
+
