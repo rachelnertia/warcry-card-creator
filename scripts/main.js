@@ -303,10 +303,10 @@ addToImageRadioSelector = function(imageSrc, imageSelector, radioGroupName, bgCo
 onFactionRunemarkFileSelect = function()
 {
     var imageSelect = $("#additionalFactionMarkSelect")[0];
+    var selectGrid = $("#factionRunemarkSelect")[0];
 
     for (i = 0; i < imageSelect.files.length; i++)
     {
-        var selectGrid = $("#factionRunemarkSelect")[0];
         addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "faction", "black");
     }
 }
@@ -321,3 +321,26 @@ onWeaponRunemarkFileSelect = function(input, weaponName)
     }
 }
 
+function addToImageCheckboxSelector(imgSrc, grid, bgColor)
+{
+    var div = document.createElement('div');
+    div.setAttribute('class', 'mr-0');
+    div.innerHTML = `
+    <label for="checkbox-${ imgSrc }">
+        <img src="${ imgSrc }" width="50" height="50" alt="" style="background-color:${ bgColor };">
+    </label>
+    <input type="checkbox" style="display:none;" id="checkbox-${ imgSrc }" onchange="onTagRunemarkSelectionChanged(this, '${ bgColor }')">
+    `;
+    grid.appendChild(div);
+}
+
+function onTagRunemarkFileSelect()
+{
+    var imageSelect = $("#additionalTagMarkSelect")[0];
+    var selectGrid = $("#tagRunemarkSelect")[0];
+
+    for (i = 0; i < imageSelect.files.length; i++)
+    {
+        addToImageCheckboxSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "white");
+    }
+}
