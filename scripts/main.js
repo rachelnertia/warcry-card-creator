@@ -86,21 +86,24 @@ drawWeapon = function(weaponDiv, pixelPosition) {
     var rangeMin = weaponDiv.find("#rangeMin")[0].value;
     var rangeMax = weaponDiv.find("#rangeMax")[0].value;
     var range = (rangeMin > 0 ? (rangeMin + "-") : "") + rangeMax; 
-    writeScaled(range, {x: pixelPosition.x + 166, y: statsPosY});
+
+    getContext().textAlign = "center";
+
+    writeScaled(range, {x: pixelPosition.x + 175, y: statsPosY});
 
     drawCardElementFromInput(
         weaponDiv.find("#attacks")[0], 
-        {x: pixelPosition.x + 258, y: statsPosY});
+        {x: pixelPosition.x + 270, y: statsPosY});
     
     drawCardElementFromInput(
         weaponDiv.find("#strength")[0], 
-        {x: pixelPosition.x + 350, y: statsPosY});
+        {x: pixelPosition.x + 365, y: statsPosY});
 
     var damageBase = weaponDiv.find("#damageBase")[0].value;
     var damageCrit = weaponDiv.find("#damageCrit")[0].value;
     writeScaled(
         damageBase + "/" + damageCrit, 
-        {x: pixelPosition.x + 421, y: statsPosY});
+        {x: pixelPosition.x + 460, y: statsPosY});
 
     var runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]); 
     if (runemark != null)
