@@ -38,10 +38,13 @@
 
     <br/>
 
-    <label for="imageSelect">Choose Image</label>
+    <label for="imageSelect">Choose Image:</label>
     <input type="file" id="imageSelect" oninput="onAnyChange()"> 
+    <label for="imageOffsetX">Offset X:</label>
     <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0"> 
+    <label for="imageOffsetY">Offset Y:</label>
     <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0"> 
+    <label for="imageScalePercent">Scale %:</label>
     <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100"> 
 
     <br/>
@@ -64,7 +67,7 @@
       {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/spire-tyrants.svg" %}
       {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/stormcast-eternals.svg" %}
     </div>
-    <label for="additionalFactionMarkSelect">Load Runemark</label>
+    <label for="additionalFactionMarkSelect">Load Runemark:</label>
     <input type="file" id="additionalFactionMarkSelect" oninput="onFactionRunemarkFileSelect()"> 
 
     <br/>
@@ -106,7 +109,7 @@
         {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/trapper.svg" %}
         {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/warrior.svg" %}
     </div>
-    <label for="additionalTagMarkSelect">Load Runemark</label>
+    <label for="additionalTagMarkSelect">Load Runemark:</label>
     <input type="file" id="additionalTagMarkSelect" oninput="onTagRunemarkFileSelect()"> 
 
     <br/>
