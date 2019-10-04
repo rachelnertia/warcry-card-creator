@@ -163,34 +163,60 @@ function drawTagRunemark(index, runemark) {
     getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
 }
 
-function drawModel()
+function drawModel(imageUrl, imageProps)
 {
-    var imageSelect = $("#imageSelect")[0];
-
-    var imageOffsetX = $("#imageOffsetX")[0].valueAsNumber;
-    var imageOffsetY = $("#imageOffsetY")[0].valueAsNumber;
-    var imageScalePercent = $("#imageScalePercent")[0].valueAsNumber;
-
-    if (imageSelect.files.length > 0)
+    if (imageUrl != null)
     {
         var image = new Image();
-        image.onload = function() {            
-            var position = scalePixelPosition({x: 590 + imageOffsetX, y: imageOffsetY});
-            var scale = imageScalePercent/100.0;
+        image.onload = function(){
+            var position = scalePixelPosition({x: 590 + imageProps.offsetX, y: imageProps.offsetY});
+            var scale = imageProps.scalePercent/100.0;
             var width = image.width * scale;
             var height = image.height * scale;
             getContext().drawImage(image, position.x, position.y, width, height);
 
             URL.revokeObjectURL(image.src);
         };
-        image.src = URL.createObjectURL(imageSelect.files[0]);
+        image.src = imageUrl;
     }
 }
 
+function getModelImage()
+{
+    var imageSelect = $("#imageSelect")[0];
+    
+    if (imageSelect.files.length > 0)
+    {
+        return URL.createObjectURL(imageSelect.files[0]);
+    }
+
+    return null;
+}
+
+function getModelImageProperties()
+{
+    return {
+        offsetX: $("#imageOffsetX")[0].valueAsNumber,
+        offsetY: $("#imageOffsetY")[0].valueAsNumber,
+        scalePercent: $("#imageScalePercent")[0].valueAsNumber
+    };
+}
+
+function readControls()
+{
+    var data = new Object;
+    data.imageUrl = getModelImage();
+    data.imageProperties = getModelImageProperties();
+
+    return data;
+}
+
 render = function() {
+    var data = readControls();
+
     drawBackground();
 
-    drawModel();
+    drawModel(data.imageUrl, data.imageProperties);
 
     var runemark = getSelectedFactionRunemark(); 
     
