@@ -1,29 +1,33 @@
 ---
 # this is an empty front matter
 ---
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <style>
       @font-face {
         font-family: 'rodchenkoctt';
-          src: url('rodchenkoctt.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-        }
-        label {
-          cursor: pointer;
-        }
+        src: url('rodchenkoctt.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      label {
+        cursor: pointer;
+      }
+      canvas {
+        width: 100%;
+        height: auto;
+      }
     </style>
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Test.</title>
+    <title>Warcry Fighter Card Creator (ALPHA)</title>
   </head>
   <body>    
     <div class="font-hack" style="font-family:'rodchenkoctt'; visibility: hidden">nothing to see here, move along</div>
@@ -31,105 +35,120 @@
     <img id="cardBackground" style="display: none" src="card-bg.png">
     <img id="weaponStatBlock" style="display: none" src="statblock.png">
     <img id="runemarkBg" style="display: none" src="runemark-bg.png">
-
-    <br/>
-
-    <canvas id="myCanvas" width="630" height="450" style="border:1px solid #000000;"></canvas>
-
-    <br/>
-
-    <label for="imageSelect">Choose Image:</label>
-    <input type="file" id="imageSelect" oninput="onAnyChange()"> 
-    <label for="imageOffsetX">Offset X:</label>
-    <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0"> 
-    <label for="imageOffsetY">Offset Y:</label>
-    <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0"> 
-    <label for="imageScalePercent">Scale %:</label>
-    <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100"> 
-
-    <br/>
-
-    <label for="factionRunemarkSelect">Faction Runemark:</label>
-    <div id="factionRunemarkSelect" class="d-flex flex-wrap">
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/iron-golems.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/untamed-beasts.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/corvus-cabal.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/cypher-lords.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/the-unmade.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/nighthaunt.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/scions-of-the-flame.svg" %} 
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/legions-of-nagash.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/idoneth-deepkin.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/gloomspite-gitz.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/flesh-eater-courts.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/ironjawz.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/daughters-of-khaine.svg" %} 
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/spire-tyrants.svg" %}
-      {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/stormcast-eternals.svg" %}
-    </div>
-    <label for="additionalFactionMarkSelect">Load Runemark:</label>
-    <input type="file" id="additionalFactionMarkSelect" oninput="onFactionRunemarkFileSelect()"> 
-
-    <br/>
-
-    <label for="numWounds">Wounds:</label>
-    <input type="number" id="numWounds" name="numWounds" min="1" max="1000", value="10", oninput="onAnyChange()">
     
-    <label for="toughness">Toughness:</label>
-    <input type="number" id="toughness" name="toughness" min="0" max="100", value="3", oninput="onAnyChange()">
-
-    <label for="movement">Movement:</label>
-    <input type="number" id="movement" name="movement" min="0" max="100", value="4", oninput="onAnyChange()">
-
-    <label for="pointCost">Point Cost:</label>
-    <input type="number" id="pointCost" name="pointCost" min="0" max="9999", value="100", oninput="onAnyChange()">
-
-    <br/>
-
-    <label for="tagRunemarkSelect">Tag Runemarks:</label>
-    <div id="tagRunemarkSelect" class="d-flex flex-wrap">
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/agile.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/champion.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/beast.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/berzerker.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/brute.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/bulwark.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/destroyer.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/elite.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/fly.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/gargantuan.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/icon-bearer.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/leader.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/minion.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/mount.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/mystic.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/scout.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/sentience.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/thrall.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/trapper.svg" %}
-        {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/warrior.svg" %}
+    <div class="container">
+      <canvas id="myCanvas" width="630" height="450" style="border:1px solid #000000;">There should be a Canvas here.</canvas>
     </div>
-    <label for="additionalTagMarkSelect">Load Runemark:</label>
-    <input type="file" id="additionalTagMarkSelect" oninput="onTagRunemarkFileSelect()"> 
 
     <br/>
 
-    <div id="weapon1">
+    <div class="container">
+      <label for="imageSelect">Choose Image:</label>
+      <input type="file" id="imageSelect" oninput="onAnyChange()"> 
+
+      <br/>
+
+      <label for="imageOffsetX">Offset X:</label>
+      <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0"> 
+      <label for="imageOffsetY">Offset Y:</label>
+      <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0"> 
+      <label for="imageScalePercent">Scale %:</label>
+      <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100"> 
+    </div>
+    
+    <br/>
+
+    <div class="container">
+      <label for="factionRunemarkSelect">Faction Runemark:</label>
+      <div id="factionRunemarkSelect" class="d-flex flex-wrap">
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/iron-golems.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/untamed-beasts.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/corvus-cabal.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/cypher-lords.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/the-unmade.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/nighthaunt.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/scions-of-the-flame.svg" %} 
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/legions-of-nagash.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/idoneth-deepkin.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/gloomspite-gitz.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/flesh-eater-courts.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/ironjawz.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/daughters-of-khaine.svg" %} 
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/spire-tyrants.svg" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/stormcast-eternals.svg" %}
+      </div>
+      <label for="additionalFactionMarkSelect">Load Runemark:</label>
+      <input type="file" id="additionalFactionMarkSelect" oninput="onFactionRunemarkFileSelect()"> 
+    </div>
+
+    <br/>
+
+    <div class="container">
+      <label for="numWounds">Wounds:</label>
+      <input type="number" id="numWounds" name="numWounds" min="1" max="1000", value="10", oninput="onAnyChange()">
+      
+      <label for="toughness">Toughness:</label>
+      <input type="number" id="toughness" name="toughness" min="0" max="100", value="3", oninput="onAnyChange()">
+
+      <label for="movement">Movement:</label>
+      <input type="number" id="movement" name="movement" min="0" max="100", value="4", oninput="onAnyChange()">
+
+      <label for="pointCost">Point Cost:</label>
+      <input type="number" id="pointCost" name="pointCost" min="0" max="9999", value="100", oninput="onAnyChange()">
+    </div>
+
+    <br/>
+
+    <div class="container">
+      <label for="tagRunemarkSelect">Tag Runemarks:</label>
+      <div id="tagRunemarkSelect" class="d-flex flex-wrap">
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/agile.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/champion.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/beast.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/berzerker.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/brute.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/bulwark.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/destroyer.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/elite.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/fly.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/gargantuan.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/icon-bearer.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/leader.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/minion.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/mount.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/mystic.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/scout.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/sentience.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/thrall.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/trapper.svg" %}
+          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/warrior.svg" %}
+      </div>
+      <label for="additionalTagMarkSelect">Load Runemark:</label>
+      <input type="file" id="additionalTagMarkSelect" oninput="onTagRunemarkFileSelect()"> 
+    </div>
+    
+    <br/>
+
+    <div id="weapon1" class="container">
       <input type="checkbox", id="weaponEnabled" oninput="onWeaponControlsToggled(this)" checked>Weapon 1</input>
       <div id="weaponInputs" style="display:block">
         {% include weaponInputs.html weapon="weapon1" %}
       </div>
     </div>
 
-    <div id="weapon2">
+    <br/>
+
+    <div id="weapon2" class="container">
       <input type="checkbox", id="weaponEnabled" oninput="onWeaponControlsToggled(this)">Weapon 2</input>
       <div id="weaponInputs" style="display:none">
         {% include weaponInputs.html weapon="weapon2" %}
       </div>
     </div>
 
+
     <script src="scripts/jquery-3.4.1.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="scripts/main.js"></script>
   </body>
+
 </html>

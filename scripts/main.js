@@ -1,5 +1,23 @@
 writeValue = function(ctx, value, pos) {
+    ctx.save();
+
+    var scale = getScalingFactor(getCanvas(), getBackgroundImage());
+
+    console.log("scale: ", scale);
+
+    console.log("pos before: ", pos);
+    
+    pos = {x: pos.x / scale.x, y: pos.y / scale.y };
+    
+    console.log("pos after: ", pos);
+
+    ctx.scale(scale.x, scale.y);
+
     ctx.fillText(value, pos.x, pos.y);
+
+
+
+    ctx.restore();
 }
 
 getScalingFactor = function(canvas, cardBackground) {
@@ -51,7 +69,7 @@ drawToughness = function() {
 }
 
 drawWounds = function() {
-    drawCardElementFromInputId("numWounds", {x: 210, y: 240});
+    drawCardElementFromInputId("numWounds", {x: 205, y: 240});
 }
 
 drawMove = function() {
@@ -228,7 +246,7 @@ render = function() {
        getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
     }
 
-    getContext().font = "30px rodchenkoctt";
+    getContext().font = "50px rodchenkoctt";
     getContext().fillStyle = "white";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
