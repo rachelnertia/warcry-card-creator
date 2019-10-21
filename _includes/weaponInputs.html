@@ -2,21 +2,7 @@
 <div id="weaponRunemarkSelect" class="d-flex flex-wrap">
     {% capture foo %}{{ include.weapon }}{% endcapture %}
 
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/iron-golems.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/untamed-beasts.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/corvus-cabal.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/cypher-lords.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/the-unmade.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/nighthaunt.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/scions-of-the-flame.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/legions-of-nagash.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/idoneth-deepkin.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/gloomspite-gitz.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/flesh-eater-courts.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/ironjawz.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/daughters-of-khaine.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/spire-tyrants.svg" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/stormcast-eternals.svg" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/iron-golems.svg" title="Iron Golems" %}
 </div>
 <label for="additionalWeaponMarkSelect">Load Runemark:</label>
 <input type="file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this, '{{ include.weapon }}')"> 

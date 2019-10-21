@@ -1,4 +1,6 @@
 <div class="mr-0">
-    <label for="{{ include.radioGroup }}-{{ include.imgSrc }}"><img src="{{ include.imgSrc }}" width="50" height="50" alt="" style="background-color:{{ include.backgroundColor }};"></label>
+    <label for="{{ include.radioGroup }}-{{ include.imgSrc }}">
+        <img src="{{ include.imgSrc }}" title="{{ include.title }}" width="50" height="50" alt="" style="background-color:{{ include.backgroundColor }};">
+    </label>
     <input type="radio" style="display:none;" name="{{ include.radioGroup }}" id="{{ include.radioGroup }}-{{ include.imgSrc }}" onchange="onRunemarkSelectionChanged(this, '{{ include.backgroundColor }}')">
 </div>
