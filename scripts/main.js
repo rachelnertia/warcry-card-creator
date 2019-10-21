@@ -1,22 +1,10 @@
 writeValue = function(ctx, value, pos) {
-    ctx.save();
-
     var scale = getScalingFactor(getCanvas(), getBackgroundImage());
-
-    console.log("scale: ", scale);
-
-    console.log("pos before: ", pos);
-    
     pos = {x: pos.x / scale.x, y: pos.y / scale.y };
     
-    console.log("pos after: ", pos);
-
+    ctx.save();    
     ctx.scale(scale.x, scale.y);
-
     ctx.fillText(value, pos.x, pos.y);
-
-
-
     ctx.restore();
 }
 
