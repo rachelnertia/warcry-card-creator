@@ -52,20 +52,20 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
     drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 } 
 
-drawToughness = function() {
-    drawCardElementFromInputId("toughness", {x: 257, y: 174});
+drawToughness = function(value) {
+    writeScaled(value, {x: 257, y: 174});
 }
 
-drawWounds = function() {
-    drawCardElementFromInputId("numWounds", {x: 205, y: 240});
+drawWounds = function(value) {
+    writeScaled(value, {x: 205, y: 240});
 }
 
-drawMove = function() {
-    drawCardElementFromInputId("movement", {x: 106, y: 174});
+drawMove = function(value) {
+    writeScaled(value, {x: 106, y: 174});
 }
 
-drawPointCost = function() {
-    drawCardElementFromInputId("pointCost", {x: 494, y: 90});
+drawPointCost = function(value) {
+    writeScaled(value, {x: 494, y: 90});
 }
 
 getWeaponStatblockImage = function() {
@@ -84,39 +84,34 @@ drawWeaponStatblock = function(pixelPosition) {
         scaledSize.y);
 }
 
-drawWeapon = function(weaponDiv, pixelPosition) {
+drawWeapon = function(weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
 
     var statsPosY = pixelPosition.y + 91;
 
-    var rangeMin = weaponDiv.find("#rangeMin")[0].value;
-    var rangeMax = weaponDiv.find("#rangeMax")[0].value;
-    var range = (rangeMin > 0 ? (rangeMin + "-") : "") + rangeMax; 
+    var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax; 
 
     getContext().textAlign = "center";
 
     writeScaled(range, {x: pixelPosition.x + 175, y: statsPosY});
 
-    drawCardElementFromInput(
-        weaponDiv.find("#attacks")[0], 
+    writeScaled(
+        weaponData.attacks, 
         {x: pixelPosition.x + 270, y: statsPosY});
     
-    drawCardElementFromInput(
-        weaponDiv.find("#strength")[0], 
+    writeScaled(
+        weaponData.strength, 
         {x: pixelPosition.x + 365, y: statsPosY});
 
-    var damageBase = weaponDiv.find("#damageBase")[0].value;
-    var damageCrit = weaponDiv.find("#damageCrit")[0].value;
     writeScaled(
-        damageBase + "/" + damageCrit, 
+        weaponData.damageBase + "/" + weaponData.damageCrit, 
         {x: pixelPosition.x + 460, y: statsPosY});
 
-    var runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]); 
-    if (runemark != null)
+    if (weaponData.runemark != null)
     {
         var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
         var size = scalePixelPosition({x: 90, y: 90});
-        getContext().drawImage(runemark, position.x, position.y, size.x, size.y);    
+        getContext().drawImage(weaponData.runemark, position.x, position.y, size.x, size.y);    
     }
 }
 
@@ -148,6 +143,7 @@ function getSelectedRunemark(radioDiv) {
     {
         return getImage(getLabel(checked[0]));
     }
+    return null;
 }
 
 function getSelectedFactionRunemark() {
@@ -208,68 +204,103 @@ function getModelImageProperties()
     };
 }
 
+function readWeaponControls(weaponId)
+{
+    var weaponData = new Object;
+    var weaponDiv = $(weaponId);
+    weaponData.enabled = weaponDiv.find("#weaponEnabled")[0].checked;
+    weaponData.rangeMin = weaponDiv.find("#rangeMin")[0].value;
+    weaponData.rangeMax = weaponDiv.find("#rangeMax")[0].value;
+    weaponData.attacks = weaponDiv.find("#attacks")[0].value;
+    weaponData.strength = weaponDiv.find("#strength")[0].value;
+    weaponData.damageBase = weaponDiv.find("#damageBase")[0].value;
+    weaponData.damageCrit = weaponDiv.find("#damageCrit")[0].value;
+    weaponData.runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]); 
+    return weaponData;
+}
+
+function readTagRunemarks()
+{
+    var array = new Array;
+    var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
+    for (i = 0; i < checkedBoxes.length; i++)
+    {
+        array.push(getImage(getLabel(checkedBoxes[i])));
+    }
+    return array;
+}
+
 function readControls()
 {
     var data = new Object;
     data.imageUrl = getModelImage();
     data.imageProperties = getModelImageProperties();
+    data.factionRunemark = getSelectedFactionRunemark();
+    data.toughness = document.getElementById("toughness").value;
+    data.wounds = document.getElementById("numWounds").value;
+    data.move = document.getElementById("movement").value;
+    data.pointCost = document.getElementById("pointCost").value;
+    data.tagRunemarks = readTagRunemarks();
+    data.weapon1 = readWeaponControls("#weapon1");
+    data.weapon2 = readWeaponControls("#weapon2");
 
     return data;
 }
 
-render = function() {
-    var data = readControls();
-
-    drawBackground();
-
-    drawModel(data.imageUrl, data.imageProperties);
-
-    var runemark = getSelectedFactionRunemark(); 
-    
-    if (runemark != null)
+function drawFactionRunemark(image)
+{
+    if (image != null)
     {
        var position = scalePixelPosition({x: 45, y: 45});
        var size = scalePixelPosition({x: 80, y: 80});
     
-       getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
+       getContext().drawImage(image, position.x, position.y, size.x, size.y);
     }
+}
+
+render = function() {
+    var fighterData = readControls();
+
+    drawBackground();
+
+    drawModel(fighterData.imageUrl, fighterData.imageProperties);
+    drawFactionRunemark(fighterData.factionRunemark);
 
     getContext().font = "50px rodchenkoctt";
     getContext().fillStyle = "white";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
 
-    drawToughness();
-    drawWounds();
-    drawMove();
+    drawToughness(fighterData.toughness);
+    drawWounds(fighterData.wounds);
+    drawMove(fighterData.move);
 
     getContext().textBaseline = "middle";
     getContext().textAlign = "center";
     
-    drawPointCost();
+    drawPointCost(fighterData.pointCost);
     
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
 
-    if (getWeapon1() && getWeapon2())
+    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
-        drawWeapon(getWeapon1(), {x: 29, y: 397});
-        drawWeapon(getWeapon2(), {x: 29, y: 564});
+        drawWeapon(fighterData.weapon1, {x: 29, y: 397});
+        drawWeapon(fighterData.weapon2, {x: 29, y: 564});
     }
-    else if (getWeapon1())
+    else if (fighterData.weapon1.enabled)
     {
-        drawWeapon(getWeapon1(), {x: 29, y: 463});
+        drawWeapon(fighterData.weapon1, {x: 29, y: 463});
     }
-    else if (getWeapon2())
+    else if (fighterData.weapon2.enabled)
     {
-        drawWeapon(getWeapon2(), {x: 29, y: 463});
+        drawWeapon(fighterData.weapon2, {x: 29, y: 463});
     }
 
-    var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
-    for (i = 0; i < checkedBoxes.length; i++)
+    for (i = 0; i < fighterData.tagRunemarks.length; i++)
     {
-        drawTagRunemark(i, getImage(getLabel(checkedBoxes[i])));
+        drawTagRunemark(i, fighterData.tagRunemarks[i]);
     }
 }
 
