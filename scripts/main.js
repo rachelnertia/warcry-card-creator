@@ -146,8 +146,35 @@ function getSelectedRunemark(radioDiv) {
     return null;
 }
 
+function setSelectedRunemark(radioDiv, runemark)
+{
+    // uncheck all
+    var checked = $(radioDiv).find('input:checked');
+    for (var i = 0; i < checked.length; i++)
+    {
+        checked[i].checked = false;
+    }
+
+    if (runemark != null)
+    {
+        var queryString = "img[src='"+ runemark.getAttribute("src") +"']";
+        var img = $(radioDiv).find(queryString);
+        if (img.length > 0)
+        {
+            var radioButton = $(img[0].parentNode.parentNode).find("input")[0]; 
+            radioButton.checked = true;
+            // TODO: make sure all the other radio buttons are reset to the background colour.
+            img[0].style.backgroundColor = "darkred"; 
+        }
+    }
+}
+
 function getSelectedFactionRunemark() {
     return getSelectedRunemark($('#factionRunemarkSelect')[0]);
+}
+
+function setSelectedFactionRunemark(runemark) {
+    setSelectedRunemark($('#factionRunemarkSelect')[0], runemark);
 }
 
 function drawTagRunemark(index, runemark) {
@@ -195,6 +222,23 @@ function getModelImage()
     return null;
 }
 
+function setModelImage(image)
+{
+    var imageSelect = $("#imageSelect")[0];
+
+    // TODO: not sure how to do this
+    // imageSelect.files[0] = image;
+}
+
+function getDefaultModelImageProperties()
+{
+    return {
+        offsetX: 0,
+        offsetY: 0,
+        scalePercent: 100
+    };
+}
+
 function getModelImageProperties()
 {
     return {
@@ -202,6 +246,41 @@ function getModelImageProperties()
         offsetY: $("#imageOffsetY")[0].valueAsNumber,
         scalePercent: $("#imageScalePercent")[0].valueAsNumber
     };
+}
+
+function setModelImageProperties(modelImageProperties)
+{
+    $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
+    $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
+    $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
+}
+
+function getDefaultWeaponData()
+{
+    var weaponData = new Object;
+    weaponData.enabled = true;
+    weaponData.rangeMin = 0;
+    weaponData.rangeMax = 1;
+    weaponData.attacks = 1;
+    weaponData.strength = 3;
+    weaponData.damageBase = 1;
+    weaponData.damageCrit = 2;
+    weaponData.runemark = null;
+    return weaponData;
+}
+
+function getDefaultWeaponData1()
+{
+    var data = getDefaultWeaponData();
+    data.enabled = true;
+    return data;
+}
+
+function getDefaultWeaponData2()
+{
+    var data = getDefaultWeaponData();
+    data.enabled = false;
+    return data;
 }
 
 function readWeaponControls(weaponId)
@@ -219,6 +298,19 @@ function readWeaponControls(weaponId)
     return weaponData;
 }
 
+function writeWeaponControls(weaponId, weaponData)
+{
+    weaponDiv = $(weaponId);
+    weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
+    weaponDiv.find("#rangeMin")[0].value = weaponData.rangeMin;
+    weaponDiv.find("#rangeMax")[0].value = weaponData.rangeMax;
+    weaponDiv.find("#attacks")[0].value = weaponData.attacks;
+    weaponDiv.find("#strength")[0].value = weaponData.strength;
+    weaponDiv.find("#damageBase")[0].value = weaponData.damageBase;
+    weaponDiv.find("#damageCrit")[0].value = weaponData.damageCrit;
+    setSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0], weaponData.runemark);
+}
+
 function readTagRunemarks()
 {
     var array = new Array;
@@ -228,6 +320,11 @@ function readTagRunemarks()
         array.push(getImage(getLabel(checkedBoxes[i])));
     }
     return array;
+}
+
+function setSelectedTagRunemarks(selectedRunemarksArray)
+{
+    // TODO.
 }
 
 function readControls()
@@ -251,16 +348,22 @@ function drawFactionRunemark(image)
 {
     if (image != null)
     {
-       var position = scalePixelPosition({x: 45, y: 45});
-       var size = scalePixelPosition({x: 80, y: 80});
+        if (image.complete)
+        {
+            var position = scalePixelPosition({x: 45, y: 45});
+            var size = scalePixelPosition({x: 80, y: 80});
     
-       getContext().drawImage(image, position.x, position.y, size.x, size.y);
+            getContext().drawImage(image, position.x, position.y, size.x, size.y);
+        }
+        else
+        {
+            // come back once it's loaded.
+            image.onload = function(){ drawFactionRunemark(image); };
+        }    
     }
 }
 
-render = function() {
-    var fighterData = readControls();
-
+render = function(fighterData) {
     drawBackground();
 
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
@@ -304,12 +407,59 @@ render = function() {
     }
 }
 
+function writeControls(fighterData)
+{
+    setModelImage(fighterData.imageUrl);
+    setModelImageProperties(fighterData.imageProperties);
+    setSelectedFactionRunemark(fighterData.factionRunemark);
+    $("#toughness")[0].value = fighterData.toughness;
+    $("#numWounds")[0].value = fighterData.wounds;
+    $("#movement")[0].value = fighterData.move;
+    $("#pointCost")[0].value = fighterData.pointCost;
+    setSelectedTagRunemarks(fighterData.tagRunemarks);
+    writeWeaponControls("#weapon1", fighterData.weapon1);
+    writeWeaponControls("#weapon2", fighterData.weapon2);
+}
+
+function defaultFighterData()
+{
+    var fighterData = new Object;
+    fighterData.imageUrl = null;
+    fighterData.imageProperties = getDefaultModelImageProperties();
+    fighterData.factionRunemark = new Image();
+    fighterData.factionRunemark.src = "runemarks/iron-golems.svg";
+    fighterData.toughness = 3;
+    fighterData.wounds = 10;
+    fighterData.move = 4;
+    fighterData.pointCost = 100;
+    fighterData.tagRunemarks = new Array;
+    fighterData.weapon1 = getDefaultWeaponData1();
+    fighterData.weapon2 = getDefaultWeaponData2();
+    return fighterData;
+}
+
+function loadFighterData()
+{
+    // TODO.
+    return defaultFighterData();
+}
+
+function saveFighterData(fighterData)
+{
+    // TODO
+}
+
 window.onload = function() {
-    render();
+    //var fighterData = readControls();
+    var fighterData = loadFighterData();
+    writeControls(fighterData);
+    render(fighterData);
 }
 
 onAnyChange = function() {
-    render();
+    var fighterData = readControls();
+    render(fighterData);
+    saveFighterData(fighterData);
 }
 
 function onWeaponControlsToggled(weaponCheckbox) {
