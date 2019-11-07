@@ -106,13 +106,10 @@ drawWeapon = function(weaponData, pixelPosition) {
     writeScaled(
         weaponData.damageBase + "/" + weaponData.damageCrit, 
         {x: pixelPosition.x + 460, y: statsPosY});
-
-    if (weaponData.runemark != null)
-    {
-        var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
-        var size = scalePixelPosition({x: 90, y: 90});
-        getContext().drawImage(weaponData.runemark, position.x, position.y, size.x, size.y);    
-    }
+    
+    var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
+    var size = scalePixelPosition({x: 90, y: 90});
+    drawImage(position, size, weaponData.runemark);
 }
 
 function getWeapon(weaponId) {
@@ -166,6 +163,7 @@ function setSelectedRunemark(radioDiv, runemark)
             // TODO: make sure all the other radio buttons are reset to the background colour.
             img[0].style.backgroundColor = "darkred"; 
         }
+        // TODO: Handle user-provided images.
     }
 }
 
@@ -175,6 +173,21 @@ function getSelectedFactionRunemark() {
 
 function setSelectedFactionRunemark(runemark) {
     setSelectedRunemark($('#factionRunemarkSelect')[0], runemark);
+}
+
+function drawImage(scaledPosition, scaledSize, image)
+{
+    if (image != null)
+    {
+        if (image.complete)
+        {
+            getContext().drawImage(image, scaledPosition.x, scaledPosition.y, scaledSize.x, scaledSize.y);    
+        }
+        else
+        {
+            image.onload = function(){ drawImage(scaledPosition, scaledSize, image); };
+        }
+    }
 }
 
 function drawTagRunemark(index, runemark) {
@@ -189,7 +202,7 @@ function drawTagRunemark(index, runemark) {
 
     position = scalePixelPosition({x: positions[index].x + 10, y: positions[index].y + 10});
     size = scalePixelPosition({x: 70, y: 70});
-    getContext().drawImage(runemark, position.x, position.y, size.x, size.y);
+    drawImage(position, size, runemark);
 }
 
 function drawModel(imageUrl, imageProps)
@@ -324,7 +337,28 @@ function readTagRunemarks()
 
 function setSelectedTagRunemarks(selectedRunemarksArray)
 {
-    // TODO.
+    var tagRunemarksDiv = $("#tagRunemarkSelect");
+    // uncheck all
+    var checked = tagRunemarksDiv.find('input:checked');
+    for (var i = 0; i < checked.length; i++)
+    {
+        checked[i].checked = false;
+        // TODO: Reset colour to background colour.
+    }
+
+    for (var i = 0; i < selectedRunemarksArray.length; i++)
+    {
+        var runemark = selectedRunemarksArray[i];
+        var queryString = "img[src='"+ runemark.getAttribute("src") +"']";
+        var imgs = tagRunemarksDiv.find(queryString);
+        if (imgs.length > 0)
+        {
+            var checkbox = $(imgs[0].parentNode.parentNode).find("input")[0]; 
+            checkbox.checked = true;
+            imgs[0].style.backgroundColor = "darkred"; 
+        }
+        // TODO: If we can't find the runemark it must be user-provided or something. Handle that.
+    }
 }
 
 function readControls()
@@ -346,21 +380,9 @@ function readControls()
 
 function drawFactionRunemark(image)
 {
-    if (image != null)
-    {
-        if (image.complete)
-        {
-            var position = scalePixelPosition({x: 45, y: 45});
-            var size = scalePixelPosition({x: 80, y: 80});
-    
-            getContext().drawImage(image, position.x, position.y, size.x, size.y);
-        }
-        else
-        {
-            // come back once it's loaded.
-            image.onload = function(){ drawFactionRunemark(image); };
-        }    
-    }
+    var position = scalePixelPosition({x: 45, y: 45});
+    var size = scalePixelPosition({x: 80, y: 80});
+    drawImage(position, size, image);    
 }
 
 render = function(fighterData) {
@@ -433,6 +455,8 @@ function defaultFighterData()
     fighterData.move = 4;
     fighterData.pointCost = 100;
     fighterData.tagRunemarks = new Array;
+    fighterData.tagRunemarks.push(new Image());
+    fighterData.tagRunemarks[0].src = "runemarks/black/brute.svg";
     fighterData.weapon1 = getDefaultWeaponData1();
     fighterData.weapon2 = getDefaultWeaponData2();
     return fighterData;
