@@ -353,11 +353,17 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
 {
     var tagRunemarksDiv = $("#tagRunemarkSelect");
     // uncheck all
-    var checked = tagRunemarksDiv.find('input:checked');
-    for (var i = 0; i < checked.length; i++)
     {
-        checked[i].checked = false;
-        // TODO: Reset colour to background colour.
+        var checked = tagRunemarksDiv.find('input:checked');
+        for (var i = 0; i < checked.length; i++)
+        {
+            checked[i].checked = false;
+        }
+        var icons = tagRunemarksDiv.find('img');
+        for (var i = 0; i < icons.length; i++)
+        {
+            icons[i].style.backgroundColor = "white";
+        }
     }
 
     for (var i = 0; i < selectedRunemarksArray.length; i++)
@@ -371,7 +377,16 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
             checkbox.checked = true;
             imgs[0].style.backgroundColor = "darkred"; 
         }
-        // TODO: If we can't find the runemark it must be user-provided or something. Handle that.
+        else
+        {
+            var newDiv = 
+                addToImageCheckboxSelector(
+                    runemark.getAttribute("src"), 
+                    tagRunemarksDiv[0], 
+                    "white");
+            $(newDiv).find("img")[0].style.backgroundColor = "darkred";
+            $(newDiv).find("input")[0].checked = true;
+        }
     }
 }
 
@@ -463,7 +478,7 @@ function defaultFighterData()
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = new Image();
-    fighterData.factionRunemark.src = "grashraks-despoilers-icon.png";
+    fighterData.factionRunemark.src = "runemarks/iron-golems.svg";
     fighterData.toughness = 3;
     fighterData.wounds = 10;
     fighterData.move = 4;
@@ -587,6 +602,7 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor)
     <input type="checkbox" style="display:none;" id="checkbox-${ imgSrc }" onchange="onTagRunemarkSelectionChanged(this, '${ bgColor }')">
     `;
     grid.appendChild(div);
+    return div;
 }
 
 function onTagRunemarkFileSelect()
