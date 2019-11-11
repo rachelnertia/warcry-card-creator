@@ -146,10 +146,17 @@ function getSelectedRunemark(radioDiv) {
 function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
 {
     // uncheck all
-    var checked = $(radioDiv).find('input:checked');
-    for (var i = 0; i < checked.length; i++)
     {
-        checked[i].checked = false;
+        var checked = $(radioDiv).find('input:checked');
+        for (var i = 0; i < checked.length; i++)
+        {
+            checked[i].checked = false;
+        }
+        var icons = $(radioDiv).find('img');
+        for (var i = 0; i < icons.length; i++)
+        {
+            icons[i].style.backgroundColor = bgColor;
+        }
     }
 
     if (runemark != null)
@@ -160,7 +167,6 @@ function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
         {
             var radioButton = $(img[0].parentNode.parentNode).find("input")[0]; 
             radioButton.checked = true;
-            // TODO: make sure all the other radio buttons are reset to the background colour.
             img[0].style.backgroundColor = "darkred"; 
         }
         else
