@@ -143,7 +143,7 @@ function getSelectedRunemark(radioDiv) {
     return null;
 }
 
-function setSelectedRunemark(radioDiv, runemark)
+function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
 {
     // uncheck all
     var checked = $(radioDiv).find('input:checked');
@@ -163,7 +163,17 @@ function setSelectedRunemark(radioDiv, runemark)
             // TODO: make sure all the other radio buttons are reset to the background colour.
             img[0].style.backgroundColor = "darkred"; 
         }
-        // TODO: Handle user-provided images.
+        else
+        {
+            var newDiv = 
+                addToImageRadioSelector(
+                    runemark.getAttribute("src"),
+                    radioDiv,
+                    radioGroupName,
+                    bgColor);
+            $(newDiv).find("img")[0].style.backgroundColor = "darkred";
+            $(newDiv).find("input")[0].checked = true;
+        }
     }
 }
 
@@ -172,7 +182,7 @@ function getSelectedFactionRunemark() {
 }
 
 function setSelectedFactionRunemark(runemark) {
-    setSelectedRunemark($('#factionRunemarkSelect')[0], runemark);
+    setSelectedRunemark($('#factionRunemarkSelect')[0], runemark, "faction", "black");
 }
 
 function drawImage(scaledPosition, scaledSize, image)
@@ -311,7 +321,7 @@ function readWeaponControls(weaponId)
     return weaponData;
 }
 
-function writeWeaponControls(weaponId, weaponData)
+function writeWeaponControls(weaponId, weaponData, weaponName)
 {
     weaponDiv = $(weaponId);
     weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
@@ -321,7 +331,11 @@ function writeWeaponControls(weaponId, weaponData)
     weaponDiv.find("#strength")[0].value = weaponData.strength;
     weaponDiv.find("#damageBase")[0].value = weaponData.damageBase;
     weaponDiv.find("#damageCrit")[0].value = weaponData.damageCrit;
-    setSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0], weaponData.runemark);
+    setSelectedRunemark(
+        weaponDiv.find("#weaponRunemarkSelect")[0], 
+        weaponData.runemark,
+        weaponName,
+        "white");
 }
 
 function readTagRunemarks()
@@ -439,8 +453,8 @@ function writeControls(fighterData)
     $("#movement")[0].value = fighterData.move;
     $("#pointCost")[0].value = fighterData.pointCost;
     setSelectedTagRunemarks(fighterData.tagRunemarks);
-    writeWeaponControls("#weapon1", fighterData.weapon1);
-    writeWeaponControls("#weapon2", fighterData.weapon2);
+    writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
+    writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
 }
 
 function defaultFighterData()
@@ -449,7 +463,7 @@ function defaultFighterData()
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = new Image();
-    fighterData.factionRunemark.src = "runemarks/iron-golems.svg";
+    fighterData.factionRunemark.src = "grashraks-despoilers-icon.png";
     fighterData.toughness = 3;
     fighterData.wounds = 10;
     fighterData.move = 4;
@@ -538,6 +552,7 @@ addToImageRadioSelector = function(imageSrc, imageSelector, radioGroupName, bgCo
         <input type="radio" style="display:none;" name="${ radioGroupName }" id="${ radioGroupName }-${ imageSrc }" onchange="onRunemarkSelectionChanged(this, '${ bgColor }')">
     `;
     imageSelector.appendChild(div);
+    return div;
 }
 
 onFactionRunemarkFileSelect = function()
