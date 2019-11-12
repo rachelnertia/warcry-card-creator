@@ -1,10 +1,10 @@
-<label for="weaponRunemarkSelect">Weapon Runemark:</label>
+<label for="weaponRunemarkSelect">Weapon Icon:</label>
 <div id="weaponRunemarkSelect" class="d-flex flex-wrap">
     {% capture foo %}{{ include.weapon }}{% endcapture %}
 
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/iron-golems.svg" title="Iron Golems" %}
 </div>
-<label for="additionalWeaponMarkSelect">Load Runemark:</label>
+<label for="additionalWeaponMarkSelect">Load Icon:</label>
 <input type="file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this, '{{ include.weapon }}')"> 
 
 <br/>
