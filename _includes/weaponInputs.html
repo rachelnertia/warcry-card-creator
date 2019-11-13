@@ -2,7 +2,19 @@
 <div id="weaponRunemarkSelect" class="d-flex flex-wrap">
     {% capture foo %}{{ include.weapon }}{% endcapture %}
 
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/iron-golems.svg" title="Iron Golems" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/axe.svg" title="Axe" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/blast.svg" title="Blast" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/claws.svg" title="Claws" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/club.svg" title="Club" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/dagger.svg" title="Dagger" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/fangs.svg" title="Fangs" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/mace.svg" title="Mace" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/ranged_weapon.svg" title="Ranged" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/reach_weapon.svg" title="Reach" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/scythe.svg" title="Scythe" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/spear.svg" title="Spear" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/sword.svg" title="Sword" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/unarmed.svg" title="Unarmed" %}
 </div>
 <label for="additionalWeaponMarkSelect">Load Icon:</label>
 <input type="file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this, '{{ include.weapon }}')"> 
