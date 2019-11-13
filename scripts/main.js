@@ -348,6 +348,7 @@ function writeWeaponControls(weaponId, weaponData, weaponName)
 {
     weaponDiv = $(weaponId);
     weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
+    weaponDiv.find("#weaponInputs")[0].style.display = weaponData.enabled ? "block" : "none";
     weaponDiv.find("#rangeMin")[0].value = weaponData.rangeMin;
     weaponDiv.find("#rangeMax")[0].value = weaponData.rangeMax;
     weaponDiv.find("#attacks")[0].value = weaponData.attacks;
