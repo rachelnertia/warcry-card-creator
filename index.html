@@ -41,7 +41,7 @@
         There should be a Canvas here.
       </canvas>
     </div>
-
+    
     <br/>
 
     <div class="container" style="
@@ -180,6 +180,20 @@
       <input type="checkbox", id="weaponEnabled" oninput="onWeaponControlsToggled(this)">Weapon 2</input>
       <div id="weaponInputs" style="display:none">
         {% include weaponInputs.html weapon="weapon2" %}
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="container" style="
+      border: 1px solid #00000080;
+      background-color: #c8c8c880; 
+      padding: 20px; 
+      border-radius: 2px;
+    ">
+      <div style="display:grid; grid-template-columns: auto auto">
+        <input type="button" value="Clear Cache" id="clearCacheButton" onclick="onClearCache()">
+        <input type="button" value="Reset to Defaults" id="resetToDefaultsButton" onclick="onResetToDefault()">
       </div>
     </div>
 

@@ -652,3 +652,15 @@ function onTagRunemarkFileSelect()
         addToImageCheckboxSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "white");
     }
 }
+
+function onClearCache()
+{
+    window.localStorage.setItem(getLatestFighterDataName(), null);
+}
+
+function onResetToDefault()
+{
+    var fighterData = defaultFighterData();
+    writeControls(fighterData);
+    render(fighterData);
+}
