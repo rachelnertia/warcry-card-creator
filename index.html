@@ -50,6 +50,31 @@
       padding: 20px; 
       border-radius: 2px;
     ">
+      <div style="display: grid; grid-template-columns: auto auto auto">
+        <label for="slotNameInput">Name:</label>
+        <input type="text" id="saveNameInput">
+        <input type="button" id="saveButton" value="Save"   onclick="onSaveClicked()">
+      </div>
+      
+      <br/>
+      
+      <div style="display: grid; grid-template-columns: auto auto">
+        <label for="saveSlotsSelect">Select Previous File:</label>
+        <select id="saveSlotsSelect">
+        </select>
+        <input type="button" value="Load" onclick="onLoadClicked()">
+        <input type="button" value="Delete" onclick="onDeleteClicked()">
+      </div>
+    </div>
+
+    </br>
+
+    <div class="container" style="
+      border: 1px solid #00000080;
+      background-color: #c8c8c880; 
+      padding: 20px; 
+      border-radius: 2px;
+    ">
       <label for="imageSelect">Choose Image:</label>
       <input type="file" id="imageSelect" oninput="onAnyChange()" style="padding-bottom: 10px;"> 
       <br>

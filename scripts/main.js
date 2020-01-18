@@ -249,6 +249,18 @@ function drawModel(imageUrl, imageProps)
     }
 }
 
+function getName()
+{
+    var textInput = $("#saveNameInput")[0];
+    return textInput.value;
+}
+
+function setName(name)
+{
+    var textInput = $("#saveNameInput")[0];
+    textInput.value = name;
+}
+
 function getModelImage()
 {
     var imageSelect = $("#imageSelect")[0];
@@ -417,6 +429,7 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
 function readControls()
 {
     var data = new Object;
+    data.name = getName();
     data.imageUrl = getModelImage();
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
@@ -484,6 +497,7 @@ render = function(fighterData) {
 
 function writeControls(fighterData)
 {
+    setName(fighterData.name);
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
@@ -499,6 +513,7 @@ function writeControls(fighterData)
 function defaultFighterData()
 {
     var fighterData = new Object;
+    fighterData.name = "Default";
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = "runemarks/iron-golems.svg";
@@ -513,21 +528,72 @@ function defaultFighterData()
     return fighterData;
 }
 
-function loadFighterData(fighterDataName)
+function loadFighterDataMap()
 {
-    var storage = window.localStorage.getItem(fighterDataName);
+    var storage = window.localStorage.getItem("fighterDataMap");
     if (storage != null)
     {
         return JSON.parse(storage);
     }
+    // Set up the map.
+    var map = new Object;
+    map["Default"] = defaultFighterData();
+    window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
+    return map;
+}
+
+function loadLatestFighterData()
+{
+    var latestFighterName = window.localStorage.getItem("latestFighterName");
+    if (latestFighterName == null)
+    {
+        latestFighterName = "Default";
+    }
+    
+    var map = loadFighterDataMap();
+    // Not sure if the contained item will be JSON.
+    // Might need to change this.
+    return map[latestFighterName];
+}
+
+function saveLatestFighterData()
+{
+    var fighterData = readControls();
+    if (!fighterData.name)
+    {
+        return;
+    }
+
+    window.localStorage.setItem("latestFighterName", fighterData.name);
+    saveFighterData(fighterData);    
+}
+
+function loadFighterData(fighterDataName)
+{
+    if (!fighterDataName)
+    {
+        return null;
+    }
+
+    var map = loadFighterDataMap();
+    if (map[fighterDataName])
+    {
+        return map[fighterDataName];
+    }
+
     return null;
 }
 
-function saveFighterData(fighterData, fighterDataName)
+function saveFighterData(fighterData)
 {
     if (fighterData != null)
     {
-        window.localStorage.setItem(fighterDataName, JSON.stringify(fighterData));
+        if (fighterData.name)
+        {
+            var map = loadFighterDataMap();
+            map[fighterData.name] = fighterData;
+            window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
+        }
     }
 }
 
@@ -537,19 +603,17 @@ function getLatestFighterDataName()
 }
 
 window.onload = function() {
-    var fighterData = loadFighterData(getLatestFighterDataName());
-    if (fighterData == null)
-    {
-        var fighterData = defaultFighterData();
-    }
+    var fighterData = loadLatestFighterData();
     writeControls(fighterData);
     render(fighterData);
+    refreshSaveSlots();
 }
 
 onAnyChange = function() {
     var fighterData = readControls();
     render(fighterData);
-    saveFighterData(fighterData, getLatestFighterDataName());
+    saveLatestFighterData();   
+    // saveFighterData(fighterData, getLatestFighterDataName());
 }
 
 function onWeaponControlsToggled(weaponCheckbox) {
@@ -663,4 +727,67 @@ function onResetToDefault()
     var fighterData = defaultFighterData();
     writeControls(fighterData);
     render(fighterData);
+}
+
+function refreshSaveSlots()
+{
+    // Remove all
+    $('select').children('option').remove();
+    
+    var fighterDataName = readControls().name;
+
+    var map = loadFighterDataMap();
+    
+    console.log(map);
+
+    for (let [key, value] of Object.entries(map)) {
+        console.log(key, value);
+        var selected = false;
+        if (fighterDataName &&
+            key == fighterDataName)
+        {
+            selected = true;
+        }
+        var newOption = new Option(key, key, selected, selected);
+        $('#saveSlotsSelect').append(newOption);
+        
+        console.log(newOption);
+    }
+}
+
+function onSaveClicked()
+{
+    var fighterData = readControls();
+    saveFighterData(fighterData);
+    refreshSaveSlots();
+}
+
+function onLoadClicked()
+{
+    var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
+    fighterData = loadFighterData(fighterDataName);
+    writeControls(fighterData);
+    render(fighterData);
+    refreshSaveSlots();    
+}
+
+function onDeleteClicked()
+{
+    var fighterData = readControls();
+
+    if (!fighterData.name ||
+        fighterData.name == "Default")
+    {
+        return;
+    }
+
+    var map = loadFighterDataMap();
+    // ... does this work??
+    map[fighterData.name] = null;
+
+    window.localStorage.setItem("fighterDataMap", map);
+
+    // Should we reset the current to the default?
+
+    refreshSaveSlots();
 }
