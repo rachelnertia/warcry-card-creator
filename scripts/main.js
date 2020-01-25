@@ -528,6 +528,11 @@ function defaultFighterData()
     return fighterData;
 }
 
+function saveFighterDataMap(newMap)
+{
+    window.localStorage.setItem("fighterDataMap", JSON.stringify(newMap));
+}
+
 function loadFighterDataMap()
 {
     var storage = window.localStorage.getItem("fighterDataMap");
@@ -538,7 +543,7 @@ function loadFighterDataMap()
     // Set up the map.
     var map = new Object;
     map["Default"] = defaultFighterData();
-    window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
+    saveFighterDataMap(map);
     return map;
 }
 
@@ -549,11 +554,22 @@ function loadLatestFighterData()
     {
         latestFighterName = "Default";
     }
+
+    console.log("Loading '" + latestFighterName + "'...");
     
-    var map = loadFighterDataMap();
-    // Not sure if the contained item will be JSON.
-    // Might need to change this.
-    return map[latestFighterName];
+    var data = loadFighterData(latestFighterName);
+
+    if (data)
+    {
+        console.log("Loaded data:");
+        console.log(data);
+    }
+    else
+    {
+        console.log("Failed to load a fighter data.");
+    }
+
+    return data;
 }
 
 function saveLatestFighterData()
@@ -584,16 +600,70 @@ function loadFighterData(fighterDataName)
     return null;
 }
 
-function saveFighterData(fighterData)
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    var dataURL = canvas.toDataURL("image/png");
+
+    return dataURL;
+}
+
+function onload2promise(obj){
+    return new Promise((resolve, reject) => {
+        obj.onload = () => resolve(obj);
+        obj.onerror = reject;
+    });
+}
+
+async function getBase64ImgFromUrl(imgUrl){
+    let img = new Image();
+    let imgpromise = onload2promise(img); // see comment of T S why you should do it this way.
+    img.src = imgUrl;
+    await imgpromise;
+    var imgData = getBase64Image(img); 
+    return imgData;
+}
+
+async function handleImageUrlFromDisk(imageUrl)
 {
-    if (fighterData != null)
+    if (imageUrl && 
+        imageUrl.startsWith("blob:"))
     {
-        if (fighterData.name)
+        // The image was loaded from disk. So we can load it later, we need to stringify it.
+        imageUrl = await getBase64ImgFromUrl(imageUrl);
+    }
+
+    return imageUrl;
+}
+
+async function saveFighterData(fighterData)
+{
+    var finishSaving = function()
+    {
+        var map = loadFighterDataMap();
+        map[fighterData.name] = fighterData;
+        window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
+    };
+
+    if (fighterData != null &&
+        fighterData.name)
+    {
+        // handle images we may have loaded from disk...
+        fighterData.imageUrl = await handleImageUrlFromDisk(fighterData.imageUrl);
+        fighterData.factionRunemark = await handleImageUrlFromDisk(fighterData.factionRunemark);
+        for (i = 0; i < fighterData.tagRunemarks.length; i++)
         {
-            var map = loadFighterDataMap();
-            map[fighterData.name] = fighterData;
-            window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
+            fighterData.tagRunemarks[i] = await handleImageUrlFromDisk(fighterData.tagRunemarks[i]);
         }
+        fighterData.weapon1.runemark = await handleImageUrlFromDisk(fighterData.weapon1.runemark);
+        fighterData.weapon2.runemark = await handleImageUrlFromDisk(fighterData.weapon2.runemark);
+
+        finishSaving();
     }
 }
 
@@ -603,6 +673,7 @@ function getLatestFighterDataName()
 }
 
 window.onload = function() {
+    //window.localStorage.clear();
     var fighterData = loadLatestFighterData();
     writeControls(fighterData);
     render(fighterData);
@@ -612,8 +683,7 @@ window.onload = function() {
 onAnyChange = function() {
     var fighterData = readControls();
     render(fighterData);
-    saveLatestFighterData();   
-    // saveFighterData(fighterData, getLatestFighterDataName());
+    saveLatestFighterData();
 }
 
 function onWeaponControlsToggled(weaponCheckbox) {
@@ -738,10 +808,7 @@ function refreshSaveSlots()
 
     var map = loadFighterDataMap();
     
-    console.log(map);
-
     for (let [key, value] of Object.entries(map)) {
-        console.log(key, value);
         var selected = false;
         if (fighterDataName &&
             key == fighterDataName)
@@ -750,14 +817,13 @@ function refreshSaveSlots()
         }
         var newOption = new Option(key, key, selected, selected);
         $('#saveSlotsSelect').append(newOption);
-        
-        console.log(newOption);
     }
 }
 
 function onSaveClicked()
 {
     var fighterData = readControls();
+    console.log("Saving '" + fighterData.name + "'...");
     saveFighterData(fighterData);
     refreshSaveSlots();
 }
@@ -765,6 +831,7 @@ function onSaveClicked()
 function onLoadClicked()
 {
     var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
+    console.log("Loading '" + fighterDataName + "'...");
     fighterData = loadFighterData(fighterDataName);
     writeControls(fighterData);
     render(fighterData);
@@ -773,21 +840,14 @@ function onLoadClicked()
 
 function onDeleteClicked()
 {
-    var fighterData = readControls();
+    var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
 
-    if (!fighterData.name ||
-        fighterData.name == "Default")
-    {
-        return;
-    }
+    console.log("Deleting '" + fighterDataName + "'...");
 
     var map = loadFighterDataMap();
-    // ... does this work??
-    map[fighterData.name] = null;
+    delete map[fighterDataName];
 
-    window.localStorage.setItem("fighterDataMap", map);
-
-    // Should we reset the current to the default?
+    saveFighterDataMap(map);
 
     refreshSaveSlots();
 }
