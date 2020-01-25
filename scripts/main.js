@@ -789,7 +789,7 @@ function onTagRunemarkFileSelect()
 
 function onClearCache()
 {
-    window.localStorage.setItem(getLatestFighterDataName(), null);
+    window.localStorage.clear();
 }
 
 function onResetToDefault()
