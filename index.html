@@ -101,22 +101,59 @@
     ">
       <label for="factionRunemarkSelect">Faction Runemark:</label>
       <div id="factionRunemarkSelect" class="d-flex flex-wrap">
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/iron-golems.svg" title="Iron Golems" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/untamed-beasts.svg" title="Untamed Beasts" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/corvus-cabal.svg" title="Corvus Cabal" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/cypher-lords.svg" title="Cypher Lords" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/the-unmade.svg" title="The Unmade" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/scions-of-the-flame.svg" title="Scions of the Flame" %} 
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/spire-tyrants.svg" title="Spire Tyrants" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/legions-of-nagash.svg" title="Legions of Nagash" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/nighthaunt.svg" title="Nighthaunt" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/flesh-eater-courts.svg" title="Flesh Eater Courts" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/ironjawz.svg" title="Ironjawz" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/bonesplitterz.svg" title="Bonesplitterz" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/gloomspite-gitz.svg" title="Gloomspite Gitz" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/stormcast-eternals.svg" title="Stormcast Eternals" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/daughters-of-khaine.svg" title="Daughters of Khaine" %} 
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/idoneth-deepkin.svg" title="Idoneth Deepkin" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/iron-golems.svg" title="Iron Golems" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/untamed-beasts.svg" title="Untamed Beasts" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/corvus-cabal.svg" title="Corvus Cabal" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/cypher-lords.svg" title="Cypher Lords" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/the-unmade.svg" title="The Unmade" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/scions-of-the-flame.svg" title="Scions of the Flame" %} 
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/spire-tyrants.svg" title="Spire Tyrants" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/splintered-fang.svg" title="Splintered Fang" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/khorne-demons.svg" title="Khorne (demons)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/khorne-humans.svg" title="Khorne (humans)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/tzeentch-demons.svg" title="Tzeentch (demons)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/tzeentch-humans.svg" title="Tzeentch (humans)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/nurgle-demons.svg" title="Nurgle (demons)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/nurgle-humans.svg" title="Nurgle (humans)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/slaanesh.svg" title="Slaanesh" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/slaves-to-darkness.svg" title="Slaves to Darkness" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/beasts-of-chaos.svg" title="Beasts of Chaos" %}        
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/skaven.svg" title="Skaven" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/death/legions-of-nagash.svg" title="Legions of Nagash" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/death/nighthaunt.svg" title="Nighthaunt" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/death/flesh-eater-courts.svg" title="Flesh Eater Courts" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/ironjawz.svg" title="Ironjawz" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/bonesplitterz.svg" title="Bonesplitterz" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/gloomspite-gitz.svg" title="Gloomspite Gitz" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/ogor-mawtribes.svg" title="Ogor Mawtribes" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/sacrosanct-chamber.svg" title="Stormcast Eternals Sacrosanct Chamber" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/vanguard-chamber.svg" title="Stormcast Eternals Vanguard Chamber" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/warrior-chamber.svg" title="Stormcast Eternals Warrior Chamber" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/daughters-of-khaine.svg" title="Daughters of Khaine" %} 
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/idoneth-deepkin.svg" title="Idoneth Deepkin" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/fyreslayers.svg" title="Fyreslayers" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/kharadron-overlords.svg" title="Kharadron Overlords" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/seraphon.svg" title="Seraphon" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/sylvaneth.svg" title="Sylvaneth" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/chaotic-beasts.svg" title="Chaotic Beast" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/death-monster.svg" title="Monster (Death)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/destruction-monster.svg" title="Monster (Destruction)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/order-monster.svg" title="Monster (Order)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-khorne.svg" title="Khorne (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-tzeentch.svg" title="Tzeentch (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-nurgle.svg" title="Nurgle (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-slaves-to-darkness.svg" title="Slaves to Darkness (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-beasts-of-chaos.svg" title="Beasts of Chaos (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-skaven.svg" title="Skaven (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-legions-of-nagash.svg" title="Legions of Nagash (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-nighthaunt.svg" title="Nighthaunt (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-flesh-eater-courts.svg" title="Flesh Eater Courts (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-ironjawz.svg" title="Ironjawz (allies)" %}        
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-bonesplitterz.svg" title="Bonesplitterz (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-gloomspite-gitz.svg" title="Gloomspite Gitz (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-warrior-chamber.svg" title="Stormcast Eternals Warrior Chamber (allies)" %}                
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-daughters-of-khaine.svg" title="Daughters of Khaine (allies)" %}
+        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-idoneth-deepkin.svg" title="Idoneth Deepkin (allies)" %}
       </div>
       <label for="additionalFactionMarkSelect">Load Runemark:</label>
       <input type="file" id="additionalFactionMarkSelect" oninput="onFactionRunemarkFileSelect()"> 
