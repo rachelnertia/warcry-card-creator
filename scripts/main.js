@@ -167,7 +167,7 @@ function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
         {
             var radioButton = $(img[0].parentNode.parentNode).find("input")[0]; 
             radioButton.checked = true;
-            img[0].style.backgroundColor = "darkred"; 
+            img[0].style.backgroundColor = "crimson"; 
         }
         else
         {
@@ -177,7 +177,7 @@ function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
                     radioDiv,
                     radioGroupName,
                     bgColor);
-            $(newDiv).find("img")[0].style.backgroundColor = "darkred";
+            $(newDiv).find("img")[0].style.backgroundColor = "crimson";
             $(newDiv).find("input")[0].checked = true;
         }
     }
@@ -411,7 +411,7 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
         {
             var checkbox = $(imgs[0].parentNode.parentNode).find("input")[0]; 
             checkbox.checked = true;
-            imgs[0].style.backgroundColor = "darkred"; 
+            imgs[0].style.backgroundColor = "crimson"; 
         }
         else
         {
@@ -420,7 +420,7 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
                     runemark, 
                     tagRunemarksDiv[0], 
                     "white");
-            $(newDiv).find("img")[0].style.backgroundColor = "darkred";
+            $(newDiv).find("img")[0].style.backgroundColor = "crimson";
             $(newDiv).find("input")[0].checked = true;
         }
     }
@@ -717,14 +717,14 @@ onRunemarkSelectionChanged = function(radioButton, backgroundColor)
         getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;    
     }
 
-    getImage(getLabel(radioButton)).style.backgroundColor = "darkred"; 
+    getImage(getLabel(radioButton)).style.backgroundColor = "crimson"; 
 
     onAnyChange();
 }
 
 onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
 {
-    getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "darkred" : backgroundColor;
+    getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "crimson" : backgroundColor;
 
     onAnyChange();
 }
