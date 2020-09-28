@@ -65,7 +65,7 @@
                 <img id="cardBackground" style="display:none;" src="cardBackground.jpg" />
                 <img id="weaponStatBlock" style="display:none;" src="weaponStatBlock.png" />
                 <img id="runemarkBg" style="display:none;" src="runemarkBg.png" />
-                <canvas id="myCanvas" width="1772" height="1241">
+                <canvas id="canvas" width="1772" height="1241">
                     Sorry, your browser doesn't support the &lt;canvas&gt; element.
                 </canvas>
             </div>
@@ -86,7 +86,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            var c=document.getElementById('myCanvas');
+            var c=document.getElementById('canvas');
             var ctx=c.getContext('2d');
             ctx.beginPath();
             ctx.arc(95,50,40,0,2*Math.PI);

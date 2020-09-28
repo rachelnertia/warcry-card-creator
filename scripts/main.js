@@ -16,7 +16,7 @@ getScalingFactor = function(canvas, cardBackground) {
 }
 
 getCanvas = function() {
-    return document.getElementById("myCanvas");
+    return document.getElementById("canvas");
 }
 
 getContext = function() {
