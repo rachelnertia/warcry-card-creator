@@ -8,10 +8,10 @@ writeValue = function(ctx, value, pos) {
     ctx.restore();
 }
 
-getScalingFactor = function(canvas, warcry-card-1) {
+getScalingFactor = function(canvas, warcryCardOne) {
     return {
-        x: canvas.width  / warcry-card-1.width,
-        y: canvas.height / warcry-card-1.height
+        x: canvas.width  / warcryCardOne.width,
+        y: canvas.height / warcryCardOne.height
     };
 }
 
@@ -24,7 +24,7 @@ getContext = function() {
 }
 
 getBackgroundImage = function() {
-    return document.getElementById("warcry-card-1");
+    return document.getElementById("warcryCardOne");
 }
 
 drawBackground = function() {
