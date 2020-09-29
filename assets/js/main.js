@@ -457,7 +457,7 @@ render = function(fighterData) {
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
 
-    getContext().font = "92px rodchenkoctt"; // Default was 50px
+    getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
