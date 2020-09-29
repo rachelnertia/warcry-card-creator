@@ -24,6 +24,10 @@ canvas {
     margin-top: 2rem;
 }
 
+label {
+    cursor: pointer;
+}
+
 #scroll-area {
     border-radius: .5rem;
     height: 100vh;
