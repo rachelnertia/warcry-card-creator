@@ -53,15 +53,15 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 }
 
 drawToughness = function(value) {
-    writeScaled(value, {x: 257, y: 174});
+    writeScaled(value, {x: 250, y: 250}); // Default was x:257, y:174
 }
 
 drawWounds = function(value) {
-    writeScaled(value, {x: 205, y: 240});
+    writeScaled(value, {x: 250, y: 350}); // Default was x:205, y:240
 }
 
 drawMove = function(value) {
-    writeScaled(value, {x: 106, y: 174});
+    writeScaled(value, {x: 100, y: 250}); // Default was x:106, y:174
 }
 
 drawPointCost = function(value) {
@@ -87,7 +87,7 @@ drawWeaponStatblock = function(pixelPosition) {
 drawWeapon = function(weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
 
-    var statsPosY = pixelPosition.y + 100; // Default was +91
+    var statsPosY = pixelPosition.y + 0; // Default was +91
 
     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
 
@@ -477,16 +477,16 @@ render = function(fighterData) {
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 52, y: 750}); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon2, {x: 52, y: 950}); // Default was x:29, y:564
+        drawWeapon(fighterData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
+        drawWeapon(fighterData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
     }
     else if (fighterData.weapon1.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 52, y: 850}); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
     }
     else if (fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon2, {x: 52, y: 850}); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
     }
     for (i = 0; i < fighterData.tagRunemarks.length; i++)
     {
