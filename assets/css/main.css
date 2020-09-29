@@ -31,6 +31,7 @@ canvas {
 [class*=" col-"] input[type="checkbox"]:checked,
 [class*=" col-"] input[type="radio"]:checked {
     /* background: #b2221a; */
+    position: relative;
 }
 
 [class^="col-"] input[type="checkbox"]:checked:before,
@@ -38,6 +39,9 @@ canvas {
 [class*=" col-"] input[type="checkbox"]:checked:before,
 [class*=" col-"] input[type="radio"]:checked:before {
     content: "✓";
+    left: 0;
+    position: absolute;
+    top: -5px;
 }
 
 [class^="col-"] input[type="radio"],
