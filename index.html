@@ -63,7 +63,7 @@
                     </div>
 
                     <div>
-                        <label class="h5 mt-4">Pick characteristics:</label>
+                        <label class="h5 mt-4">Pick fighter's characteristics:</label>
                         <div class="row">
                             <div class="col-sm-3">
                                 <label for="numWounds">Wounds</label>
@@ -92,16 +92,20 @@
                     </div>
 
                     <div id="weapon1">
-                        <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" checked>
-                        <div class="h5 mt-4">Pick first weapon (type):</div>
+                        <div class="h5 mt-4">
+                            <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
+                            Pick first weapon (type) and it's characteristics:
+                        </div>
                         <div id="weaponInputs" style="display:block;">
                             {% include weaponInputs.html weapon="weapon2" %}
                         </div>
                     </div>
 
                     <div id="weapon2">
-                        <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                        <div class="h5 mt-4">Pick second weapon (type):</div>
+                        <div class="h5 mt-4">
+                            <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
+                            Pick second weapon (type) and it's characteristics:
+                        </div>
                         <div id="weaponInputs" style="display:none;">
                             {% include weaponInputs.html weapon="weapon2" %}
                         </div>
@@ -117,7 +121,6 @@
                             <input type="text" id="saveNameInput">
                             <input type="button" id="saveButton" value="Save"   onclick="onSaveClicked()">
                         </div>
-                        <br/>
                         <div style="display: grid; grid-template-columns: auto auto auto auto">
                             <label for="saveSlotsSelect">Local File:</label>
                             <select id="saveSlotsSelect"></select>
@@ -129,7 +132,6 @@
                     <div class="mt-5">
                         <label for="imageSelect">Choose Image:</label>
                         <input type="file" id="imageSelect" oninput="onAnyChange()" style="padding-bottom: 10px;">
-                        <br>
                         <div style="display: grid; grid-template-columns: auto auto auto auto auto auto;">
                             <label for="imageOffsetX">Offset X:</label>
                             <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0" style="max-width: 50px;">
