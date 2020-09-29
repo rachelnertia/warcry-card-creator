@@ -8,10 +8,10 @@ writeValue = function(ctx, value, pos) {
     ctx.restore();
 }
 
-getScalingFactor = function(canvas, cardBackground) {
+getScalingFactor = function(canvas, warcry-card-1) {
     return {
-        x: canvas.width  / cardBackground.width,
-        y: canvas.height / cardBackground.height
+        x: canvas.width  / warcry-card-1.width,
+        y: canvas.height / warcry-card-1.height
     };
 }
 
@@ -24,7 +24,7 @@ getContext = function() {
 }
 
 getBackgroundImage = function() {
-    return document.getElementById("cardBackground");
+    return document.getElementById("warcry-card-1");
 }
 
 drawBackground = function() {
@@ -69,7 +69,7 @@ drawPointCost = function(value) {
 }
 
 getWeaponStatblockImage = function() {
-    return document.getElementById("weaponStatBlock");
+    return document.getElementById("weapon-profile");
 }
 
 drawWeaponStatblock = function(pixelPosition) {
@@ -220,7 +220,7 @@ function drawTagRunemark(index, runemark) {
     var positions = [{x: 330, y: 290}, {x: 440, y: 290}, {x: 385, y: 200}];
     if (index >= positions.length) return;
 
-    var img = $("#runemarkBg")[0];
+    var img = $("#circle")[0];
 
     var position = scalePixelPosition(positions[index]);
     var size = scalePixelPosition({x: 90, y: 90});
