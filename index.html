@@ -50,6 +50,23 @@
             <div class="col-lg-4">
                 <div id="scroll-area">
 
+                    <div class="mt-5">
+                        <label class="h5" for="imageSelect">Choose image:</label>
+                        <input type="file" id="imageSelect" oninput="onAnyChange()" style="padding-bottom: 10px;">
+                        <div>
+                            <label for="imageOffsetX">X offset (Up and down):</label>
+                            <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0" />
+                        </div>
+                        <div>
+                            <label for="imageOffsetY">Y offset (Left and right):</label>
+                            <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0" />
+                        </div>
+                        <div>
+                            <label for="imageScalePercent">Scale:</label>
+                            <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100" />
+                        </div>
+                    </div>
+
                     <div id="accordionFactionRunemarkSelect">
                         <label class="h5" for="factionRunemarkSelect">Select a faction:</label>
                         <div id="factionRunemarkSelect" class="d-flex flex-wrap">
@@ -112,29 +129,16 @@
                     </div>
 
                     <div class="mt-5">
-                        <div style="display: grid; grid-template-columns: auto auto auto">
+                        <div>
                             <label for="slotNameInput">Name:</label>
                             <input type="text" id="saveNameInput">
-                            <input type="button" id="saveButton" value="Save"   onclick="onSaveClicked()">
+                            <input type="button" id="saveButton" value="Save" onclick="onSaveClicked()">
                         </div>
-                        <div style="display: grid; grid-template-columns: auto auto auto auto">
-                            <label for="saveSlotsSelect">Local File:</label>
+                        <div>
+                            <label for="saveSlotsSelect">Local file:</label>
                             <select id="saveSlotsSelect"></select>
                             <input type="button" value="Load" onclick="onLoadClicked()">
                             <input type="button" value="Delete" onclick="onDeleteClicked()">
-                        </div>
-                    </div>
-
-                    <div class="mt-5">
-                        <label for="imageSelect">Choose Image:</label>
-                        <input type="file" id="imageSelect" oninput="onAnyChange()" style="padding-bottom: 10px;">
-                        <div style="display: grid; grid-template-columns: auto auto auto auto auto auto;">
-                            <label for="imageOffsetX">Offset X:</label>
-                            <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0" style="max-width: 50px;">
-                            <label for="imageOffsetY">Offset Y:</label>
-                            <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0" style="max-width: 50px;">
-                            <label for="imageScalePercent">Scale %:</label>
-                            <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100" style="max-width: 50px;">
                         </div>
                     </div>
 
