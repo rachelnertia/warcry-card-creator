@@ -446,7 +446,7 @@ function readControls()
 
 function drawFactionRunemark(image)
 {
-    var position = scalePixelPosition({x: 70, y: 60});
+    var position = scalePixelPosition({x: 73, y: 57});
     var size = scalePixelPosition({x: 195, y: 195});
     drawImageSrc(position, size, image);
 }
@@ -477,22 +477,17 @@ render = function(fighterData) {
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
-        // drawWeapon(fighterData.weapon1, {x: 29, y: 397});
-        // drawWeapon(fighterData.weapon2, {x: 29, y: 564});
-        drawWeapon(fighterData.weapon1, {x: 75, y: 500});
-        drawWeapon(fighterData.weapon2, {x: 75, y: 700});
+        drawWeapon(fighterData.weapon1, {x: 75, y: 500}); // Default was x:29, y:397
+        drawWeapon(fighterData.weapon2, {x: 75, y: 700}); // Default was x:29, y:564
     }
     else if (fighterData.weapon1.enabled)
     {
-        // drawWeapon(fighterData.weapon1, {x: 29, y: 463});
-        drawWeapon(fighterData.weapon1, {x: 75, y: 500});
+        drawWeapon(fighterData.weapon1, {x: 75, y: 500}); // Default was x:29, y:463
     }
     else if (fighterData.weapon2.enabled)
     {
-        // drawWeapon(fighterData.weapon2, {x: 29, y: 463});
-        drawWeapon(fighterData.weapon2, {x: 75, y: 500});
+        drawWeapon(fighterData.weapon2, {x: 75, y: 500}); // Default was x:29, y:463
     }
-
     for (i = 0; i < fighterData.tagRunemarks.length; i++)
     {
         drawTagRunemark(i, fighterData.tagRunemarks[i]);
