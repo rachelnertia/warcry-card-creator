@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "rodchenkoctt";
+    font-style: normal;
+    font-weight: normal;
+    src: url("rodchenkoctt.woff") format("woff");
+}
+
+canvas {
+    border-radius: .5rem;
+    height: auto;
+    width: 100%;
+}
+
+.card .btn {
+    font-size: .85rem;
+    padding: 0;
+}
+
+.card-header {
+    padding: .25rem 1.25rem;
+}
+
+.flex-wrap > div {
+    border: 1px solid white;
+}
+
+.flex-wrap label {
+    margin: 0;
+}
+
+#introText,
+#introText + .row {
+    margin-top: 2rem;
+}
+
+#scroll-area {
+    height: 100vh;
+    max-height: 666px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#scroll-area > div {
+    margin-bottom: .5rem;
+}

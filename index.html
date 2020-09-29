@@ -10,44 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no" />
     <title>Warcry Fighter Card Generator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        @font-face {
-            font-family: "rodchenkoctt";
-            font-style: normal;
-            font-weight: normal;
-            src: url("rodchenkoctt.woff") format("woff");
-        }
-        canvas {
-            border-radius: .5rem;
-            height: auto;
-            width: 100%;
-        }
-        .card .btn {
-            padding: 0;
-        }
-        .card-header {
-            padding: .25rem 1.25rem;
-        }
-        .flex-wrap > div {
-            border: 1px solid white;
-        }
-        .flex-wrap label {
-            margin: 0;
-        }
-        #introText,
-        #introText + .row {
-            margin-top: 2rem;
-        }
-        #scroll-area {
-            height: 100vh;
-            max-height: 666px;
-            overflow-x: hidden;
-            overflow-y: scroll;
-        }
-        #scroll-area > div {
-            margin-bottom: .5rem;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <div class="font-hack" style="font-family:'rodchenkoctt';visibility:hidden;">Nothing to see here, move along…</div>
@@ -105,14 +68,52 @@
                                                 </label>
                                                 <input type="radio" id="faction-runemarks/factions/allies/allies-beasts-of-chaos.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
                                             </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-bonesplitterz.svg">
+                                                    <img src="runemarks/factions/allies/allies-bonesplitterz.svg" alt="Bonesplitterz Allies faction runemark" data-toggle="tooltip" title="Bonesplitterz Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-bonesplitterz.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-daughters-of-khaine.svg">
+                                                    <img src="runemarks/factions/allies/allies-daughters-of-khaine.svg" alt="Daughters of Khaine Allies faction runemark" data-toggle="tooltip" title="Daughters of Khaine Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-daughters-of-khaine.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-flesh-eater-courts.svg">
+                                                    <img src="runemarks/factions/allies/allies-flesh-eater-courts.svg" alt="Flesh-eater Courts Allies faction runemark" data-toggle="tooltip" title="Flesh-eater Courts Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-flesh-eater-courts.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-gloomspite-gitz.svg">
+                                                    <img src="runemarks/factions/allies/allies-gloomspite-gitz.svg" alt="Gloomspite Gitz Allies faction runemark" data-toggle="tooltip" title="Gloomspite Gitz Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-gloomspite-gitz.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+
+<!--
+allies-idoneth-deepkin.svg
+allies-ironjawz.svg
+allies-khorne.svg
+allies-legions-of-nagash.svg
+allies-nighthaunt.svg
+allies-nurgle.svg
+allies-skaven.svg
+allies-slaves-to-darkness.svg
+allies-tzeentch.svg
+allies-warrior-chamber.svg
+-->
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- ####### CHAOS ####### -->
                             <div class="card">
-                                <div class="card-header" id="headingAllies">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseChaos" aria-expanded="true" aria-controls="collapseChaos">Chaos
+                                <div class="card-header" id="headingChaos">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseChaos" aria-expanded="true" aria-controls="collapseChaos">Chaos warbands
                                     </button>
                                 </div>
                                 <div id="collapseChaos" class="collapse show" aria-labelledby="headingChaos" data-parent="#accordionFactionRunemarkSelect">
@@ -173,7 +174,7 @@
                             <!-- ####### DEATH ####### -->
                             <div class="card">
                                 <div class="card-header" id="headingDeath">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseDeath" aria-expanded="true" aria-controls="collapseDeath">Death
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseDeath" aria-expanded="true" aria-controls="collapseDeath">Death warbands
                                     </button>
                                 </div>
                                 <div id="collapseDeath" class="collapse" aria-labelledby="headingDeath" data-parent="#accordionFactionRunemarkSelect">
@@ -192,7 +193,7 @@
                             <!-- ####### DESTRUCTION ####### -->
                             <div class="card">
                                 <div class="card-header" id="headingDestruction">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseDestruction" aria-expanded="true" aria-controls="collapseDestruction">Destruction
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseDestruction" aria-expanded="true" aria-controls="collapseDestruction">Destruction warbands
                                     </button>
                                 </div>
                                 <div id="collapseDestruction" class="collapse" aria-labelledby="headingDestruction" data-parent="#accordionFactionRunemarkSelect">
@@ -234,7 +235,7 @@
                             <!-- ####### ORDER ####### -->
                             <div class="card">
                                 <div class="card-header" id="headingOrder">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">Order
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">Order warbands
                                     </button>
                                 </div>
                                 <div id="collapseOrder" class="collapse" aria-labelledby="headingOrder" data-parent="#accordionFactionRunemarkSelect">
