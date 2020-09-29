@@ -65,7 +65,7 @@ drawMove = function(value) {
 }
 
 drawPointCost = function(value) {
-    writeScaled(value, {x: 800, y: 160}); //  // Default was x:494, y:90
+    writeScaled(value, {x: 800, y: 155}); //  // Default was x:494, y:90
 }
 
 getWeaponStatblockImage = function() {
