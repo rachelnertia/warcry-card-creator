@@ -43,3 +43,27 @@ canvas {
 #scroll-area > div {
     margin-bottom: .5rem;
 }
+
+.tooltip-inner {
+    background: red !important;
+}
+
+.bs-tooltip-top .arrow:before,
+.bs-tooltip-auto[x-placement^="top"] .arrow:before {
+    border-top-color: red;
+}
+
+.bs-tooltip-right .arrow:before,
+.bs-tooltip-auto[x-placement^="right"] .arrow:before {
+    border-right-color: red;
+}
+
+.bs-tooltip-bottom .arrow:before,
+.bs-tooltip-auto[x-placement^="bottom"] .arrow:before {
+    border-bottom-color: red;
+}
+
+.bs-tooltip-left .arrow:before,
+.bs-tooltip-auto[x-placement^="left"] .arrow:before {
+    border-left-color: red;
+}
