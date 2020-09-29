@@ -218,7 +218,7 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc)
 
 function drawTagRunemark(index, runemark) {
     // var positions = [{x: 330, y: 290}, {x: 440, y: 290}, {x: 385, y: 200}];
-    var positions = [{x: 500, y: 600}, {x: 700, y: 600}, {x: 600, y: 400}];
+    var positions = [{x: 550, y: 600}, {x: 750, y: 600}, {x: 650, y: 450}];
     if (index >= positions.length) return;
 
     var img = $("#circle")[0];
