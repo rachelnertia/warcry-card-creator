@@ -25,9 +25,10 @@ canvas {
 }
 
 #scroll-area {
+    border-radius: .5rem;
     height: 100vh;
     max-height: 666px;
-    outline: 1px dashed rgba(0,0,0,0.75);
+    border: 1px dashed rgba(0,0,0,.5);
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 1rem;
