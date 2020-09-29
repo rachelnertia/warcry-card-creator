@@ -65,7 +65,7 @@ drawMove = function(value) {
 }
 
 drawPointCost = function(value) {
-    writeScaled(value, {x: 800, y: 155}); //  // Default was x:494, y:90
+    writeScaled(value, {x: 800, y: 155}); // Default was x:494, y:90
 }
 
 getWeaponStatblockImage = function() {
@@ -87,7 +87,7 @@ drawWeaponStatblock = function(pixelPosition) {
 drawWeapon = function(weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
 
-    var statsPosY = pixelPosition.y + 91;
+    var statsPosY = pixelPosition.y + 100; // Default was +91
 
     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
 
@@ -108,7 +108,7 @@ drawWeapon = function(weaponData, pixelPosition) {
         {x: pixelPosition.x + 460, y: statsPosY});
 
     var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
-    var size = scalePixelPosition({x: 90, y: 90});
+    var size = scalePixelPosition({x: 120, y: 120}); // Default was x:120, y:120
     drawImageSrc(position, size, weaponData.runemark);
 }
 
@@ -223,11 +223,11 @@ function drawTagRunemark(index, runemark) {
     var img = $("#circle")[0];
 
     var position = scalePixelPosition(positions[index]);
-    var size = scalePixelPosition({x: 90, y: 90});
+    var size = scalePixelPosition({x: 165, y: 165}); // Default was x:90, y:90
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
     position = scalePixelPosition({x: positions[index].x + 10, y: positions[index].y + 10});
-    size = scalePixelPosition({x: 70, y: 70});
+    size = scalePixelPosition({x: 165, y: 165}); // Default was x:70, y:70
     drawImageSrc(position, size, runemark);
 }
 
@@ -477,16 +477,16 @@ render = function(fighterData) {
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 75, y: 500}); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon2, {x: 75, y: 700}); // Default was x:29, y:564
+        drawWeapon(fighterData.weapon1, {x: 200, y: 397}); // Default was x:29, y:397
+        drawWeapon(fighterData.weapon2, {x: 200, y: 564}); // Default was x:29, y:564
     }
     else if (fighterData.weapon1.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 75, y: 500}); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon1, {x: 200, y: 463}); // Default was x:29, y:463
     }
     else if (fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon2, {x: 75, y: 500}); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon2, {x: 200, y: 463}); // Default was x:29, y:463
     }
     for (i = 0; i < fighterData.tagRunemarks.length; i++)
     {
