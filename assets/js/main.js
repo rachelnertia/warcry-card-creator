@@ -446,8 +446,8 @@ function readControls()
 
 function drawFactionRunemark(image)
 {
-    var position = scalePixelPosition({x: 45, y: 45});
-    var size = scalePixelPosition({x: 80, y: 80});
+    var position = scalePixelPosition({x: 100, y: 100});
+    var size = scalePixelPosition({x: 200, y: 200});
     drawImageSrc(position, size, image);
 }
 
