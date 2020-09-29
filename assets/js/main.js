@@ -61,7 +61,7 @@ drawWounds = function(value) {
 }
 
 drawMove = function(value) {
-    writeScaled(value, {x: 350, y: 350}); // Default was x:106, y:174
+    writeScaled(value, {x: 330, y: 350}); // Default was x:106, y:174
 }
 
 drawPointCost = function(value) {
