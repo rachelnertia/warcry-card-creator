@@ -93,22 +93,22 @@ drawWeapon = function(weaponData, pixelPosition) {
 
     getContext().textAlign = "center";
 
-    writeScaled(range, {x: pixelPosition.x + 250, y: statsPosY});
+    writeScaled(range, {x: pixelPosition.x + 260, y: statsPosY});
 
     writeScaled(
         weaponData.attacks,
-        {x: pixelPosition.x + 425, y: statsPosY});
+        {x: pixelPosition.x + 420, y: statsPosY});
 
     writeScaled(
         weaponData.strength,
-        {x: pixelPosition.x + 625, y: statsPosY});
+        {x: pixelPosition.x + 620, y: statsPosY});
 
     writeScaled(
         weaponData.damageBase + "/" + weaponData.damageCrit,
-        {x: pixelPosition.x + 775, y: statsPosY});
+        {x: pixelPosition.x + 780, y: statsPosY});
 
     var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
-    var size = scalePixelPosition({x: 120, y: 120}); // Default was x:120, y:120
+    var size = scalePixelPosition({x: 120, y: 120});
     drawImageSrc(position, size, weaponData.runemark);
 }
 
