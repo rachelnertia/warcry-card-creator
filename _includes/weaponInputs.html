@@ -1,7 +1,6 @@
-<label for="weaponRunemarkSelect">Weapon Icon:</label>
+<label class="sr-only" for="weaponRunemarkSelect">Weapon runemark:</label>
 <div id="weaponRunemarkSelect" class="d-flex flex-wrap">
     {% capture foo %}{{ include.weapon }}{% endcapture %}
-
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/axe.svg" title="Axe" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/blast.svg" title="Blast" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/claws.svg" title="Claws" %}
@@ -10,34 +9,52 @@
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/fangs.svg" title="Fangs" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/hammer.svg" title="Hammer" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/mace.svg" title="Mace" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/ranged_weapon.svg" title="Ranged" %}
-    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/reach_weapon.svg" title="Reach" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/ranged_weapon.svg" title="Ranged weapon" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/reach_weapon.svg" title="Reach weapon" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/scythe.svg" title="Scythe" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/spear.svg" title="Spear" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/sword.svg" title="Sword" %}
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/weapons/unarmed.svg" title="Unarmed" %}
 </div>
-<label for="additionalWeaponMarkSelect">Load Icon:</label>
-<input type="file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this, '{{ include.weapon }}')">
 
-<br/>
+<!-- <div>
+    <label for="weapon1-runemarks/weapons/axe.svg">
+        <img src="runemarks/weapons/axe.svg" alt="Axe" data-toggle="tooltip" title="Axe" width="50" height="50" />
+    </label>
+    <input type="radio" id="weapon1-runemarks/weapons/axe.svg" name="weapon1" onchange="onRunemarkSelectionChanged(this, 'white')" style="display:none;">
+</div> -->
 
-<div style="display:grid; grid-template-columns: auto auto auto auto;">
+<div>
+    <label for="additionalWeaponMarkSelect">Load custom icon:</label>
+    <input type="file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this,'{{ include.weapon }}')">
+</div>
+
+<div>
     <label for="rangeMin">Range (Min):</label>
-    <input type="number" id="rangeMin" name="rangeMin" min="0" max="999" value="0", style="max-width: 50px;", oninput="onWeaponMinRangeChanged(this)">
+    <input type="number" id="rangeMin" name="rangeMin" min="0" max="999" value="0" oninput="onWeaponMinRangeChanged(this)">
+</div>
 
+<div>
     <label for="rangeMax">Range (Max):</label>
-    <input type="number" id="rangeMax" name="rangeMax" min="0" max="999" value="1", style="max-width: 50px;", oninput="onWeaponMaxRangeChanged(this)">
+    <input type="number" id="rangeMax" name="rangeMax" min="0" max="999" value="1" oninput="onWeaponMaxRangeChanged(this)">
+</div>
 
+<div>
     <label for="attacks">Attacks:</label>
-    <input type="number" id="attacks" name="attacks" min="0" max="999" value="1", style="max-width: 50px;", oninput="onAnyChange()">
+    <input type="number" id="attacks" name="attacks" min="0" max="999" value="1" oninput="onAnyChange()">
+</div>
 
+<div>
     <label for="strength">Strength:</label>
-    <input type="number" id="strength" name="strength" min="1" max="99" value="3", style="max-width: 50px;", oninput="onAnyChange()">
+    <input type="number" id="strength" name="strength" min="1" max="99" value="3" oninput="onAnyChange()">
+</div>
 
+<div>
     <label for="damageBase">Damage (Base):</label>
-    <input type="number" id="damageBase" name="damageBase" min="0" max="999" value="1", style="max-width: 50px;", oninput="onAnyChange()">
+    <input type="number" id="damageBase" name="damageBase" min="0" max="999" value="1" oninput="onAnyChange()">
+</div>
 
+<div>
     <label for="damageCrit">Damage (Crit):</label>
-    <input type="number" id="damageCrit" name="damageCrit" min="0" max="999" value="2", style="max-width: 50px;", oninput="onAnyChange()">
+    <input type="number" id="damageCrit" name="damageCrit" min="0" max="999" value="2" oninput="onAnyChange()">
 </div>

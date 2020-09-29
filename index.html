@@ -92,24 +92,18 @@
                     </div>
 
                     <div id="weapon1">
-                        <input type="checkbox" checked id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
+                        <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" checked>
                         <div class="h5 mt-4">Pick first weapon (type):</div>
-                        <div id="weaponInputs">
-                            <label class="sr-only" for="weaponRunemarkSelect">Weapon runemark:</label>
-                            <div id="weaponRunemarkSelect" class="d-flex flex-wrap">
-                                {% include weapon1RunemarkSelect.html %}
-                            </div>
+                        <div id="weaponInputs" style="display:block;">
+                            {% include weaponInputs.html weapon="weapon2" %}
                         </div>
                     </div>
 
                     <div id="weapon2">
                         <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
                         <div class="h5 mt-4">Pick second weapon (type):</div>
-                        <div id="weaponInputs">
-                            <label class="sr-only" for="weaponRunemarkSelect">Weapon runemark:</label>
-                            <div id="weaponRunemarkSelect" class="d-flex flex-wrap">
-                                {% include weapon2RunemarkSelect.html %}
-                            </div>
+                        <div id="weaponInputs" style="display:none;">
+                            {% include weaponInputs.html weapon="weapon2" %}
                         </div>
                     </div>
 
