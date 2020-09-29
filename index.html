@@ -49,36 +49,46 @@
 
             <div class="col-lg-4">
                 <div id="scroll-area">
+
                     <div id="accordionFactionRunemarkSelect">
                         <label for="factionRunemarkSelect">Select a faction:</label>
-                        <div id="factionRunemarkSelect">
-                            <div class="d-flex flex-wrap">
-                                {% include factionRunemarkSelectAllies.html %}
-                                {% include factionRunemarkSelectChaos.html %}
-                                {% include factionRunemarkSelectDeath.html %}
-                                {% include factionRunemarkSelectDestruction.html %}
-                                {% include factionRunemarkSelectMonsters.html %}
-                                {% include factionRunemarkSelectOrder.html %}
+                        <div id="factionRunemarkSelect" class="d-flex flex-wrap">
+                            {% include factionRunemarkSelectAllies.html %}
+                            {% include factionRunemarkSelectChaos.html %}
+                            {% include factionRunemarkSelectDeath.html %}
+                            {% include factionRunemarkSelectDestruction.html %}
+                            {% include factionRunemarkSelectMonsters.html %}
+                            {% include factionRunemarkSelectOrder.html %}
+                        </div>
+                    </div>
+
+                    <div>
+                        <label>Pick characteristics:</label>
+                        <div>
+                            <div>
+                                <label for="numWounds">Wounds:</label>
+                                <input type="number" id="numWounds" name="numWounds" min="1" max="1000" value="10" oninput="onAnyChange()">
+                            </div>
+                            <div>
+                                <label for="toughness">Toughness:</label>
+                                <input type="number" id="toughness" name="toughness" min="0" max="100", value="3", oninput="onAnyChange()">
+                            </div>
+                            <div>
+                                <label for="movement">Movement:</label>
+                                <input type="number" id="movement" name="movement" min="0" max="100", value="4", oninput="onAnyChange()">
+                            </div>
+                            <div>
+                                <label for="pointCost">Points value:</label>
+                                <input type="number" id="pointCost" name="pointCost" min="0" max="9999", value="100", oninput="onAnyChange()">
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <label for="nbnb">Pick characteristics:</label>
-                        <div id="nbnb" class="accordion">
-                            <label for="numWounds">Wounds:</label>
-                            <input type="number" id="numWounds" name="numWounds" min="1" max="1000", value="10", style="max-width: 50px;", oninput="onAnyChange()">
-                            <label for="toughness">Toughness:</label>
-                            <input type="number" id="toughness" name="toughness" min="0" max="100", value="3", style="max-width: 50px;", oninput="onAnyChange()">
-                            <label for="movement">Movement:</label>
-                            <input type="number" id="movement" name="movement" min="0" max="100", value="4", style="max-width: 50px;", oninput="onAnyChange()">
-                            <label for="pointCost">Point Cost:</label>
-                            <input type="number" id="pointCost" name="pointCost" min="0" max="9999", value="100", style="max-width: 50px;", oninput="onAnyChange()">
+                        <label for="tagRunemarkSelect">Select (up to 3) runemarks:</label>
+                        <div id="tagRunemarkSelect" class="d-flex flex-wrap">
+                            {% include fighterRunemarkSelect.html %}
                         </div>
-                    </div>
-
-                    <div class="container" style="border: 1px solid #00000080;background-color: #c8c8c880;padding: 20px;border-radius: 2px;">
-                        <label for="tagRunemarkSelect">Tag Runemarks:</label><div id="tagRunemarkSelect" class="d-flex flex-wrap"><div><label for="checkbox-runemarks/black/agile.svg"><img src="runemarks/black/agile.svg" title="Agile" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/agile.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/champion.svg"><img src="runemarks/black/champion.svg" title="Champion" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/champion.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/beast.svg"><img src="runemarks/black/beast.svg" title="Beast" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/beast.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/berzerker.svg"><img src="runemarks/black/berzerker.svg" title="Berzerker" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/berzerker.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/brute.svg"><img src="runemarks/black/brute.svg" title="Brute" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/brute.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/bulwark.svg"><img src="runemarks/black/bulwark.svg" title="Bulwark" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/bulwark.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/destroyer.svg"><img src="runemarks/black/destroyer.svg" title="Destroyer" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/destroyer.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/elite.svg"><img src="runemarks/black/elite.svg" title="Elite" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/elite.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/fly.svg"><img src="runemarks/black/fly.svg" title="Fly" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/fly.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/gargantuan.svg"><img src="runemarks/black/gargantuan.svg" title="Gargantuan" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/gargantuan.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/icon-bearer.svg"><img src="runemarks/black/icon-bearer.svg" title="Icon Bearer" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/icon-bearer.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/leader.svg"><img src="runemarks/black/leader.svg" title="Leader" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/leader.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/minion.svg"><img src="runemarks/black/minion.svg" title="Minion" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/minion.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/mount.svg"><img src="runemarks/black/mount.svg" title="Mount" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/mount.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/mystic.svg"><img src="runemarks/black/mystic.svg" title="Mystic" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/mystic.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/scout.svg"><img src="runemarks/black/scout.svg" title="Scout" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/scout.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/sentience.svg"><img src="runemarks/black/sentience.svg" title="Sentience" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/sentience.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/thrall.svg"><img src="runemarks/black/thrall.svg" title="Thrall" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/thrall.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/trapper.svg"><img src="runemarks/black/trapper.svg" title="Trapper" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/trapper.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div><div><label for="checkbox-runemarks/black/warrior.svg"><img src="runemarks/black/warrior.svg" title="Warrior" width="50" height="50" alt="" style="background-color:white;"></label><input type="checkbox" style="display:none;" id="checkbox-runemarks/black/warrior.svg" onchange="onTagRunemarkSelectionChanged(this, 'white')"></div></div><label for="additionalTagMarkSelect">Load Runemark:</label><input type="file" id="additionalTagMarkSelect" oninput="onTagRunemarkFileSelect()">
                     </div>
 
                     <div id="weapon1" class="container" style="border: 1px solid #00000080;background-color: #c8c8c880;padding: 20px;border-radius: 2px;">
