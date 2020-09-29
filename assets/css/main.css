@@ -11,8 +11,10 @@ canvas {
     width: 100%;
 }
 
-[class^="col-"] input,
-[class*=" col-"] input {
+[class^="col-"] input:not([type="checkbox"]),
+[class^="col-"] input:not([type="radio"]),
+[class*=" col-"] input:not([type="checkbox"]),
+[class*=" col-"] input:not([type="radio"]) {
     width: 100%;
 }
 
