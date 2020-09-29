@@ -11,11 +11,16 @@ canvas {
     width: 100%;
 }
 
-[class^="col-"] input:not([type="checkbox"]),
-[class^="col-"] input:not([type="radio"]),
-[class*=" col-"] input:not([type="checkbox"]),
-[class*=" col-"] input:not([type="radio"]) {
+[class^="col-"] input,
+[class^="col-"] input {
     width: 100%;
+}
+
+[class^="col-"] input[type="checkbox"],
+[class^="col-"] input[type="radio"],
+[class*=" col-"] input[type="checkbox"],
+[class*=" col-"] input[type="radio"] {
+    width: auto;
 }
 
 .flex-wrap > div {
