@@ -92,20 +92,16 @@
                     </div>
 
                     <div id="weapon1">
-                        <div class="h5 mt-4">
-                            <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                            Pick first weapon (type) and it's characteristics:
-                        </div>
+                        <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
+                        <label for="weaponEnabled" class="h5 mt-4">Pick first weapon (type) and it's characteristics:</label>
                         <div id="weaponInputs" style="display:block;">
                             {% include weaponInputs.html weapon="weapon2" %}
                         </div>
                     </div>
 
                     <div id="weapon2">
-                        <div class="h5 mt-4">
-                            <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                            Pick second weapon (type) and it's characteristics:
-                        </div>
+                        <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
+                        <label for="weaponEnabled" class="h5 mt-4">Pick second weapon (type) and it's characteristics:</label>
                         <div id="weaponInputs" style="display:none;">
                             {% include weaponInputs.html weapon="weapon2" %}
                         </div>
