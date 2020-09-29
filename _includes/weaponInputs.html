@@ -24,37 +24,34 @@
     <input type="radio" id="weapon1-runemarks/weapons/axe.svg" name="weapon1" onchange="onRunemarkSelectionChanged(this, 'white')" style="display:none;">
 </div> -->
 
-<div>
+<div class="row">
+    <div class="col-sm-4">
+        <label for="rangeMin">Range (Min):</label>
+        <input type="number" id="rangeMin" name="rangeMin" min="0" max="999" value="0" oninput="onWeaponMinRangeChanged(this)">
+    </div>
+    <div class="col-sm-4">
+        <label for="rangeMax">Range (Max):</label>
+        <input type="number" id="rangeMax" name="rangeMax" min="0" max="999" value="1" oninput="onWeaponMaxRangeChanged(this)">
+    </div>
+    <div class="col-sm-4">
+        <label for="attacks">Attacks:</label>
+        <input type="number" id="attacks" name="attacks" min="0" max="999" value="1" oninput="onAnyChange()">
+    </div>
+    <div class="col-sm-4">
+        <label for="strength">Strength:</label>
+        <input type="number" id="strength" name="strength" min="1" max="99" value="3" oninput="onAnyChange()">
+    </div>
+    <div class="col-sm-4">
+        <label for="damageBase">Damage (Base):</label>
+        <input type="number" id="damageBase" name="damageBase" min="0" max="999" value="1" oninput="onAnyChange()">
+    </div>
+    <div class="col-sm-4">
+        <label for="damageCrit">Damage (Crit):</label>
+        <input type="number" id="damageCrit" name="damageCrit" min="0" max="999" value="2" oninput="onAnyChange()">
+    </div>
+</div>
+
+<div class="mt-4">
     <label for="additionalWeaponMarkSelect">Load custom icon:</label>
     <input type="file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this,'{{ include.weapon }}')">
-</div>
-
-<div>
-    <label for="rangeMin">Range (Min):</label>
-    <input type="number" id="rangeMin" name="rangeMin" min="0" max="999" value="0" oninput="onWeaponMinRangeChanged(this)">
-</div>
-
-<div>
-    <label for="rangeMax">Range (Max):</label>
-    <input type="number" id="rangeMax" name="rangeMax" min="0" max="999" value="1" oninput="onWeaponMaxRangeChanged(this)">
-</div>
-
-<div>
-    <label for="attacks">Attacks:</label>
-    <input type="number" id="attacks" name="attacks" min="0" max="999" value="1" oninput="onAnyChange()">
-</div>
-
-<div>
-    <label for="strength">Strength:</label>
-    <input type="number" id="strength" name="strength" min="1" max="99" value="3" oninput="onAnyChange()">
-</div>
-
-<div>
-    <label for="damageBase">Damage (Base):</label>
-    <input type="number" id="damageBase" name="damageBase" min="0" max="999" value="1" oninput="onAnyChange()">
-</div>
-
-<div>
-    <label for="damageCrit">Damage (Crit):</label>
-    <input type="number" id="damageCrit" name="damageCrit" min="0" max="999" value="2" oninput="onAnyChange()">
 </div>
