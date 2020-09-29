@@ -227,7 +227,7 @@ function drawTagRunemark(index, runemark) {
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
     position = scalePixelPosition({x: positions[index].x + 10, y: positions[index].y + 10});
-    size = scalePixelPosition({x: 155, y: 155}); // Default was x:70, y:70
+    size = scalePixelPosition({x: 145, y: 145}); // Default was x:70, y:70
     drawImageSrc(position, size, runemark);
 }
 
