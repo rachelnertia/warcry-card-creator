@@ -36,25 +36,25 @@ canvas {
 }
 
 .tooltip-inner {
-    background: red !important;
+    background: crimson !important;
 }
 
 .bs-tooltip-top .arrow:before,
 .bs-tooltip-auto[x-placement^="top"] .arrow:before {
-    border-top-color: red;
+    border-top-color: crimson;
 }
 
 .bs-tooltip-right .arrow:before,
 .bs-tooltip-auto[x-placement^="right"] .arrow:before {
-    border-right-color: red;
+    border-right-color: crimson;
 }
 
 .bs-tooltip-bottom .arrow:before,
 .bs-tooltip-auto[x-placement^="bottom"] .arrow:before {
-    border-bottom-color: red;
+    border-bottom-color: crimson;
 }
 
 .bs-tooltip-left .arrow:before,
 .bs-tooltip-auto[x-placement^="left"] .arrow:before {
-    border-left-color: red;
+    border-left-color: crimson;
 }
