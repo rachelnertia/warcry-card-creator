@@ -51,19 +51,19 @@
                 <div id="scroll-area">
 
                     <div>
-                        <label class="h5" for="imageSelect">Fighter image:</label>
+                        <label class="h5" for="imageSelect">Fighter image</label>
                         <input type="file" id="imageSelect" oninput="onAnyChange()">
                         <div class="row mt-4">
                             <div class="col-sm-4">
-                                <label for="imageOffsetX">X offset (&#8596;):</label>
+                                <label for="imageOffsetX">X offset (&#8596;)</label>
                                 <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0" />
                             </div>
                             <div class="col-sm-4">
-                                <label for="imageOffsetY">Y offset (&#8597;):</label>
+                                <label for="imageOffsetY">Y offset (&#8597;)</label>
                                 <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0" />
                             </div>
                             <div class="col-sm-4">
-                                <label for="imageScalePercent">Scale:</label>
+                                <label for="imageScalePercent">Scale</label>
                                 <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100" />
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                     </div>
 
                     <div>
-                        <label class="h5 mt-4" for="tagRunemarkSelect">Runemarks:</label>
+                        <label class="h5 mt-4" for="tagRunemarkSelect">Runemarks</label>
                         <div id="tagRunemarkSelect" class="d-flex flex-wrap">
                             {% include fighterRunemarkSelect.html %}
                         </div>
@@ -112,7 +112,7 @@
 
                     <div id="weapon1">
                         <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                        <label for="weaponEnabled" class="h5 mt-4">First weapon:</label>
+                        <label for="weaponEnabled" class="h5 mt-4">First weapon</label>
                         <div id="weaponInputs" style="display:block;">
                             {% include weaponInputs.html weapon="weapon2" %}
                         </div>
@@ -120,7 +120,7 @@
 
                     <div id="weapon2">
                         <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                        <label for="weaponEnabled" class="h5 mt-4">Second weapon:</label>
+                        <label for="weaponEnabled" class="h5 mt-4">Second weapon</label>
                         <div id="weaponInputs" style="display:none;">
                             {% include weaponInputs.html weapon="weapon2" %}
                         </div>
@@ -132,12 +132,12 @@
 
                     <div class="mt-5">
                         <div>
-                            <label for="slotNameInput">Name:</label>
+                            <label for="slotNameInput">Name</label>
                             <input type="text" id="saveNameInput">
                             <input type="button" id="saveButton" value="Save" onclick="onSaveClicked()">
                         </div>
                         <div>
-                            <label for="saveSlotsSelect">Local file:</label>
+                            <label for="saveSlotsSelect">Local file</label>
                             <select id="saveSlotsSelect"></select>
                             <input type="button" value="Load" onclick="onLoadClicked()">
                             <input type="button" value="Delete" onclick="onDeleteClicked()">
