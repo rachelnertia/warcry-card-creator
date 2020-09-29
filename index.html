@@ -131,16 +131,26 @@
                     </div>
 
                     <div class="mt-5">
-                        <div>
-                            <label for="slotNameInput">Name</label>
-                            <input type="text" id="saveNameInput">
-                            <input type="button" id="saveButton" value="Save" onclick="onSaveClicked()">
+                        <label class="h5 mt-5" for="slotNameInput">Name</label>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="text" id="saveNameInput" />
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="button" id="saveButton" value="Save" onclick="onSaveClicked()" />
+                            </div>
                         </div>
-                        <div>
-                            <label for="saveSlotsSelect">Local file</label>
-                            <select id="saveSlotsSelect"></select>
-                            <input type="button" value="Load" onclick="onLoadClicked()">
-                            <input type="button" value="Delete" onclick="onDeleteClicked()">
+                        <label class="h5 mt-5" for="saveSlotsSelect">Local file</label>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <select id="saveSlotsSelect"></select>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="button" value="Load" onclick="onLoadClicked()" />
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="button" value="Delete" onclick="onDeleteClicked()" />
+                            </div>
                         </div>
                     </div>
 
