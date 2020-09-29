@@ -25,7 +25,7 @@ canvas {
 }
 
 label {
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 #scroll-area {
