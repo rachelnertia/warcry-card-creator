@@ -446,8 +446,8 @@ function readControls()
 
 function drawFactionRunemark(image)
 {
-    var position = scalePixelPosition({x: 73, y: 57});
-    var size = scalePixelPosition({x: 195, y: 195});
+    var position = scalePixelPosition({x: 73, y: 57});  // Default was x:, y:
+    var size = scalePixelPosition({x: 195, y: 195});  // Default was x:, y:
     drawImageSrc(position, size, image);
 }
 
@@ -457,7 +457,7 @@ render = function(fighterData) {
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
 
-    getContext().font = "92px rodchenkoctt";
+    getContext().font = "92px rodchenkoctt"; // Default was 50px
     getContext().fillStyle = "white";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
