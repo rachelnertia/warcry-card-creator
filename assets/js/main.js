@@ -93,7 +93,7 @@ drawWeapon = function(weaponData, pixelPosition) {
 
     getContext().textAlign = "center";
 
-    writeScaled(range, {x: pixelPosition.x + 333, y: statsPosY});
+    writeScaled(range, {x: pixelPosition.x + 100, y: statsPosY});
 
     writeScaled(
         weaponData.attacks,
