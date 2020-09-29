@@ -87,25 +87,25 @@ drawWeaponStatblock = function(pixelPosition) {
 drawWeapon = function(weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
 
-    var statsPosY = pixelPosition.y + 85;
+    var statsPosY = pixelPosition.y + 80;
 
     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
 
     getContext().textAlign = "center";
 
-    writeScaled(range, {x: pixelPosition.x + 175, y: statsPosY});
+    writeScaled(range, {x: pixelPosition.x + 200, y: statsPosY});
 
     writeScaled(
         weaponData.attacks,
-        {x: pixelPosition.x + 300, y: statsPosY});
+        {x: pixelPosition.x + 350, y: statsPosY});
 
     writeScaled(
         weaponData.strength,
-        {x: pixelPosition.x + 400, y: statsPosY});
+        {x: pixelPosition.x + 450, y: statsPosY});
 
     writeScaled(
         weaponData.damageBase + "/" + weaponData.damageCrit,
-        {x: pixelPosition.x + 500, y: statsPosY});
+        {x: pixelPosition.x + 550, y: statsPosY});
 
     var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
     var size = scalePixelPosition({x: 120, y: 120}); // Default was x:120, y:120
