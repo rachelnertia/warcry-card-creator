@@ -20,7 +20,22 @@ canvas {
 [class^="col-"] input[type="radio"],
 [class*=" col-"] input[type="checkbox"],
 [class*=" col-"] input[type="radio"] {
-    width: auto;
+    appearance: none;
+    border: 1px solid black;
+    height: 1em;
+    width: 1em;
+}
+
+[class^="col-"] input[type="checkbox"]:checked,
+[class^="col-"] input[type="radio"]:checked,
+[class*=" col-"] input[type="checkbox"]:checked,
+[class*=" col-"] input[type="radio"]:checked {
+    background: #b2221a;
+}
+
+[class^="col-"] input[type="radio"],
+[class*=" col-"] input[type="radio"] {
+    border-radius: 50%;
 }
 
 .flex-wrap > div {
