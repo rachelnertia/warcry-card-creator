@@ -30,7 +30,14 @@ canvas {
 [class^="col-"] input[type="radio"]:checked,
 [class*=" col-"] input[type="checkbox"]:checked,
 [class*=" col-"] input[type="radio"]:checked {
-    background: #b2221a;
+    /* background: #b2221a; */
+}
+
+[class^="col-"] input[type="checkbox"]:checked:before,
+[class^="col-"] input[type="radio"]:checked:before,
+[class*=" col-"] input[type="checkbox"]:checked:before,
+[class*=" col-"] input[type="radio"]:checked:before {
+    content: "✓";
 }
 
 [class^="col-"] input[type="radio"],
