@@ -57,7 +57,7 @@ drawToughness = function(value) {
 }
 
 drawWounds = function(value) {
-    writeScaled(value, {x: 415, y: 460}); // Default was x:205, y:240
+    writeScaled(value, {x: 400, y: 460}); // Default was x:205, y:240
 }
 
 drawMove = function(value) {
@@ -65,7 +65,7 @@ drawMove = function(value) {
 }
 
 drawPointCost = function(value) {
-    writeScaled(value, {x: 805, y: 160}); // Default was x:494, y:90
+    writeScaled(value, {x: 805, y: 160});
 }
 
 getWeaponStatblockImage = function() {
@@ -217,18 +217,17 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc)
 }
 
 function drawTagRunemark(index, runemark) {
-    // var positions = [{x: 330, y: 290}, {x: 440, y: 290}, {x: 385, y: 200}];
     var positions = [{x: 575, y: 550}, {x: 750, y: 550}, {x: 662.5, y: 400}];
     if (index >= positions.length) return;
 
     var img = $("#circle")[0];
 
     var position = scalePixelPosition(positions[index]);
-    var size = scalePixelPosition({x: 165, y: 165}); // Default was x:90, y:90
+    var size = scalePixelPosition({x: 165, y: 165});
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
-    position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});  // Default was +10
-    size = scalePixelPosition({x: 135, y: 135}); // Default was x:70, y:70
+    position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
+    size = scalePixelPosition({x: 135, y: 135});
     drawImageSrc(position, size, runemark);
 }
 
