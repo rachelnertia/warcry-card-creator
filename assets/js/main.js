@@ -446,7 +446,7 @@ function readControls()
 
 function drawFactionRunemark(image)
 {
-    var position = scalePixelPosition({x: 80, y: 80});
+    var position = scalePixelPosition({x: 75, y: 65});
     var size = scalePixelPosition({x: 200, y: 200});
     drawImageSrc(position, size, image);
 }
@@ -477,16 +477,20 @@ render = function(fighterData) {
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 129, y: 397});
-        drawWeapon(fighterData.weapon2, {x: 129, y: 564});
+        // drawWeapon(fighterData.weapon1, {x: 29, y: 397});
+        // drawWeapon(fighterData.weapon2, {x: 29, y: 564});
+        drawWeapon(fighterData.weapon1, {x: 75, y: 397});
+        drawWeapon(fighterData.weapon2, {x: 75, y: 564});
     }
     else if (fighterData.weapon1.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 129, y: 463});
+        // drawWeapon(fighterData.weapon1, {x: 29, y: 463});
+        drawWeapon(fighterData.weapon1, {x: 75, y: 463});
     }
     else if (fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon2, {x: 129, y: 463});
+        // drawWeapon(fighterData.weapon2, {x: 29, y: 463});
+        drawWeapon(fighterData.weapon2, {x: 75, y: 463});
     }
 
     for (i = 0; i < fighterData.tagRunemarks.length; i++)
@@ -510,19 +514,18 @@ function writeControls(fighterData)
     writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
 }
 
-function defaultFighterData()
-{
+function defaultFighterData() {
     var fighterData = new Object;
-    fighterData.name = "Default";
+    fighterData.name = 'Default';
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
-    fighterData.factionRunemark = "runemarks/iron-golems.svg";
-    fighterData.toughness = 3;
-    fighterData.wounds = 10;
-    fighterData.move = 4;
-    fighterData.pointCost = 100;
+    fighterData.factionRunemark = 'runemarks/factions/chaos/iron-golem.svg';
+    fighterData.toughness = 4;
+    fighterData.wounds = 15;
+    fighterData.move = 5;
+    fighterData.pointCost = 125;
     fighterData.tagRunemarks = new Array;
-    fighterData.tagRunemarks.push("runemarks/black/brute.svg");
+    fighterData.tagRunemarks.push('runemarks/fighters/berserker.svg');
     fighterData.weapon1 = getDefaultWeaponData1();
     fighterData.weapon2 = getDefaultWeaponData2();
     return fighterData;
