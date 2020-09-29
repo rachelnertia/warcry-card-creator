@@ -87,7 +87,7 @@ drawWeaponStatblock = function(pixelPosition) {
 drawWeapon = function(weaponData, pixelPosition) {
     drawWeaponStatblock(pixelPosition);
 
-    var statsPosY = pixelPosition.y + 0; // Default was +91
+    var statsPosY = pixelPosition.y + 100; // Default was +91
 
     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
 
