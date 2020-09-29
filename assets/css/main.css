@@ -2,7 +2,7 @@
     font-family: "rodchenkoctt";
     font-style: normal;
     font-weight: normal;
-    src: url("rodchenkoctt.woff") format("woff");
+    src: url("../fonts/rodchenkoctt.woff") format("woff");
 }
 
 canvas {

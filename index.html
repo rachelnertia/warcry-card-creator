@@ -9,7 +9,7 @@
     <meta name="format-detection" content="date=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no" />
     <title>Warcry Fighter Card Generator</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-v4.3.1.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -39,9 +39,9 @@
         <div class="row">
 
             <div class="col-lg-8">
-                <img id="cardBackground" style="display:none;" src="cardBackground.jpg" />
-                <img id="weaponStatBlock" style="display:none;" src="weaponStatBlock.png" />
-                <img id="runemarkBg" style="display:none;" src="runemarkBg.png" />
+                <img id="cardBackground" style="display:none;" src="assets/img/cardBackground.jpg" />
+                <img id="weaponStatBlock" style="display:none;" src="assets/img/weaponStatBlock.png" />
+                <img id="runemarkBg" style="display:none;" src="assets/img/runemarkBg.png" />
                 <canvas id="canvas" width="1772" height="1241">
                     Sorry, your browser doesn't support the &lt;canvas&gt; element.
                 </canvas>
@@ -92,20 +92,66 @@
                                                 </label>
                                                 <input type="radio" id="faction-runemarks/factions/allies/allies-gloomspite-gitz.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
                                             </div>
-
-<!--
-allies-idoneth-deepkin.svg
-allies-ironjawz.svg
-allies-khorne.svg
-allies-legions-of-nagash.svg
-allies-nighthaunt.svg
-allies-nurgle.svg
-allies-skaven.svg
-allies-slaves-to-darkness.svg
-allies-tzeentch.svg
-allies-warrior-chamber.svg
--->
-
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-idoneth-deepkin.svg">
+                                                    <img src="runemarks/factions/allies/allies-idoneth-deepkin.svg" alt="Idoneth Deepkin Allies faction runemark" data-toggle="tooltip" title="Idoneth Deepkin Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-idoneth-deepkin.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-ironjawz.svg">
+                                                    <img src="runemarks/factions/allies/allies-ironjawz.svg" alt="Ironjawz Allies faction runemark" data-toggle="tooltip" title="Ironjawz Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-ironjawz.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-khorne.svg">
+                                                    <img src="runemarks/factions/allies/allies-khorne.svg" alt="Khorne Allies faction runemark" data-toggle="tooltip" title="Khorne Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-khorne.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-legions-of-nagash.svg">
+                                                    <img src="runemarks/factions/allies/allies-legions-of-nagash.svg" alt="Legions of Nagash Allies faction runemark" data-toggle="tooltip" title="Legions of Nagash Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-legions-of-nagash.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-nighthaunt.svg">
+                                                    <img src="runemarks/factions/allies/allies-nighthaunt.svg" alt="Nighthaunt Allies faction runemark" data-toggle="tooltip" title="Nighthaunt Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-nighthaunt.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-nurgle.svg">
+                                                    <img src="runemarks/factions/allies/allies-nurgle.svg" alt="Nurgle Allies faction runemark" data-toggle="tooltip" title="Nurgle Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-nurgle.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-skaven.svg">
+                                                    <img src="runemarks/factions/allies/allies-skaven.svg" alt="Skaven Allies faction runemark" data-toggle="tooltip" title="Skaven Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-skaven.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-slaves-to-darkness.svg">
+                                                    <img src="runemarks/factions/allies/allies-slaves-to-darkness.svg" alt="Slaves to Darkness Allies faction runemark" data-toggle="tooltip" title="Slaves to Darkness Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-slaves-to-darkness.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-warrior-chamber.svg">
+                                                    <img src="runemarks/factions/allies/allies-warrior-chamber.svg" alt="Stormcast Eternals: Warrior Chamber Allies faction runemark" data-toggle="tooltip" title="Stormcast Eternals: Warrior Chamber Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-warrior-chamber.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
+                                            <div>
+                                                <label for="faction-runemarks/factions/allies/allies-tzeentch.svg">
+                                                    <img src="runemarks/factions/allies/allies-tzeentch.svg" alt="Tzeentch Allies faction runemark" data-toggle="tooltip" title="Tzeentch Allies" width="50" height="50" />
+                                                </label>
+                                                <input type="radio" id="faction-runemarks/factions/allies/allies-tzeentch.svg" name="faction" onchange="onRunemarkSelectionChanged(this, 'black')" style="display:none;">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -288,11 +334,10 @@ allies-warrior-chamber.svg
         </div>
     </div>
 
-    <script src="scripts/jquery-3.4.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="scripts/main.js"></script>
-
+    <script src="assets/vendors/jquery-v3.4.1.js"></script>
+    <script src="assets/vendors/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap-v3.4.1.min.js"></script>
+    <script src="assets/js/main.js"></script>
     <script type="text/javascript">
         $(function() {
             $('[data-toggle="tooltip"]').tooltip({
@@ -307,5 +352,6 @@ allies-warrior-chamber.svg
             ctx.stroke();
         });
     </script>
+
 </body>
 </html>
