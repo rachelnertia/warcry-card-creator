@@ -788,6 +788,8 @@ function onTagRunemarkFileSelect()
 function onClearCache()
 {
     window.localStorage.clear();
+    location.reload();
+    return false;
 }
 
 function onResetToDefault()
