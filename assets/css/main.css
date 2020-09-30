@@ -20,6 +20,8 @@ canvas {
 [class^="col-"] input[type="radio"],
 [class*=" col-"] input[type="checkbox"],
 [class*=" col-"] input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     border: 1px solid black;
     height: 1em;
