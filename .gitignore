@@ -2,7 +2,6 @@
 *.bak
 *.desktop
 *.pdf
-*.psd
 .DS_Store
 .lock
 bower_components

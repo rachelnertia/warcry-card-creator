@@ -50,7 +50,7 @@
                 <img id="warcryCardTwo" style="display:none;" src="assets/img/warcryCardTwo.jpg" />
                 <img id="weapon-profile" style="display:none;" src="assets/img/weapon-profile.png" />
                 <img id="circle" style="display:none;" src="assets/img/circle.png" />
-                <canvas id="canvas" width="1772" height="1241">
+                <canvas id="canvas" width="1772" height="1241" style="background: #eee;">
                     Sorry, your browser doesn't support the &lt;canvas&gt; element.
                 </canvas>
             </div>
@@ -183,6 +183,7 @@
                 boundary: 'window'
             })
         });
+
         $(document).ready(function() {
             var c=document.getElementById('canvas');
             var ctx=c.getContext('2d');
@@ -190,6 +191,18 @@
             ctx.arc(95,50,40,0,2*Math.PI);
             ctx.stroke();
         });
+
+        $(document).on('click', '.nav-link.active', function() {
+            hideTab($(this))
+        });
+        $(document).on('click', function(e) {
+            if ($(e.target).closest(".nav-pills,.tab-content").length) {return}
+            hideTab($('.nav-link.active'))
+        });
+        function hideTab($activeNav) {
+            $activeNav.removeClass('active').attr('aria-selected', "false")
+            $($activeNav.attr("href")).removeClass('active');
+        }
     </script>
 
 </body>
