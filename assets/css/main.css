@@ -49,6 +49,12 @@ canvas {
     border-radius: 50%;
 }
 
+.disabled,
+.disabled * {
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
 .flex-wrap > div {
     border: 1px solid white;
 }
@@ -70,7 +76,7 @@ label {
     border-radius: .5rem;
     height: 100vh;
     max-height: 666px;
-    border: 1px dashed rgba(0,0,0,.5);
+    border: 1px dashed rgba(0,0,0,0.5);
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 1rem;
