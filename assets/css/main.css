@@ -88,6 +88,10 @@ label.heading {
     width: 50px;
 }
 
+.mt-10 {
+    margin-top: 6rem !important;
+}
+
 .pb-10 {
     padding-bottom: 6rem !important;
 }
