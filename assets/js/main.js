@@ -463,22 +463,18 @@ render = function(fighterData) {
     getContext().textAlign = "left";
 
     drawMove(fighterData.move);
-
-    getContext().textAlign = "left";
-
     drawToughness(fighterData.toughness);
-
-    getContext().textAlign = "right";
-
     drawWounds(fighterData.wounds);
 
-    getContext().textAlign = "left";
+    getContext().textBaseline = "middle";
+    getContext().textAlign = "center";
 
     drawPointCost(fighterData.pointCost);
 
+    getContext().font = "80px rodchenkoctt";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
-    getContext().fillStyle = "red";
+    getContext().fillStyle = "black";
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
