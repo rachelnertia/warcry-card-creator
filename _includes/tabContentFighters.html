@@ -14,12 +14,12 @@
         <div id="scroll-area">
 
             <div class="disabled">
-                <label class="h5" for="backgroundSelect">Background image</label>
+                <label class="heading h5" for="backgroundSelect">Background image</label>
                 <input type="file" id="backgroundSelect" oninput="onAnyChange()" disabled>
             </div>
 
             <div>
-                <label class="h5 mt-5" for="imageSelect">Fighter image</label>
+                <label class="heading h5 mt-5" for="imageSelect">Fighter image</label>
                 <input type="file" id="imageSelect" oninput="onAnyChange()">
                 <div class="row mt-4">
                     <div class="col-sm-4">
@@ -39,7 +39,7 @@
             </div>
 
             <div>
-                <label class="h5 mt-5" for="factionRunemarkSelect">Faction runemark</label>
+                <label class="heading h5 mt-5" for="factionRunemarkSelect">Faction runemark</label>
                 <div id="factionRunemarkSelect" class="d-flex flex-wrap">
                     {% include factionRunemarkSelectAllies.html %}
                     {% include factionRunemarkSelectChaos.html %}
@@ -51,7 +51,7 @@
             </div>
 
             <div>
-                <label class="h5 mt-5">Characteristics</label>
+                <label class="heading h5 mt-5">Characteristics</label>
                 <div class="row">
                     <div class="col-sm-3">
                         <label for="numWounds">Wounds</label>
@@ -73,7 +73,7 @@
             </div>
 
             <div>
-                <label class="h5 mt-5" for="tagRunemarkSelect">Runemarks</label>
+                <label class="heading h5 mt-5" for="tagRunemarkSelect">Runemarks</label>
                 <div id="tagRunemarkSelect" class="d-flex flex-wrap">
                     {% include fighterRunemarkSelect.html %}
                 </div>
@@ -81,7 +81,7 @@
 
             <div id="weapon1">
                 <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                <label for="weaponEnabled" class="h5 mt-4">First weapon</label>
+                <label for="weaponEnabled" class="heading h5 mt-4">First weapon</label>
                 <div id="weaponInputs" style="display:block;">
                     {% include weaponInputs.html weapon="weapon1" %}
                 </div>
@@ -89,18 +89,18 @@
 
             <div id="weapon2">
                 <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                <label for="weaponEnabled" class="h5 mt-4">Second weapon</label>
+                <label for="weaponEnabled" class="heading h5 mt-4">Second weapon</label>
                 <div id="weaponInputs" style="display:none;">
                     {% include weaponInputs.html weapon="weapon2" %}
                 </div>
             </div>
 
             <div class="mt-5">
-                <input type="button" class="btn btn-dark btn-lg btn-block" id="clearCacheButton" value="Clear all saves" onclick="onClearCache()" />
+                <input type="button" class="btn btn-priimary btn-lg btn-block" id="clearCacheButton" value="Clear all saves" onclick="onClearCache()" />
             </div>
 
             <div class="mt-5">
-                <label class="h5 mt-5" for="slotNameInput">Name</label>
+                <label class="heading h5 mt-5" for="slotNameInput">Name</label>
                 <div class="row">
                     <div class="col-sm-6">
                         <input type="text" id="saveNameInput">
@@ -109,7 +109,7 @@
                         <input type="button" id="saveButton" value="Save" onclick="onSaveClicked()">
                     </div>
                 </div>
-                <label class="h5 mt-5" for="saveSlotsSelect">Local file</label>
+                <label class="heading h5 mt-5" for="saveSlotsSelect">Local file</label>
                 <div class="row">
                     <div class="col-sm-4">
                         <select id="saveSlotsSelect"></select>
