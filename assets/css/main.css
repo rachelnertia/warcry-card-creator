@@ -72,6 +72,10 @@ label.heading {
     text-transform: uppercase;
 }
 
+.pb-10 {
+    padding-bottom: 6rem !important;
+}
+
 #scroll-area {
     /* border: 1px dashed rgba(0,0,0,0.5);
     border-radius: .3rem; */
@@ -82,11 +86,11 @@ label.heading {
     /* padding: 1rem; */
 }
 
-.foo {
+.scroll-area-fade {
     position: relative;
 }
 
-.foo:before {
+.scroll-area-fade:before {
     background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
     background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
     background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
