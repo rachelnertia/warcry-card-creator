@@ -223,11 +223,11 @@ function drawTagRunemark(index, runemark) {
     var img = $("#circle")[0];
 
     var position = scalePixelPosition(positions[index]);
-    var size = scalePixelPosition({x: 165, y: 165});
+    var size = scalePixelPosition({x: 160, y: 160});
     getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
     position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
-    size = scalePixelPosition({x: 135, y: 135});
+    size = scalePixelPosition({x: 130, y: 130});
     drawImageSrc(position, size, runemark);
 }
 
