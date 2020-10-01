@@ -97,7 +97,7 @@ drawWeapon = function(weaponData, pixelPosition) {
 
     writeScaled(
         weaponData.attacks,
-        {x: pixelPosition.x + 430, y: statsPosY});
+        {x: pixelPosition.x + 440, y: statsPosY});
 
     writeScaled(
         weaponData.strength,
@@ -105,7 +105,7 @@ drawWeapon = function(weaponData, pixelPosition) {
 
     writeScaled(
         weaponData.damageBase + "/" + weaponData.damageCrit,
-        {x: pixelPosition.x + 780, y: statsPosY});
+        {x: pixelPosition.x + 790, y: statsPosY});
 
     var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
     var size = scalePixelPosition({x: 120, y: 120});
