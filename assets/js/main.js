@@ -463,11 +463,14 @@ render = function(fighterData) {
     getContext().textAlign = "left";
 
     drawMove(fighterData.move);
-    drawToughness(fighterData.toughness);
     drawWounds(fighterData.wounds);
 
     getContext().textBaseline = "middle";
     getContext().textAlign = "center";
+
+    drawToughness(fighterData.toughness);
+
+    getContext().textAlign = "right";
 
     drawPointCost(fighterData.pointCost);
 
