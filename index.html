@@ -30,6 +30,9 @@
                 <a aria-controls="about" aria-selected="false" class="nav-link" data-toggle="tab" href="#about" id="about-tab" role="tab">About</a>
             </li>
             <li class="nav-item">
+                <a aria-controls="issues" aria-selected="false" class="nav-link" data-toggle="tab" href="#issues" id="issues-tab" role="tab">Issues</a>
+            </li>
+            <li class="nav-item">
                 <a aria-controls="downloads" aria-selected="false" class="nav-link" data-toggle="tab" href="#downloads" id="downloads-tab" role="tab">Downloads</a>
             </li>
         </ul>
@@ -43,6 +46,9 @@
             </div>
             <div aria-labelledby="about-tab" class="tab-pane fade" id="about" role="tabpanel">
                 {% include tabContentAbout.html %}
+            </div>
+            <div aria-labelledby="issues-tab" class="tab-pane fade" id="issues" role="tabpanel">
+                {% include tabContentIssues.html %}
             </div>
             <div aria-labelledby="downloads-tab" class="tab-pane fade" id="downloads" role="tabpanel">
                 {% include tabContentDownloads.html %}
