@@ -53,7 +53,7 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 }
 
 drawToughness = function(value) {
-    writeScaled(value, {x: 505, y: 395});
+    writeScaled(value, {x: 505, y: 392.5});
 }
 
 drawWounds = function(value) {
