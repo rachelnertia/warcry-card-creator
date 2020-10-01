@@ -72,6 +72,22 @@ label.heading {
     text-transform: uppercase;
 }
 
+#weapon1 .heading,
+#weapon2 .heading {
+    position: relative;
+}
+
+#weapon1 .heading:before,
+#weapon2 .heading:before {
+    background: rgba(0,0,0,0.5);
+    content: "";
+    height: 1px;
+    left: -50px;
+    position: absolute;
+    top: -1px;
+    width: 50px;
+}
+
 .pb-10 {
     padding-bottom: 6rem !important;
 }
