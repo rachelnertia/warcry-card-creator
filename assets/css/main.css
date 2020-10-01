@@ -65,10 +65,10 @@ canvas {
     margin: 0;
 }
 
-#introText,
+/* #introText,
 #introText + .row {
     margin-top: 2rem;
-}
+} */
 
 label {
     /* cursor: pointer; */

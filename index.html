@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="format-detection" content="date=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no" />
-    <title>[BETA] Warcry Fighter Card Generator</title>
+    <title>[BETA] Warcry Card Creator 2.0</title>
     <link rel="stylesheet" href="assets/vendors/bootstrap-v4.3.1.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -17,161 +17,36 @@
 
     <div class="container-fluid">
 
-        <a href="https://github.com/HENNIROCKS/warcry-card-creator" target="_blank">
-            <svg fill="#4078c0" width="48" height="48" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z"/></svg>
-        </a>
+        <ul class="nav nav-tabs" id="wccTab" role="tablist">
+            <li class="nav-item">
+                <a aria-controls="fighters" aria-selected="true" class="nav-link active" data-toggle="tab" href="#fighters" id="fighters-tab" role="tab">Fighters</a>
+            </li>
+            <li class="nav-item">
+                <a aria-controls="abilities" aria-selected="false" class="nav-link" data-toggle="tab" href="#abilities" id="abilities-tab" role="tab">Abilities</a>
+            </li>
+            <li class="nav-item">
+                <a aria-controls="about" aria-selected="false" class="nav-link" data-toggle="tab" href="#about" id="about-tab" role="tab">About</a>
+            </li>
+            <li class="nav-item">
+                <a aria-controls="downloads" aria-selected="false" class="nav-link" data-toggle="tab" href="#downloads" id="downloads-tab" role="tab">Downloads</a>
+            </li>
+        </ul>
 
-        <button class="btn btn-warning btn-lg" type="button" data-toggle="collapse" data-target="#introText" aria-expanded="false" aria-controls="introText">
-            README
-        </button>
-        <div class="collapse" id="introText">
-            <div class="jumbotron">
-                <h1 class="display-4">
-                    <span class="badge badge-info">Beta</span> Warcry Fighter Card Generator
-                </h1>
-                <hr class="my-4">
-                <p class="lead">A fork of <a href="https://rachelnertia.github.io/warcry-card-creator/" target="_blank">@rachelnertia's work</a>. Further development and graphics by <a href="https://hendrik-berends.de/en" target="_blank">HENNIROCKS</a>.</p>
-                <p>
-                    <a href="http://creativecommons.org/licenses/by-nc/4.0/" rel="license" target="_blank">
-                        <img alt="Creative Commons license agreement" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png">
-                    </a>
-                </p>
-                <p><strong>Please note</strong> that this piece of code is made for fun by a private person: it may not get edited and updated on the long run. Feel free to fork this project for yourself and help enhance it. <strong>Also note</strong> that this application is in no way endorsed or sanctioned by Games Workshop. Should the owner wish to authorise or cease useage then please <a href="https://github.com/HENNIROCKS" target="_blank">get in touch</a>.</p>
-                <p><a href="https://github.com/HENNIROCKS/warcry-card-creator/issues" target="_blank">Issues and personal roadmap</a>.</p>
-                <p>All runemarks, not only the ones used in the app, can be found <a href="https://github.com/HENNIROCKS/warcry-card-creator/tree/master/runemarks" target="_blank">here</a>.</p>
-                <p><small>Warhammer Age of Sigmar: Warcry &copy; Copyright Games Workshop Ltd. GW, Games Workshop, Citadel, White Dwarf, Space Marine, 40K, Warhammer, Warhammer 40,000, the 'Aquila' Double-headed Eagle logo, Warhammer Age of Sigmar, Battletome, Stormcast Eternals, and all associated logos, illustrations, images, names, creatures, races, vehicles, locations, weapons, characters, and the distinctive likenesses thereof, are either &reg; or &trade;, and/or &copy; Games Workshop Limited, variably registered around the world. All Rights Reserved.</small></p>
+        <div class="tab-content" id="wccTabContent">
+            <div aria-labelledby="fighters-tab" class="tab-pane fade show active" id="fighters" role="tabpanel">
+                {% include tabContentFighters.html %}
+            </div>
+            <div aria-labelledby="abilities-tab" class="tab-pane fade" id="abilities" role="tabpanel">
+                {% include tabContentAbilities.html %}
+            </div>
+            <div aria-labelledby="about-tab" class="tab-pane fade" id="about" role="tabpanel">
+                {% include tabContentAbout.html %}
+            </div>
+            <div aria-labelledby="downloads-tab" class="tab-pane fade" id="downloads" role="tabpanel">
+                {% include tabContentDownloads.html %}
             </div>
         </div>
 
-        <div class="row mt-3">
-
-            <div class="col-lg-8">
-                <img id="warcryCardOne" style="display:none;" src="assets/img/warcryCardOne.jpg" />
-                <img id="warcryCardTwo" style="display:none;" src="assets/img/warcryCardTwo.jpg" />
-                <img id="weapon-profile" style="display:none;" src="assets/img/weapon-profile.png" />
-                <img id="circle" style="display:none;" src="assets/img/circle.png" />
-                <canvas id="canvas" width="1772" height="1241" style="background: #eee;">
-                    Sorry, your browser doesn't support the &lt;canvas&gt; element.
-                </canvas>
-            </div>
-
-            <div class="col-lg-4">
-                <div id="scroll-area">
-
-                    <div class="disabled">
-                        <label class="h5" for="backgroundSelect">Background image</label>
-                        <input type="file" id="backgroundSelect" oninput="onAnyChange()" disabled>
-                    </div>
-
-                    <div>
-                        <label class="h5 mt-5" for="imageSelect">Fighter image</label>
-                        <input type="file" id="imageSelect" oninput="onAnyChange()">
-                        <div class="row mt-4">
-                            <div class="col-sm-4">
-                                <label for="imageOffsetX">X offset (&#8596;)</label>
-                                <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0" />
-                            </div>
-                            <div class="col-sm-4">
-                                <label for="imageOffsetY">Y offset (&#8597;)</label>
-                                <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0" />
-                            </div>
-                            <div class="col-sm-4">
-                                <label for="imageScalePercent">Scale (%)</label>
-                                <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100" />
-                            </div>
-                        </div>
-                        <p class="small mt-3"><a href="https://github.com/HENNIROCKS/warcry-card-creator/tree/master/templates" target="_blank">Template files</a></p>
-                    </div>
-
-                    <div>
-                        <label class="h5 mt-5" for="factionRunemarkSelect">Faction runemark</label>
-                        <div id="factionRunemarkSelect" class="d-flex flex-wrap">
-                            {% include factionRunemarkSelectAllies.html %}
-                            {% include factionRunemarkSelectChaos.html %}
-                            {% include factionRunemarkSelectDeath.html %}
-                            {% include factionRunemarkSelectDestruction.html %}
-                            {% include factionRunemarkSelectMonsters.html %}
-                            {% include factionRunemarkSelectOrder.html %}
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="h5 mt-5">Characteristics</label>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label for="numWounds">Wounds</label>
-                                <input type="number" id="numWounds" name="numWounds" min="1" max="1000" value="10" oninput="onAnyChange()">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="toughness">Toughness</label>
-                                <input type="number" id="toughness" name="toughness" min="0" max="100" value="3" oninput="onAnyChange()">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="movement">Movement</label>
-                                <input type="number" id="movement" name="movement" min="0" max="100" value="4" oninput="onAnyChange()">
-                            </div>
-                            <div class="col-sm-3">
-                                <label for="pointCost">Points value</label>
-                                <input type="number" id="pointCost" name="pointCost" min="0" max="9999" value="100" oninput="onAnyChange()">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="h5 mt-5" for="tagRunemarkSelect">Runemarks</label>
-                        <div id="tagRunemarkSelect" class="d-flex flex-wrap">
-                            {% include fighterRunemarkSelect.html %}
-                        </div>
-                    </div>
-
-                    <div id="weapon1">
-                        <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                        <label for="weaponEnabled" class="h5 mt-4">First weapon</label>
-                        <div id="weaponInputs" style="display:block;">
-                            {% include weaponInputs.html weapon="weapon1" %}
-                        </div>
-                    </div>
-
-                    <div id="weapon2">
-                        <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                        <label for="weaponEnabled" class="h5 mt-4">Second weapon</label>
-                        <div id="weaponInputs" style="display:none;">
-                            {% include weaponInputs.html weapon="weapon2" %}
-                        </div>
-                    </div>
-
-                    <div class="mt-5">
-                        <input type="button" class="btn btn-dark btn-lg btn-block" id="clearCacheButton" value="Clear all saves" onclick="onClearCache()" />
-                    </div>
-
-                    <div class="mt-5">
-                        <label class="h5 mt-5" for="slotNameInput">Name</label>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <input type="text" id="saveNameInput">
-                            </div>
-                            <div class="col-sm-6">
-                                <input type="button" id="saveButton" value="Save" onclick="onSaveClicked()">
-                            </div>
-                        </div>
-                        <label class="h5 mt-5" for="saveSlotsSelect">Local file</label>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <select id="saveSlotsSelect"></select>
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="button" value="Load" onclick="onLoadClicked()">
-                            </div>
-                            <div class="col-sm-4">
-                                <input type="button" value="Delete" onclick="onDeleteClicked()">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
     </div>
 
     <script src="assets/vendors/jquery-v3.4.1.js"></script>
@@ -193,17 +68,17 @@
             ctx.stroke();
         });
 
-        $(document).on('click', '.nav-link.active', function() {
-            hideTab($(this))
-        });
-        $(document).on('click', function(e) {
-            if ($(e.target).closest(".nav-pills,.tab-content").length) {return}
-            hideTab($('.nav-link.active'))
-        });
-        function hideTab($activeNav) {
-            $activeNav.removeClass('active').attr('aria-selected', "false")
-            $($activeNav.attr("href")).removeClass('active');
-        }
+        // $(document).on('click', '.nav-link.active', function() {
+        //     hideTab($(this))
+        // });
+        // $(document).on('click', function(e) {
+        //     if ($(e.target).closest(".nav-pills,.tab-content").length) {return}
+        //     hideTab($('.nav-link.active'))
+        // });
+        // function hideTab($activeNav) {
+        //     $activeNav.removeClass('active').attr('aria-selected', "false")
+        //     $($activeNav.attr("href")).removeClass('active');
+        // }
     </script>
 
 </body>
