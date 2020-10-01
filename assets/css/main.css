@@ -6,7 +6,7 @@
 }
 
 canvas {
-    border-radius: .5rem;
+    border-radius: .3rem;
     height: auto;
     width: 100%;
 }
@@ -65,17 +65,12 @@ canvas {
     margin: 0;
 }
 
-/* #introText,
-#introText + .row {
-    margin-top: 2rem;
-} */
-
 label {
     /* cursor: pointer; */
 }
 
 #scroll-area {
-    border-radius: .5rem;
+    border-radius: .3rem;
     height: 100vh;
     max-height: 666px;
     border: 1px dashed rgba(0,0,0,0.5);
