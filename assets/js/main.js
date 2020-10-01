@@ -470,6 +470,7 @@ render = function(fighterData) {
 
     drawToughness(fighterData.toughness);
 
+    getContext().textBaseline = "middle";
     getContext().textAlign = "right";
 
     drawPointCost(fighterData.pointCost);
