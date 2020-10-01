@@ -57,7 +57,7 @@ drawToughness = function(value) {
 }
 
 drawWounds = function(value) {
-    writeScaled(value, {x: 380, y: 460});
+    writeScaled(value, {x: 380, y: 490});
 }
 
 drawMove = function(value) {
