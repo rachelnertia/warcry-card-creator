@@ -471,7 +471,7 @@ render = function(fighterData) {
 
     drawPointCost(fighterData.pointCost);
 
-    getContext().font = "80px rodchenkoctt";
+    getContext().font = "70px rodchenkoctt";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
