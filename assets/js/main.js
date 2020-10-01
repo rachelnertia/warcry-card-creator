@@ -478,7 +478,7 @@ render = function(fighterData) {
 
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
-    getContext().fillStyle = "black";
+    getContext().fillStyle = "red";
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
