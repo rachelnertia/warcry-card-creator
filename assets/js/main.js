@@ -477,16 +477,16 @@ render = function(fighterData) {
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
+        drawWeapon(fighterData.weapon1, {x: 50, y: 775}); // Default was x:29, y:397
+        drawWeapon(fighterData.weapon2, {x: 50, y: 975}); // Default was x:29, y:564
     }
     else if (fighterData.weapon1.enabled)
     {
-        drawWeapon(fighterData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon1, {x: 50, y: 875}); // Default was x:29, y:463
     }
     else if (fighterData.weapon2.enabled)
     {
-        drawWeapon(fighterData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
+        drawWeapon(fighterData.weapon2, {x: 50, y: 875}); // Default was x:29, y:463
     }
     for (i = 0; i < fighterData.tagRunemarks.length; i++)
     {
