@@ -457,21 +457,28 @@ render = function(fighterData) {
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
 
-    getContext().font = "60px rodchenkoctt";
+    getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
 
-    drawToughness(fighterData.toughness);
-    drawWounds(fighterData.wounds);
     drawMove(fighterData.move);
+    
+    getContext().textBaseline = "middle";
+    getContext().textAlign = "left";
+
+    drawToughness(fighterData.toughness);
 
     getContext().textBaseline = "middle";
-    getContext().textAlign = "center";
+    getContext().textAlign = "right";
+
+    drawWounds(fighterData.wounds);
+
+    getContext().textBaseline = "middle";
+    getContext().textAlign = "left";
 
     drawPointCost(fighterData.pointCost);
 
-    getContext().font = "92px rodchenkoctt";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
