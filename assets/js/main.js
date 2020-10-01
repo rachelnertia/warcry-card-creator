@@ -460,14 +460,14 @@ render = function(fighterData) {
     getContext().font = "86px rodchenkoctt";
     getContext().fillStyle = "white";
     getContext().textBaseline = "top";
-    getContext().textAlign = "center"; // left
+    getContext().textAlign = "left";
 
     drawToughness(fighterData.toughness);
     drawWounds(fighterData.wounds);
     drawMove(fighterData.move);
 
     getContext().textBaseline = "middle";
-    getContext().textAlign = "right"; // center
+    getContext().textAlign = "center";
 
     drawPointCost(fighterData.pointCost);
 
