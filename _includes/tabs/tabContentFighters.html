@@ -2,7 +2,6 @@
 
     <div class="col-lg-8">
         <img id="warcryCardOne" style="display:none;" src="assets/img/warcryCardOne.jpg" />
-        <img id="warcryCardTwo" style="display:none;" src="assets/img/warcryCardTwo.jpg" />
         <img id="weapon-profile" style="display:none;" src="assets/img/weapon-profile.png" />
         <img id="circle" style="display:none;" src="assets/img/circle.png" />
         <canvas id="canvas" width="1772" height="1241" style="background: #eee;">
@@ -41,12 +40,12 @@
             <div>
                 <label class="heading h5 mt-5" for="factionRunemarkSelect">Faction runemark</label>
                 <div id="factionRunemarkSelect" class="d-flex flex-wrap">
-                    {% include factionRunemarkSelectAllies.html %}
-                    {% include factionRunemarkSelectChaos.html %}
-                    {% include factionRunemarkSelectDeath.html %}
-                    {% include factionRunemarkSelectDestruction.html %}
-                    {% include factionRunemarkSelectMonsters.html %}
-                    {% include factionRunemarkSelectOrder.html %}
+                    {% include fighters/factionRunemarkSelectAllies.html %}
+                    {% include fighters/factionRunemarkSelectChaos.html %}
+                    {% include fighters/factionRunemarkSelectDeath.html %}
+                    {% include fighters/factionRunemarkSelectDestruction.html %}
+                    {% include fighters/factionRunemarkSelectMonsters.html %}
+                    {% include fighters/factionRunemarkSelectOrder.html %}
                 </div>
             </div>
 
@@ -75,7 +74,7 @@
             <div>
                 <label class="heading h5 mt-5" for="tagRunemarkSelect">Runemarks</label>
                 <div id="tagRunemarkSelect" class="d-flex flex-wrap">
-                    {% include fighterRunemarkSelect.html %}
+                    {% include fighters/fighterRunemarkSelect.html %}
                 </div>
             </div>
 
@@ -83,7 +82,7 @@
                 <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
                 <label for="weaponEnabled" class="heading h5 mt-5">First weapon</label>
                 <div id="weaponInputs" style="display:block;">
-                    {% include weaponInputs.html weapon="weapon1" %}
+                    {% include fighters/weaponInputs.html weapon="weapon1" %}
                 </div>
             </div>
 
@@ -91,7 +90,7 @@
                 <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
                 <label for="weaponEnabled" class="heading h5 mt-5">Second weapon</label>
                 <div id="weaponInputs" style="display:none;">
-                    {% include weaponInputs.html weapon="weapon2" %}
+                    {% include fighters/weaponInputs.html weapon="weapon2" %}
                 </div>
             </div>
 
