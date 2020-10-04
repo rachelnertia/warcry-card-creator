@@ -457,7 +457,7 @@ render = function(fighterData) {
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
 
-    getContext().font = "92px rodchenkoctt";
+    getContext().font = "92px RodchenkoCTT";
     getContext().fillStyle = "white";
 
     getContext().textBaseline = "middle";
@@ -476,7 +476,7 @@ render = function(fighterData) {
 
     drawPointCost(fighterData.pointCost);
 
-    getContext().font = "70px rodchenkoctt";
+    getContext().font = "70px RodchenkoCTT";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
