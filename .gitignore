@@ -11,3 +11,6 @@ package-lock.json
 test
 tests
 Thumbs.db
+
+_site
+.jekyll-cache
