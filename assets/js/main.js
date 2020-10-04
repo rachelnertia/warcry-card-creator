@@ -24,7 +24,15 @@ getContext = function() {
 }
 
 getBackgroundImage = function() {
-    return document.getElementById("warcryCardOne");
+    // return document.getElementById("warcryCardOne");
+
+    if (document.getElementById("backgroundStyleOne").checked) {
+        return document.getElementById("warcryCardOne");
+
+    } else if (document.getElementById("backgroundStyleTwo").checked) {
+        return document.getElementById("warcryCardTwo");
+
+    }
 }
 
 drawBackground = function() {
