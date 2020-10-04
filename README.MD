@@ -12,4 +12,4 @@ Please note that this is a non-commercial and non-profit project created by an e
 
 ## Run locally
 
-If you wish to run this repository locall on your computer, install Jekyll and run `$ jekyll serve`.
+If you wish to run this repository locally on your computer, install Jekyll and run `$ jekyll serve`.
