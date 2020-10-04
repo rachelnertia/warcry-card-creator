@@ -4,14 +4,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="format-detection" content="date=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no, width=device-width">
     <title>[BETA] Warcry Card Creator 2.0</title>
     <link rel="stylesheet" href="assets/vendors/bootstrap-v4.3.1.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
     <link rel="manifest" href="assets/favicons/site.webmanifest">
@@ -19,6 +20,7 @@
     <meta name="msapplication-TileColor" content="#333333">
     <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
     <div class="font-hack" style="font-family:'rodchenkoctt';visibility:hidden;">Nothing to see here, move along…</div>
 
@@ -44,19 +46,19 @@
 
         <div class="tab-content" id="wccTabContent">
             <div aria-labelledby="fighters-tab" class="tab-pane fade show active" id="fighters" role="tabpanel">
-                {% include tabContentFighters.html %}
+                {% include tabs/tabContentFighters.html %}
             </div>
             <div aria-labelledby="abilities-tab" class="tab-pane fade" id="abilities" role="tabpanel">
-                {% include tabContentAbilities.html %}
+                {% include tabs/tabContentAbilities.html %}
             </div>
             <div aria-labelledby="about-tab" class="tab-pane fade" id="about" role="tabpanel">
-                {% include tabContentAbout.html %}
+                {% include tabs/tabContentAbout.html %}
             </div>
             <div aria-labelledby="issues-tab" class="tab-pane fade" id="issues" role="tabpanel">
-                {% include tabContentIssues.html %}
+                {% include tabs/tabContentIssues.html %}
             </div>
             <div aria-labelledby="downloads-tab" class="tab-pane fade" id="downloads" role="tabpanel">
-                {% include tabContentDownloads.html %}
+                {% include tabs/tabContentDownloads.html %}
             </div>
         </div>
 
@@ -83,4 +85,5 @@
     </script>
 
 </body>
+
 </html>
