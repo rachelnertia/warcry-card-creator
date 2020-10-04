@@ -1,6 +1,6 @@
 # [BETA] Beta Warcry Card Creator 2.0
 
-A fork of @rachelnertia work. Further development and graphics (except runemarks) by [HENNIROCKS](https://hendrik-berends.de/en).
+A fork of [@rachelnertia's work](https://github.com/rachelnertia/warcry-card-creator). Further development and graphics (except runemarks) by [HENNIROCKS](https://hendrik-berends.de/en).
 
 [Creative Commons](http://creativecommons.org/licenses/by-nc/4.0/)
 
@@ -8,7 +8,7 @@ Please note that this is a non-commercial and non-profit project created by an e
 
 **This project is in no way endorsed or sanctioned by Games Workshop.** Should the owner wish to authorise or cease useage then please get in touch.
 
-###### Warhammer Age of Sigmar: Warcry © Copyright Games Workshop Ltd. GW, Games Workshop, Citadel, White Dwarf, Space Marine, 40K, Warhammer, Warhammer 40,000, the 'Aquila' Double-headed Eagle logo, Warhammer Age of Sigmar, Battletome, Stormcast Eternals, and all associated logos, illustrations, images, names, creatures, races, vehicles, locations, weapons, characters, and the distinctive likenesses thereof, are either ® or ™, and/or © Games Workshop Limited, variably registered around the world. All Rights Reserved.
+_Warhammer Age of Sigmar: Warcry © Copyright Games Workshop Ltd. GW, Games Workshop, Citadel, White Dwarf, Space Marine, 40K, Warhammer, Warhammer 40,000, the 'Aquila' Double-headed Eagle logo, Warhammer Age of Sigmar, Battletome, Stormcast Eternals, and all associated logos, illustrations, images, names, creatures, races, vehicles, locations, weapons, characters, and the distinctive likenesses thereof, are either ® or ™, and/or © Games Workshop Limited, variably registered around the world. All Rights Reserved._
 
 ## Run locally
 
