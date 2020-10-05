@@ -1,32 +1,19 @@
 <div class="row mt-3">
 
     <div class="col-lg-8">
-        <img id="warcryCardOne" style="display:none;" src="assets/img/warcryCardOne.jpg" />
-        <img id="weapon-profile" style="display:none;" src="assets/img/weapon-profile.png" />
-        <img id="circle" style="display:none;" src="assets/img/circle.png" />
+        {% include canvas.html %}
+        <!-- <img id="warcryCardOne" style="display:none;" src="assets/img/warcryCardOne.jpg">
+        <img id="weapon-profile" style="display:none;" src="assets/img/weapon-profile.png">
+        <img id="circle" style="display:none;" src="assets/img/circle.png">
         <canvas id="canvas" width="1772" height="1241" style="background: #eee;">
             Sorry, your browser doesn't support the &lt;canvas&gt; element.
-        </canvas>
+        </canvas> -->
     </div>
 
     <div class="col-lg-4 scroll-area-fade">
         <div id="scroll-area">
 
-            <div>
-                <label class="heading h5" for="backgroundSelect">Card background</label>
-                <div>
-                    <input checked id="backgroundStyleOne" name="backgroundToggle" oninput="onAnyChange()" type="radio" value="">
-                    <label for="backgroundStyleOne">Style 1</label>
-                </div>
-                <div>
-                    <input id="backgroundStyleTwo" name="backgroundToggle" oninput="onAnyChange()" type="radio" value="">
-                    <label for="backgroundStyleTwo">Style 2</label>
-                </div>
-                <div class="disabled mt-4">
-                    <label for="backgroundSelect">Load custom background</label>
-                    <input id="backgroundSelect" disabled oninput="onAnyChange()" type="file">
-                </div>
-            </div>
+            {% include sections/sectionCardBackground.html %}
 
             <div>
                 <label class="heading h5 mt-5" for="imageSelect">Fighter image</label>
