@@ -12,9 +12,20 @@
     <div class="col-lg-4 scroll-area-fade">
         <div id="scroll-area">
 
-            <div class="disabled">
-                <label class="heading h5" for="backgroundSelect">Background image</label>
-                <input type="file" id="backgroundSelect" oninput="onAnyChange()" disabled>
+            <div>
+                <label class="heading h5" for="backgroundSelect">Card background</label>
+                <div>
+                    <input checked id="backgroundStyleOne" name="backgroundToggle" oninput="onAnyChange()" type="radio" value="">
+                    <label for="backgroundStyleOne">Style 1</label>
+                </div>
+                <div>
+                    <input id="backgroundStyleTwo" name="backgroundToggle" oninput="onAnyChange()" type="radio" value="">
+                    <label for="backgroundStyleTwo">Style 2</label>
+                </div>
+                <div class="disabled mt-4">
+                    <label for="backgroundSelect">Load custom background</label>
+                    <input id="backgroundSelect" disabled oninput="onAnyChange()" type="file">
+                </div>
             </div>
 
             <div>
