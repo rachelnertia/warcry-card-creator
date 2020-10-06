@@ -1,9 +1,13 @@
 @font-face {
-    font-family: "RodchenkoCTT", Arial, sans-serif;
+    font-family: "rodchenkocttregular";
     font-style: normal;
     font-weight: normal;
-    src: url("../fonts/rodchenkoctt.ttf") format("truetype"),
-         url("../fonts/rodchenkoctt.woff") format("woff");
+    src: url("../fonts/rodchenkoctt.eot");
+    src: url("../fonts/rodchenkoctt.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/rodchenkoctt.woff2") format("woff2"),
+         url("../fonts/rodchenkoctt.woff") format("woff"),
+         url("../fonts/rodchenkoctt.ttf") format("truetype"),
+         url("../fonts/rodchenkoctt.svg#rodchenkocttregular") format("svg");
 }
 
 canvas {
