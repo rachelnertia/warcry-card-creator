@@ -1,9 +1,9 @@
 @font-face {
-    font-family: "RodchenkoCTT", Arial, sans-serif;
+    font-family: "rodchenkocttregular";
     font-style: normal;
     font-weight: normal;
-    src: url("./fonts/rodchenkoctt.ttf") format("truetype"),
-         url("./fonts/rodchenkoctt.woff") format("woff");
+    src: url("../fonts/rodchenkoctt-webfont.woff") format("woff2"),
+         url("../fonts/rodchenkoctt-webfont.woff") format("woff");
 }
 
 canvas {
