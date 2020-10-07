@@ -1,0 +1,33 @@
+<div class="card">
+
+    <div class="card-header" id="fightersHeadingOne">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseOne" aria-expanded="false" aria-controls="fightersCollapseOne">
+                Background
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="fightersCollapseOne">
+        <div class="card-body">
+
+            <div class="form-check">
+                <input checked class="form-check-input" id="backgroundStyleOne" name="toggle-bg-abilities" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="backgroundStyleOne">Style 1</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" id="backgroundStyleTwo" name="toggle-bg-abilities" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="backgroundStyleTwo">Style 2</label>
+            </div>
+
+            <div class="form-group mt-4">
+                <label for="backgroundSelect">Load custom background</label>
+                <input disabled aria-describedby="fileHelp" class="form-control-file" id="backgroundSelect" oninput="onAnyChange()" type="file">
+                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+            </div>
+
+        </div>
+    </div>
+
+</div>

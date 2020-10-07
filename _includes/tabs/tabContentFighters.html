@@ -1,125 +1,28 @@
 <div class="row mt-3">
 
     <div class="col-lg-8">
-        <img id="warcryCardOne" style="display:none;" src="assets/img/fighters1.jpg">
-        <img id="warcryCardTwo" style="display:none;" src="assets/img/fighters2.jpg">
-        <img id="weapon-profile" style="display:none;" src="assets/img/weapon-profile.png">
-        <img id="circle" style="display:none;" src="assets/img/circle.png">
-        <canvas class="canvas" id="canvas" width="1772" height="1241" style="background: #eee;">
+        <img id="warcryCardOne" style="display: none;" src="assets/img/fighters1.jpg">
+        <img id="warcryCardTwo" style="display: none;" src="assets/img/fighters2.jpg">
+        <img id="weapon-profile" style="display: none;" src="assets/img/weapon-profile.png">
+        <img id="circle" style="display: none;" src="assets/img/circle.png">
+        <canvas class="canvas rounded" id="canvas" width="1772" height="1241">
             Sorry, your browser doesn't support the &lt;canvas&gt; element.
         </canvas>
     </div>
 
     <div class="col-lg-4 scroll-area-fade">
         <div class="scroll-area">
+            <div class="accordion">
 
-            {% include sections/sectionCardBackground.html %}
+                {% include fighters/section-background.html %}
+                {% include fighters/section-image.html %}
+                {% include fighters/section-factionrunemark.html %}
+                {% include fighters/section-characteristics.html %}
+                {% include fighters/section-runemarks.html %}
+                {% include fighters/section-weapons.html %}
+                {% include fighters/section-actions.html %}
 
-            <div>
-                <label class="heading h5 mt-5" for="imageSelect">Fighter image</label>
-                <input type="file" id="imageSelect" oninput="onAnyChange()">
-                <div class="row mt-4">
-                    <div class="col-sm-4">
-                        <label for="imageOffsetX">X offset (&#8596;)</label>
-                        <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0" />
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="imageOffsetY">Y offset (&#8597;)</label>
-                        <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0" />
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="imageScalePercent">Scale (%)</label>
-                        <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100" />
-                    </div>
-                </div>
-                <p class="small mt-3"><a href="https://github.com/HENNIROCKS/warcry-card-creator/tree/master/templates" target="_blank">Template files</a></p>
             </div>
-
-            <div>
-                <label class="heading h5 mt-5" for="factionRunemarkSelect">Faction runemark</label>
-                <div id="factionRunemarkSelect" class="d-flex flex-wrap">
-                    {% include fighters/factionRunemarkSelectAllies.html %}
-                    {% include fighters/factionRunemarkSelectChaos.html %}
-                    {% include fighters/factionRunemarkSelectDeath.html %}
-                    {% include fighters/factionRunemarkSelectDestruction.html %}
-                    {% include fighters/factionRunemarkSelectMonsters.html %}
-                    {% include fighters/factionRunemarkSelectOrder.html %}
-                </div>
-            </div>
-
-            <div>
-                <label class="heading h5 mt-5">Characteristics</label>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label for="movement">Movement</label>
-                        <input type="number" id="movement" name="movement" min="0" max="100" value="4" oninput="onAnyChange()">
-                    </div>
-                    <div class="col-sm-3">
-                        <label for="toughness">Toughness</label>
-                        <input type="number" id="toughness" name="toughness" min="0" max="100" value="3" oninput="onAnyChange()">
-                    </div>
-                    <div class="col-sm-3">
-                        <label for="numWounds">Wounds</label>
-                        <input type="number" id="numWounds" name="numWounds" min="1" max="1000" value="10" oninput="onAnyChange()">
-                    </div>
-                    <div class="col-sm-3">
-                        <label for="pointCost">Points value</label>
-                        <input type="number" id="pointCost" name="pointCost" min="0" max="9999" value="100" oninput="onAnyChange()">
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <label class="heading h5 mt-5" for="tagRunemarkSelect">Runemarks</label>
-                <div id="tagRunemarkSelect" class="d-flex flex-wrap">
-                    {% include fighters/fighterRunemarkSelect.html %}
-                </div>
-            </div>
-
-            <div id="weapon1">
-                <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                <label for="weaponEnabled" class="heading h5 mt-5">First weapon</label>
-                <div id="weaponInputs" style="display:block;">
-                    {% include fighters/weaponInputs.html weapon="weapon1" %}
-                </div>
-            </div>
-
-            <div id="weapon2">
-                <input type="checkbox" id="weaponEnabled" oninput="onWeaponControlsToggled(this)">
-                <label for="weaponEnabled" class="heading h5 mt-5">Second weapon</label>
-                <div id="weaponInputs" style="display:none;">
-                    {% include fighters/weaponInputs.html weapon="weapon2" %}
-                </div>
-            </div>
-
-            <div class="mt-10 pb-5">
-                <input type="button" id="clearCacheButton" value="Clear all saves" onclick="onClearCache()" />
-            </div>
-
-            <div class="mt-5 pb-10">
-                <label class="heading h5 mt-5" for="slotNameInput">Name</label>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <input type="text" id="saveNameInput">
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="button" id="saveButton" value="Save" onclick="onSaveClicked()">
-                    </div>
-                </div>
-                <label class="heading h5 mt-5" for="saveSlotsSelect">Local file</label>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <select id="saveSlotsSelect"></select>
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="button" value="Load" onclick="onLoadClicked()">
-                    </div>
-                    <div class="col-sm-4">
-                        <input type="button" value="Delete" onclick="onDeleteClicked()">
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 

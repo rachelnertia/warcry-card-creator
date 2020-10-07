@@ -29,10 +29,10 @@
 
         <ul class="nav nav-tabs" id="wccTab" role="tablist">
             <li class="nav-item">
-                <a aria-controls="fighters" aria-selected="true" class="nav-link" data-toggle="tab" href="#fighters" id="fighters-tab" role="tab">Fighters</a>
+                <a aria-controls="fighters" aria-selected="true" class="nav-link active" data-toggle="tab" href="#fighters" id="fighters-tab" role="tab">Fighters</a>
             </li>
             <li class="nav-item">
-                <a aria-controls="abilities" aria-selected="false" class="nav-link active" data-toggle="tab" href="#abilities" id="abilities-tab" role="tab">Abilities</a>
+                <a aria-controls="abilities" aria-selected="false" class="nav-link" data-toggle="tab" href="#abilities" id="abilities-tab" role="tab">Abilities</a>
             </li>
             <li class="nav-item">
                 <a aria-controls="about" aria-selected="false" class="nav-link" data-toggle="tab" href="#about" id="about-tab" role="tab">About</a>
@@ -46,10 +46,10 @@
         </ul>
 
         <div class="tab-content" id="wccTabContent">
-            <div aria-labelledby="fighters-tab" class="tab-pane fade" id="fighters" role="tabpanel">
+            <div aria-labelledby="fighters-tab" class="tab-pane fade show active" id="fighters" role="tabpanel">
                 {% include tabs/tabContentFighters.html %}
             </div>
-            <div aria-labelledby="abilities-tab" class="tab-pane fade show active" id="abilities" role="tabpanel">
+            <div aria-labelledby="abilities-tab" class="tab-pane fade" id="abilities" role="tabpanel">
                 {% include tabs/tabContentAbilities.html %}
             </div>
             <div aria-labelledby="about-tab" class="tab-pane fade" id="about" role="tabpanel">
