@@ -165,3 +165,16 @@ label.heading {
 .bs-tooltip-auto[x-placement^="left"] .arrow:before {
     border-left-color: #b2221a;
 }
+
+
+
+
+/* a,
+.btn-link {
+    color: tomato;
+}
+
+a:hover,
+.btn-link:hover {
+    color: #cc4f38;
+} */
