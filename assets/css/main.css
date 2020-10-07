@@ -143,27 +143,27 @@ label.heading {
 }
 
 .tooltip-inner {
-    background: #b2221a !important;
+    background: #00bc8c !important; /* #b2221a */
 }
 
 .bs-tooltip-top .arrow:before,
 .bs-tooltip-auto[x-placement^="top"] .arrow:before {
-    border-top-color: #b2221a;
+    border-top-color: #00bc8c; /* #b2221a */
 }
 
 .bs-tooltip-right .arrow:before,
 .bs-tooltip-auto[x-placement^="right"] .arrow:before {
-    border-right-color: #b2221a;
+    border-right-color: #00bc8c; /* #b2221a */
 }
 
 .bs-tooltip-bottom .arrow:before,
 .bs-tooltip-auto[x-placement^="bottom"] .arrow:before {
-    border-bottom-color: #b2221a;
+    border-bottom-color: #00bc8c; /* #b2221a */
 }
 
 .bs-tooltip-left .arrow:before,
 .bs-tooltip-auto[x-placement^="left"] .arrow:before {
-    border-left-color: #b2221a;
+    border-left-color: #00bc8c; /* #b2221a */
 }
 
 
