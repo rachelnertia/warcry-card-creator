@@ -16,21 +16,22 @@ getScalingFactor = function(canvas, warcryCardOne) {
 }
 
 getCanvas = function() {
-    return document.getElementById('canvas');
+    return document.getElementById("canvas");
 }
 
 getContext = function() {
-    return getCanvas().getContext('2d');
+    return getCanvas().getContext("2d");
 }
 
 getBackgroundImage = function() {
-    // return document.getElementById('warcryCardOne');
+    // return document.getElementById("warcryCardOne");
 
-    if (document.getElementById('backgroundStyleOne').checked) {
-        return document.getElementById('warcryCardOne');
-        
-    } else if (document.getElementById('backgroundStyleTwo').checked) {
-        return document.getElementById('warcryCardTwo');
+    if (document.getElementById("backgroundStyleOne").checked) {
+        return document.getElementById("warcryCardOne");
+
+    } else if (document.getElementById("backgroundStyleTwo").checked) {
+        return document.getElementById("warcryCardTwo");
+
     }
 }
 
