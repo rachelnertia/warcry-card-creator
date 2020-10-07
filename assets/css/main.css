@@ -11,12 +11,13 @@
 }
 
 canvas {
+    background: #eee;
     border-radius: .3rem;
     height: auto;
     width: 100%;
 }
 
-[class^="col-"] input,
+/* [class^="col-"] input,
 [class^="col-"] input {
     width: 100%;
 }
@@ -38,7 +39,6 @@ canvas {
 [class^="col-"] input[type="radio"]:checked,
 [class*=" col-"] input[type="checkbox"]:checked,
 [class*=" col-"] input[type="radio"]:checked {
-    /* background: #b2221a; */
     position: relative;
 }
 
@@ -60,7 +60,7 @@ canvas {
 [class^="col-"] input[type="radio"],
 [class*=" col-"] input[type="radio"] {
     border-radius: 50%;
-}
+} */
 
 .disabled,
 .disabled * {
@@ -76,6 +76,7 @@ canvas {
     margin: 0;
 }
 
+.section-heading,
 label.heading {
     border-top: 1px solid rgba(0,0,0,0.5);
     display: inline-block;
@@ -106,7 +107,8 @@ label.heading {
     padding-bottom: 6rem !important;
 }
 
-#scroll-area {
+#scroll-area,
+.scroll-area {
     max-height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;

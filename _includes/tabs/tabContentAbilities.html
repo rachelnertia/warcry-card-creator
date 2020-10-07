@@ -1,20 +1,20 @@
 <div class="row mt-3">
 
     <div class="col-lg-8">
-        <img id="zzzWarcryCardOne" style="display:none;" src="assets/img/warcryCardOne.jpg">
-        <img id="zzzWarcryCardTwo" style="display:none;" src="assets/img/warcryCardTwo.jpg">
-        <canvas class="zzzCanvas" id="zzzCanvas" width="1772" height="1241" style="background: #eee;">
+        <img id="abilities-bg1" style="display: none;" src="assets/img/abilities1.jpg">
+        <img id="abilities-bg2" style="display: none;" src="assets/img/abilities2.jpg">
+        <canvas class="canvas" id="abilities-canvas" width="1772" height="1241">
             Sorry, your browser doesn't support the &lt;canvas&gt; element.
         </canvas>
-        <!-- <div class="jumbotron">
-            <h1 class="display-4">Abilities</h1>
-            <hr class="my-4">
-            <p class="lead">In the future.</p>
-        </div> -->
     </div>
 
     <div class="col-lg-4 scroll-area-fade">
-        <div id="scroll-area">
+        <div class="scroll-area">
+
+            {% include abilities/section-background.html %}
+            {% include abilities/section-factionrunemark.html %}
+            {% include abilities/section-abilities.html %}
+            {% include abilities/section-actions.html %}
 
         </div>
     </div>
