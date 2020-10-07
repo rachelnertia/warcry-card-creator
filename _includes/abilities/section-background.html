@@ -1,16 +1,14 @@
 <div class="card">
 
-    <!-- <h2 class="h5 section-heading">Card background</h2> -->
-
     <div class="card-header" id="headingOne">
         <h2 class="h5 mb-0">
-            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Choose background
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Background
             </button>
         </h2>
     </div>
 
-    <div class="collapse show" id="collapseOne">
+    <div class="collapse" id="collapseOne">
         <div class="card-body">
 
             <div class="form-check">
@@ -23,9 +21,10 @@
                 <label class="form-check-label" for="abilities-radio-bg2">Style 2</label>
             </div>
 
-            <div class="custom-file mt-4">
-                <input disabled class="custom-file-input" id="abilities-upload-bg" oninput="onAnyChange()" type="file">
-                <label class="custom-file-label" for="abilities-upload-bg">Load custom background</label>
+            <div class="form-group mt-4">
+                <label for="abilities-upload-bg">Load custom background</label>
+                <input disabled aria-describedby="fileHelp" class="form-control-file" id="abilities-upload-bg" oninput="onAnyChange()" type="file">
+                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
             </div>
 
         </div>

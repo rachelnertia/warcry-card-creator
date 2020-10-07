@@ -1,52 +1,258 @@
 <div class="card">
 
-    <!-- <h2 class="h5 section-heading">Abilities</h2> -->
-
     <div class="card-header" id="headingThree">
         <h2 class="h5 mb-0">
             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Set abilities
+                Abilities
             </button>
         </h2>
     </div>
 
     <div class="collapse" id="collapseThree">
         <div class="card-body">
+            <div class="accordion">
 
-            <div class="form-group">
-                <label for="abilities-ability1-text">Ability 1</label>
-                <textarea class="form-control" id="abilities-ability1-text" oninput="onAnyChange()"></textarea>
+                <div class="card">
+                    <div class="card-header" id="headingThreeOne">
+                        <h2 class="h5">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThreeOne" aria-expanded="false" aria-controls="collapseThreeOne">
+                                First
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="collapseThreeOne">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ability1-name">Name</label>
+                                <input class="form-control" id="ability1-name" oninput="onAnyChange()" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ability1-runemark">Runemark</label>
+                                <select class="form-control" id="ability1-runemark" name="ability1-runemark">
+                                    <option selected>Choose a runemark</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability1-double" name="ability1-dice" type="radio" value="double">
+                                <label class="form-check-label" for="ability1-double">Double</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability1-triple" name="ability1-dice" type="radio" value="triple">
+                                <label class="form-check-label" for="ability1-triple">Triple</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability1-quad" name="ability1-dice" type="radio" value="quad">
+                                <label class="form-check-label" for="ability1-quad">Quad</label>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ability1-text">Text</label>
+                                <textarea class="form-control" id="ability1-text" oninput="onAnyChange()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingThreeTwo">
+                        <h2 class="h5">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThreeTwo" aria-expanded="false" aria-controls="collapseThreeTwo">
+                                Second
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="collapseThreeTwo">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ability2-name">Name</label>
+                                <input class="form-control" id="ability2-name" oninput="onAnyChange()" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ability2-runemark">Runemark</label>
+                                <select class="form-control" id="ability2-runemark" name="ability2-runemark">
+                                    <option selected>Choose a runemark</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability2-double" name="ability2-dice" type="radio" value="double">
+                                <label class="form-check-label" for="ability2-double">Double</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability2-triple" name="ability2-dice" type="radio" value="triple">
+                                <label class="form-check-label" for="ability2-triple">Triple</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability2-quad" name="ability2-dice" type="radio" value="quad">
+                                <label class="form-check-label" for="ability2-quad">Quad</label>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ability2-text">Text</label>
+                                <textarea class="form-control" id="ability2-text" oninput="onAnyChange()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingThreeThree">
+                        <h2 class="h5">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThreeThree" aria-expanded="false" aria-controls="collapseThreeThree">
+                                Third
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="collapseThreeThree">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ability3-name">Name</label>
+                                <input class="form-control" id="ability3-name" oninput="onAnyChange()" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ability3-runemark">Runemark</label>
+                                <select class="form-control" id="ability3-runemark" name="ability3-runemark">
+                                    <option selected>Choose a runemark</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability3-double" name="ability3-dice" type="radio" value="double">
+                                <label class="form-check-label" for="ability3-double">Double</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability3-triple" name="ability3-dice" type="radio" value="triple">
+                                <label class="form-check-label" for="ability3-triple">Triple</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability3-quad" name="ability3-dice" type="radio" value="quad">
+                                <label class="form-check-label" for="ability3-quad">Quad</label>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ability3-text">Text</label>
+                                <textarea class="form-control" id="ability3-text" oninput="onAnyChange()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingThreeFour">
+                        <h2 class="h5">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThreeFour" aria-expanded="false" aria-controls="collapseThreeFour">
+                                Fourth
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="collapseThreeFour">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ability4-name">Name</label>
+                                <input class="form-control" id="ability4-name" oninput="onAnyChange()" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ability4-runemark">Runemark</label>
+                                <select class="form-control" id="ability4-runemark" name="ability4-runemark">
+                                    <option selected>Choose a runemark</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability4-double" name="ability4-dice" type="radio" value="double">
+                                <label class="form-check-label" for="ability4-double">Double</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability4-triple" name="ability4-dice" type="radio" value="triple">
+                                <label class="form-check-label" for="ability4-triple">Triple</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability4-quad" name="ability4-dice" type="radio" value="quad">
+                                <label class="form-check-label" for="ability4-quad">Quad</label>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ability4-text">Text</label>
+                                <textarea class="form-control" id="ability4-text" oninput="onAnyChange()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingThreeFifth">
+                        <h2 class="h5">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThreeFifth" aria-expanded="false" aria-controls="collapseThreeFifth">
+                                Fifth
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="collapseThreeFifth">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ability5-name">Name</label>
+                                <input class="form-control" id="ability5-name" oninput="onAnyChange()" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ability5-runemark">Runemark</label>
+                                <select class="form-control" id="ability5-runemark" name="ability5-runemark">
+                                    <option selected>Choose a runemark</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability5-double" name="ability5-dice" type="radio" value="double">
+                                <label class="form-check-label" for="ability5-double">Double</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability5-triple" name="ability5-dice" type="radio" value="triple">
+                                <label class="form-check-label" for="ability5-triple">Triple</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability5-quad" name="ability5-dice" type="radio" value="quad">
+                                <label class="form-check-label" for="ability5-quad">Quad</label>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ability5-text">Text</label>
+                                <textarea class="form-control" id="ability5-text" oninput="onAnyChange()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingThreeSixth">
+                        <h2 class="h5">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThreeSixth" aria-expanded="false" aria-controls="collapseThreeSixth">
+                                Sixth
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="collapseThreeSixth">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="ability6-name">Name</label>
+                                <input class="form-control" id="ability6-name" oninput="onAnyChange()" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ability6-runemark">Runemark</label>
+                                <select class="form-control" id="ability6-runemark" name="ability5-runemark">
+                                    <option selected>Choose a runemark</option>
+                                </select>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability6-double" name="ability6-dice" type="radio" value="double">
+                                <label class="form-check-label" for="ability6-double">Double</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability6-triple" name="ability6-dice" type="radio" value="triple">
+                                <label class="form-check-label" for="ability6-triple">Triple</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" id="ability6-quad" name="ability6-dice" type="radio" value="quad">
+                                <label class="form-check-label" for="ability6-quad">Quad</label>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="ability6-text">Text</label>
+                                <textarea class="form-control" id="ability6-text" oninput="onAnyChange()"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-
-            <div class="form-group">
-                <label for="abilities-ability2-text">Ability 2</label>
-                <textarea class="form-control" id="abilities-ability2-text" oninput="onAnyChange()"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="abilities-ability3-text">Ability 3</label>
-                <textarea class="form-control" id="abilities-ability3-text" oninput="onAnyChange()"></textarea>
-                <label class="mt-3" for="abilities-ability3-runemark">Runemark</label>
-                <select class="form-control" id="abilities-ability3-runemark">
-                    <option value=""></option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="abilities-ability4-text">Ability 4</label>
-                <textarea class="form-control" id="abilities-ability4-text" oninput="onAnyChange()"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="abilities-ability5-text">Ability 5</label>
-                <textarea class="form-control" id="abilities-ability5-text" oninput="onAnyChange()"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="abilities-ability6-text">Ability 6</label>
-                <textarea class="form-control" id="abilities-ability6-text" oninput="onAnyChange()"></textarea>
-            </div>
-
         </div>
     </div>
 
