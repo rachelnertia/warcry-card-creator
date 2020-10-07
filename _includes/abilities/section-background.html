@@ -1,19 +1,34 @@
-<section>
-    <h2 class="h5 section-heading">Card background</h2>
+<div class="card">
 
-    <div class="form-check">
-        <input checked class="form-check-input" id="abilities-radio-bg1" name="toggle-bg-abilities" oninput="onAnyChange()" type="radio">
-        <label class="form-check-label" for="abilities-radio-bg1">Style 1</label>
+    <!-- <h2 class="h5 section-heading">Card background</h2> -->
+
+    <div class="card-header" id="headingOne">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Choose background
+            </button>
+        </h2>
     </div>
 
-    <div class="form-check">
-        <input class="form-check-input" id="abilities-radio-bg2" name="toggle-bg-abilities" oninput="onAnyChange()" type="radio">
-        <label class="form-check-label" for="abilities-radio-bg2">Style 2</label>
+    <div class="collapse show" id="collapseOne">
+        <div class="card-body">
+
+            <div class="form-check">
+                <input checked class="form-check-input" id="abilities-radio-bg1" name="toggle-bg-abilities" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="abilities-radio-bg1">Style 1</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" id="abilities-radio-bg2" name="toggle-bg-abilities" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="abilities-radio-bg2">Style 2</label>
+            </div>
+
+            <div class="custom-file mt-4">
+                <input disabled class="custom-file-input" id="abilities-upload-bg" oninput="onAnyChange()" type="file">
+                <label class="custom-file-label" for="abilities-upload-bg">Load custom background</label>
+            </div>
+
+        </div>
     </div>
 
-    <div class="custom-file mt-4">
-        <input disabled class="custom-file-input" id="abilities-upload-bg" oninput="onAnyChange()" type="file">
-        <label class="custom-file-label" for="abilities-upload-bg">Load custom background</label>
-    </div>
-
-</section>
+</div>
