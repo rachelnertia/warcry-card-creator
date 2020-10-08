@@ -135,20 +135,20 @@ canvas {
 @media (prefers-color-scheme: dark) {
     .scroll-area-fade:before {
         background: rgb(34,34,34);
-        background: -moz-linear-gradient(bottom,  rgba(34,34,34,1) 0%, rgba(255,255,255,0) 100%);
-        background: -webkit-linear-gradient(bottom,  rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
-        background: linear-gradient(to top,  rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='#ffffff',GradientType=1);
+        background: -moz-linear-gradient(bottom, rgba(34,34,34,1) 0%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(to top, rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='transparent',GradientType=1);
     }
 }
 
 @media (prefers-color-scheme: light) {
     .scroll-area-fade:before {
         background: rgb(255,255,255);
-        background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-        background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
-        background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0);
+        background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='transparent',GradientType=1);
     }
 }
 
