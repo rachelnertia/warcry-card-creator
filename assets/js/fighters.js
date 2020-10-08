@@ -175,7 +175,7 @@ function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
         {
             var radioButton = $(img[0].parentNode.parentNode).find("input")[0];
             radioButton.checked = true;
-            // img[0].style.backgroundColor = "#b2221a";
+            // img[0].style.backgroundColor = "tomato";
             img[0].style.backgroundColor = "#00bc8c";
         }
         else
@@ -186,7 +186,7 @@ function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
                     radioDiv,
                     radioGroupName,
                     bgColor);
-            // $(newDiv).find("img")[0].style.backgroundColor = "#b2221a";
+            // $(newDiv).find("img")[0].style.backgroundColor = "tomato";
             $(newDiv).find("img")[0].style.backgroundColor = "#00bc8c";
             $(newDiv).find("input")[0].checked = true;
         }
@@ -421,7 +421,7 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
         {
             var checkbox = $(imgs[0].parentNode.parentNode).find("input")[0];
             checkbox.checked = true;
-            // imgs[0].style.backgroundColor = "#b2221a";
+            // imgs[0].style.backgroundColor = "tomato";
             imgs[0].style.backgroundColor = "#00bc8c";
         }
         else
@@ -431,7 +431,7 @@ function setSelectedTagRunemarks(selectedRunemarksArray)
                     runemark,
                     tagRunemarksDiv[0],
                     "white");
-            // $(newDiv).find("img")[0].style.backgroundColor = "#b2221a";
+            // $(newDiv).find("img")[0].style.backgroundColor = "tomato";
             $(newDiv).find("img")[0].style.backgroundColor = "#00bc8c";
             $(newDiv).find("input")[0].checked = true;
         }
@@ -469,7 +469,7 @@ render = function(fighterData) {
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
 
-    getContext().font = "92px rodchenkocttregular";
+    getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
 
     getContext().textBaseline = "middle";
@@ -488,7 +488,7 @@ render = function(fighterData) {
 
     drawPointCost(fighterData.pointCost);
 
-    getContext().font = "70px rodchenkocttregular";
+    getContext().font = "70px rodchenkoctt";
     getContext().textBaseline = "top";
     getContext().textAlign = "left";
     getContext().fillStyle = "black";
@@ -733,7 +733,7 @@ onRunemarkSelectionChanged = function(radioButton, backgroundColor)
         getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;
     }
 
-    // getImage(getLabel(radioButton)).style.backgroundColor = "#b2221a";
+    // getImage(getLabel(radioButton)).style.backgroundColor = "tomato";
     getImage(getLabel(radioButton)).style.backgroundColor = "#00bc8c";
 
     onAnyChange();
@@ -741,7 +741,7 @@ onRunemarkSelectionChanged = function(radioButton, backgroundColor)
 
 onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
 {
-    // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#b2221a" : backgroundColor;
+    // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
 
     onAnyChange();
