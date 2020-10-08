@@ -1,6 +1,6 @@
 # [BETA] Beta Warcry Card Creator 2.0
 
-A fork of [@rachelnertia's work](https://github.com/rachelnertia/warcry-card-creator). Further development and graphics (except runemarks) by [HENNIROCKS](https://hendrik-berends.de/en).
+A fork of [@rachelnertia's work](https://github.com/rachelnertia/warcry-card-creator). Further development and graphics (except runemarks) by [HENNIROCKS](https://hendrik-berends.de/en). Made with [Bootswatch](https://bootswatch.com), supporting dark and light mode.
 
 [Creative Commons](http://creativecommons.org/licenses/by-nc/4.0/)
 
