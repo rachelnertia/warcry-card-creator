@@ -10,27 +10,51 @@
 
     <div class="collapse" id="fightersCollapseSix">
         <div class="card-body">
+            <div class="accordion">
 
-            <div id="weapon1">
-                <input checked class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
-                <label class="form-check-label" for="weaponEnabled">First weapon</label>
-                <div id="weaponInputs" style="display: block;">
-                    {% include fighters/weaponInputs.html weapon="weapon1" %}
+                <div class="card">
+                    <div class="card-header" id="fightersHeadingSixOne">
+                        <h2 class="h5 mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseSixOne" aria-expanded="false" aria-controls="fightersCollapseSixOne">
+                                First weapon
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="fightersCollapseSixOne">
+                        <div class="card-body">
+                            <div id="weapon1">
+                                <input checked class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
+                                <label class="form-check-label" for="weaponEnabled">Add to card</label>
+                                <div class="mt-4" id="weaponInputs" style="display: block;">
+                                    {% include fighters/weaponInputs.html weapon="weapon1" %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-check">
+
+                <div class="card">
+                    <div class="card-header" id="fightersHeadingSixTwo">
+                        <h2 class="h5 mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseSixTwo" aria-expanded="false" aria-controls="fightersCollapseSixTwo">
+                                Second weapon
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="fightersCollapseSixTwo">
+                        <div class="card-body">
+                            <div id="weapon2">
+                                <input class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
+                                <label class="form-check-label" for="weaponEnabled">Add to card</label>
+                                <div class="mt-4" id="weaponInputs" style="display: none;">
+                                    {% include fighters/weaponInputs.html weapon="weapon2" %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-
-            <div id="weapon2">
-                <input class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
-                <label class="form-check-label" for="weaponEnabled">Second weapon</label>
-                <div id="weaponInputs" style="display: none;">
-                    {% include fighters/weaponInputs.html weapon="weapon2" %}
-                </div>
-                <div class="form-check">
-                </div>
-            </div>
-
         </div>
     </div>
 

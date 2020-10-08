@@ -17,34 +17,34 @@
     {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons/unarmed.svg" title="Unarmed" %}
 </div>
 
-<div class="mt-4 row">
-    <div class="col-sm-4">
+<div class="form-row mt-4">
+    <div class="col-sm-4 form-group">
         <label for="rangeMin">Range (Min)</label>
-        <input type="number" id="rangeMin" name="rangeMin" min="0" max="999" value="0" oninput="onWeaponMinRangeChanged(this)">
+        <input class="form-control" type="number" id="rangeMin" name="rangeMin" min="0" max="999" value="0" oninput="onWeaponMinRangeChanged(this)">
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <label for="rangeMax">Range (Max)</label>
-        <input type="number" id="rangeMax" name="rangeMax" min="0" max="999" value="1" oninput="onWeaponMaxRangeChanged(this)">
+        <input class="form-control" type="number" id="rangeMax" name="rangeMax" min="0" max="999" value="1" oninput="onWeaponMaxRangeChanged(this)">
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <label for="attacks">Attacks</label>
-        <input type="number" id="attacks" name="attacks" min="0" max="999" value="1" oninput="onAnyChange()">
+        <input class="form-control" type="number" id="attacks" name="attacks" min="0" max="999" value="1" oninput="onAnyChange()">
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <label for="strength">Strength</label>
-        <input type="number" id="strength" name="strength" min="1" max="99" value="3" oninput="onAnyChange()">
+        <input class="form-control" type="number" id="strength" name="strength" min="1" max="99" value="3" oninput="onAnyChange()">
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <label for="damageBase">Damage (Base)</label>
-        <input type="number" id="damageBase" name="damageBase" min="0" max="999" value="1" oninput="onAnyChange()">
+        <input class="form-control" type="number" id="damageBase" name="damageBase" min="0" max="999" value="1" oninput="onAnyChange()">
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4 form-group">
         <label for="damageCrit">Damage (Critical)</label>
-        <input type="number" id="damageCrit" name="damageCrit" min="0" max="999" value="2" oninput="onAnyChange()">
+        <input class="form-control" type="number" id="damageCrit" name="damageCrit" min="0" max="999" value="2" oninput="onAnyChange()">
     </div>
 </div>
 
 <div class="mt-4">
     <label for="additionalWeaponMarkSelect">Load custom icon</label>
-    <input type="file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this,'{{ include.weapon }}')">
+    <input class="form-control-file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this,'{{ include.weapon }}')" type="file">
 </div>
