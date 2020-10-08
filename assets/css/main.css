@@ -33,10 +33,15 @@ canvas {
 }
 
 @media (prefers-color-scheme: dark) {
-    canvas { background: #303030; }
+    canvas {
+        background: #303030;
+    }
 }
+
 @media (prefers-color-scheme: light) {
-    canvas { background: #e9ecef; }
+    canvas {
+        background: #e9ecef;
+    }
 }
 
 [disabled] {
@@ -45,6 +50,47 @@ canvas {
 
 .mb-6 {
     margin-bottom: 6rem !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navbar-toggler {
+        color: rgba(255,255,255,.5);
+        border-color: rgba(255,255,255,.1);
+    }
+    .navbar .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.6%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .navbar-toggler {
+        color: rgba(0,0,0,.5);
+        border-color: rgba(0,0,0,.1);
+    }
+    .navbar .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2834, 34, 34, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+
+@media (min-width: 991px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.nav-tabs {
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .nav-tabs .nav-link {
+        border: 0;
+    }
+}
+
+.navbar-toggler {
+    padding: 0;
 }
 
 #octocat svg {
@@ -57,6 +103,7 @@ canvas {
         fill: white;
     }
 }
+
 @media (prefers-color-scheme: light) {
     #octocat svg {
         border: 1px solid black;
@@ -94,6 +141,7 @@ canvas {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='#ffffff',GradientType=1);
     }
 }
+
 @media (prefers-color-scheme: light) {
     .scroll-area-fade:before {
         background: rgb(255,255,255);

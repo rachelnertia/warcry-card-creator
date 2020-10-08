@@ -22,27 +22,34 @@
 </head>
 
 <body>
-    <div class="font-hack" style="font-family:'rodchenkoctt';visibility:hidden;">Nothing to see here, move along…</div>
+    <div class="font-hack sr-only" style="font-family:'rodchenkoctt';visibility:hidden;">Nothing to see here, move along…</div>
 
     <div class="container-fluid">
 
-        <ul class="nav nav-tabs" id="wccTab" role="tablist">
-            <li class="nav-item">
-                <a aria-controls="fighters" aria-selected="true" class="nav-link active" data-toggle="tab" href="#fighters" id="fighters-tab" role="tab">Fighters</a>
-            </li>
-            <li class="nav-item">
-                <a aria-controls="abilities" aria-selected="false" class="nav-link" data-toggle="tab" href="#abilities" id="abilities-tab" role="tab">Abilities</a>
-            </li>
-            <li class="nav-item">
-                <a aria-controls="about" aria-selected="false" class="nav-link" data-toggle="tab" href="#about" id="about-tab" role="tab">About</a>
-            </li>
-            <li class="nav-item">
-                <a aria-controls="issues" aria-selected="false" class="nav-link" data-toggle="tab" href="#issues" id="issues-tab" role="tab">Issues</a>
-            </li>
-            <li class="nav-item">
-                <a aria-controls="downloads" aria-selected="false" class="nav-link" data-toggle="tab" href="#downloads" id="downloads-tab" role="tab">Downloads</a>
-            </li>
-        </ul>
+        <nav class="mt-2 navbar navbar-expand-lg p-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav nav-tabs" id="wccTab" role="tablist">
+                    <li class="nav-item">
+                        <a aria-controls="fighters" aria-selected="true" class="nav-link active" data-toggle="tab" href="#fighters" id="fighters-tab" role="tab">Fighters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-controls="abilities" aria-selected="false" class="nav-link" data-toggle="tab" href="#abilities" id="abilities-tab" role="tab">Abilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-controls="about" aria-selected="false" class="nav-link" data-toggle="tab" href="#about" id="about-tab" role="tab">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-controls="issues" aria-selected="false" class="nav-link" data-toggle="tab" href="#issues" id="issues-tab" role="tab">Issues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a aria-controls="downloads" aria-selected="false" class="nav-link" data-toggle="tab" href="#downloads" id="downloads-tab" role="tab">Downloads</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
         <div class="tab-content" id="wccTabContent">
             <div aria-labelledby="fighters-tab" class="tab-pane fade show active" id="fighters" role="tabpanel">
