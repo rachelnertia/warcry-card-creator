@@ -12,22 +12,22 @@
         <div class="card-body">
 
             <div id="weapon1">
-                <div class="form-check">
-                    <input class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
-                    <label class="form-check-label" for="weaponEnabled">First weapon</label>
-                </div>
+                <input checked class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
+                <label class="form-check-label" for="weaponEnabled">First weapon</label>
                 <div id="weaponInputs" style="display: block;">
                     {% include fighters/weaponInputs.html weapon="weapon1" %}
+                </div>
+                <div class="form-check">
                 </div>
             </div>
 
             <div id="weapon2">
-                <div class="form-check">
-                    <input class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
-                    <label class="form-check-label" for="weaponEnabled">Second weapon</label>
-                </div>
+                <input class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
+                <label class="form-check-label" for="weaponEnabled">Second weapon</label>
                 <div id="weaponInputs" style="display: none;">
                     {% include fighters/weaponInputs.html weapon="weapon2" %}
+                </div>
+                <div class="form-check">
                 </div>
             </div>
 
