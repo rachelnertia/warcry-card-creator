@@ -32,6 +32,9 @@ getBackgroundImage = function() {
     } else if (document.getElementById("backgroundStyleTwo").checked) {
         return document.getElementById("warcryCardTwo");
 
+    } else if (document.getElementById("backgroundStyleThree").checked) {
+        return document.getElementById("warcryCardThree");
+
     }
 }
 
