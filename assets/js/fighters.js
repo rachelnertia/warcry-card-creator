@@ -24,22 +24,22 @@ getContext = function() {
 }
 
 getBackgroundImage = function() {
-    if (document.getElementById('').checked) {
+    if (document.getElementById('select-bg-dark-102').checked) {
         return document.getElementById('bg-dark-102');
 
-    } else if (document.getElementById('').checked) {
+    } else if (document.getElementById('select-bg-dark-112').checked) {
         return document.getElementById('bg-dark-112');
 
-    } else if (document.getElementById('').checked) {
+    } else if (document.getElementById('select-bg-dark-302').checked) {
         return document.getElementById('bg-dark-302');
 
-    } else if (document.getElementById('').checked) {
+    } else if (document.getElementById('select-bg-dark-312').checked) {
         return document.getElementById('bg-dark-312');
 
-    } else if (document.getElementById('').checked) {
+    } else if (document.getElementById('select-bg-fire-112').checked) {
         return document.getElementById('bg-fire-102');
 
-    } else if (document.getElementById('').checked) {
+    } else if (document.getElementById('select-bg-fire-112').checked) {
         return document.getElementById('bg-fire-112');
     }
 }
