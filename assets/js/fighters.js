@@ -36,7 +36,7 @@ getBackgroundImage = function() {
     } else if (document.getElementById('select-bg-dark-312').checked) {
         return document.getElementById('bg-dark-312');
 
-    } else if (document.getElementById('select-bg-fire-112').checked) {
+    } else if (document.getElementById('select-bg-fire-102').checked) {
         return document.getElementById('bg-fire-102');
 
     } else if (document.getElementById('select-bg-fire-112').checked) {
