@@ -24,17 +24,23 @@ getContext = function() {
 }
 
 getBackgroundImage = function() {
-    // return document.getElementById("warcryCardOne");
+    if (document.getElementById('').checked) {
+        return document.getElementById('bg-dark-102');
 
-    if (document.getElementById("backgroundStyleOne").checked) {
-        return document.getElementById("warcryCardOne");
+    } else if (document.getElementById('').checked) {
+        return document.getElementById('bg-dark-112');
 
-    } else if (document.getElementById("backgroundStyleTwo").checked) {
-        return document.getElementById("warcryCardTwo");
+    } else if (document.getElementById('').checked) {
+        return document.getElementById('bg-dark-302');
 
-    } else if (document.getElementById("backgroundStyleThree").checked) {
-        return document.getElementById("warcryCardThree");
+    } else if (document.getElementById('').checked) {
+        return document.getElementById('bg-dark-312');
 
+    } else if (document.getElementById('').checked) {
+        return document.getElementById('bg-fire-102');
+
+    } else if (document.getElementById('').checked) {
+        return document.getElementById('bg-fire-112');
     }
 }
 
