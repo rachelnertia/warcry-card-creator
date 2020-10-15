@@ -11,11 +11,13 @@
     <div class="collapse" id="abilitiesCollapseTwo">
         <div class="card-body">
 
-            <div class="form-group">
-                <label for="ability-faction-runemark">Faction runemark</label>
-                <select class="form-control" id="ability-faction-runemark" name="ability-faction-runemark">
-                    <option>Choose a runemark</option>
-                </select>
+            <div id="factionRunemarkSelect" class="d-flex flex-wrap">
+                {% include fighters/factionRunemarkSelectAllies.html %}
+                {% include fighters/factionRunemarkSelectChaos.html %}
+                {% include fighters/factionRunemarkSelectDeath.html %}
+                {% include fighters/factionRunemarkSelectDestruction.html %}
+                {% include fighters/factionRunemarkSelectMonsters.html %}
+                {% include fighters/factionRunemarkSelectOrder.html %}
             </div>
 
         </div>

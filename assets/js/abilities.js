@@ -24,24 +24,26 @@ getContext = function() {
 }
 
 getBackgroundImage = function() {
-    if (document.getElementById('select-bg-dark-102').checked) {
-        return document.getElementById('bg-dark-102');
+    return document.getElementById('bg-abilities');
 
-    } else if (document.getElementById('select-bg-dark-112').checked) {
-        return document.getElementById('bg-dark-112');
-
-    } else if (document.getElementById('select-bg-dark-302').checked) {
-        return document.getElementById('bg-dark-302');
-
-    } else if (document.getElementById('select-bg-dark-312').checked) {
-        return document.getElementById('bg-dark-312');
-
-    } else if (document.getElementById('select-bg-fire-102').checked) {
-        return document.getElementById('bg-fire-102');
-
-    } else if (document.getElementById('select-bg-fire-112').checked) {
-        return document.getElementById('bg-fire-112');
-    }
+    // if (document.getElementById('select-bg-abilities').checked) {
+    //     return document.getElementById('bg-abilities');
+    //
+    // } else if (document.getElementById('select-bg-abilities').checked) {
+    //     return document.getElementById('bg-abilities');
+    //
+    // } else if (document.getElementById('select-bg-abilities').checked) {
+    //     return document.getElementById('bg-abilities');
+    //
+    // } else if (document.getElementById('select-bg-abilities').checked) {
+    //     return document.getElementById('bg-abilities');
+    //
+    // } else if (document.getElementById('select-bg-abilities').checked) {
+    //     return document.getElementById('bg-abilities');
+    //
+    // } else if (document.getElementById('select-bg-abilities').checked) {
+    //     return document.getElementById('bg-abilities');
+    // }
 }
 
 drawBackground = function() {
@@ -478,29 +480,29 @@ render = function(fighterData) {
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
 
-    getContext().font = "92px rodchenkoctt";
-    getContext().fillStyle = "white";
+    // getContext().font = "92px rodchenkoctt";
+    // getContext().fillStyle = "white";
 
-    getContext().textBaseline = "middle";
-    getContext().textAlign = "left";
+    // getContext().textBaseline = "middle";
+    // getContext().textAlign = "left";
 
-    drawMove(fighterData.move);
-    drawWounds(fighterData.wounds);
+    // drawMove(fighterData.move);
+    // drawWounds(fighterData.wounds);
 
-    getContext().textBaseline = "middle";
-    getContext().textAlign = "right";
+    // getContext().textBaseline = "middle";
+    // getContext().textAlign = "right";
 
-    drawToughness(fighterData.toughness);
+    // drawToughness(fighterData.toughness);
 
-    getContext().textBaseline = "middle";
-    getContext().textAlign = "center";
+    // getContext().textBaseline = "middle";
+    // getContext().textAlign = "center";
 
-    drawPointCost(fighterData.pointCost);
+    // drawPointCost(fighterData.pointCost);
 
-    getContext().font = "70px rodchenkoctt";
-    getContext().textBaseline = "top";
-    getContext().textAlign = "left";
-    getContext().fillStyle = "black";
+    // getContext().font = "70px rodchenkoctt";
+    // getContext().textBaseline = "top";
+    // getContext().textAlign = "left";
+    // getContext().fillStyle = "black";
 
     if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
     {
@@ -527,10 +529,10 @@ function writeControls(fighterData)
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
-    $("#toughness")[0].value = fighterData.toughness;
-    $("#numWounds")[0].value = fighterData.wounds;
-    $("#movement")[0].value = fighterData.move;
-    $("#pointCost")[0].value = fighterData.pointCost;
+    // $("#toughness")[0].value = fighterData.toughness;
+    // $("#numWounds")[0].value = fighterData.wounds;
+    // $("#movement")[0].value = fighterData.move;
+    // $("#pointCost")[0].value = fighterData.pointCost;
     setSelectedTagRunemarks(fighterData.tagRunemarks);
     writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
     writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
@@ -542,10 +544,10 @@ function defaultFighterData() {
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
-    fighterData.toughness = 4;
-    fighterData.wounds = 15;
-    fighterData.move = 5;
-    fighterData.pointCost = 125;
+    // fighterData.toughness = 4;
+    // fighterData.wounds = 15;
+    // fighterData.move = 5;
+    // fighterData.pointCost = 125;
     fighterData.tagRunemarks = new Array;
     fighterData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
     fighterData.weapon1 = getDefaultWeaponData1();
@@ -700,7 +702,7 @@ function getLatestFighterDataName()
 window.onload = function() {
     //window.localStorage.clear();
     var fighterData = loadLatestFighterData();
-    writeControls(fighterData);
+    // writeControls(fighterData);
     render(fighterData);
     refreshSaveSlots();
 }
