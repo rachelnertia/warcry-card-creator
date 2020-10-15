@@ -75,14 +75,20 @@
     <script src="assets/vendors/popper.min.js"></script>
     <script src="assets/vendors/bootstrap.min.js"></script>
 
+    <script id="voodoo" src="assets/js/fighters.js"></script>
+
+    {% comment %}
     <script src="assets/js/abilities.js"></script>
-    <script src="assets/js/fighters.js"></script>
+    {% endcomment %}
 
     <script type="text/javascript">
-        $(function() {
-            $('[data-toggle="tooltip"]').tooltip({
-                boundary: 'window'
-            })
+
+        $('#abilities-tab').click(function() {
+            $('#voodoo').attr('src', 'assets/js/abilities.js');
+        });
+
+        $('#fighters-tab').click(function() {
+            $('#voodoo').attr('src', 'assets/js/fighters.js');
         });
 
         function saveCardAsImage() {
