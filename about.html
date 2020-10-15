@@ -11,12 +11,12 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no, width=device-width">
     <title>[BETA] Warcry Card Creator 2.0</title>
     <meta name="color-scheme" content="dark light">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicons/site.webmanifest">
-    <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#333333">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="../assets/favicons/safari-pinned-tab.svg" color="#333333">
     <meta name="msapplication-TileColor" content="#333333">
     <meta name="theme-color" content="#ffffff">
 </head>
@@ -35,13 +35,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Fighters</a>
+                        <a class="nav-link" href="../../index.html">Fighters</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="abilities.html">Abilities</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link active" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="issues.html">Issues</a>
@@ -54,14 +54,12 @@
 
         </nav>
 
-        {% include tabs/tabContentFighters.html %}
+        {% include tabs/tabContentAbout.html %}
 
     </div>
 
-    <script src="assets/vendors/jquery.js"></script>
-    <script src="assets/vendors/popper.min.js"></script>
-    <script src="assets/vendors/bootstrap.min.js"></script>
-    <script src="assets/js/fighters.js"></script>
+    <script src="../assets/vendors/jquery.js"></script>
+    <script src="../assets/vendors/bootstrap.min.js"></script>
 
 </body>
 

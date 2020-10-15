@@ -880,3 +880,25 @@ function onDeleteClicked()
 
     refreshSaveSlots();
 }
+
+// …
+// …
+// …
+
+function saveCardAsImage() {
+    var element = document.createElement('a');
+    element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
+    element.setAttribute('download', 'your-warcry-card.png');
+    element.style.display = 'none';
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+}
+
+$(document).ready(function() {
+    var c=document.getElementById('canvas');
+    var ctx=c.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(95,50,40,0,2*Math.PI);
+    // ctx.stroke();
+});
