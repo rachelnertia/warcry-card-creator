@@ -75,39 +75,39 @@
     <script src="assets/vendors/popper.min.js"></script>
     <script src="assets/vendors/bootstrap.min.js"></script>
 
-    <script id="voodoo" src="assets/js/fighters.js"></script>
+    <script src="assets/js/card-creator.js"></script>
 
     {% comment %}
+    <script id="voodoo" src="assets/js/fighters.js"></script>
     <script src="assets/js/abilities.js"></script>
     {% endcomment %}
 
     <script type="text/javascript">
+        // $('#abilities-tab').click(function() {
+        //     $('#voodoo').attr('src', 'assets/js/abilities.js');
+        // });
+        //
+        // $('#fighters-tab').click(function() {
+        //     $('#voodoo').attr('src', 'assets/js/fighters.js');
+        // });
 
-        $('#abilities-tab').click(function() {
-            $('#voodoo').attr('src', 'assets/js/abilities.js');
-        });
-
-        $('#fighters-tab').click(function() {
-            $('#voodoo').attr('src', 'assets/js/fighters.js');
-        });
-
-        function saveCardAsImage() {
-            var element = document.createElement('a');
-            element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
-            element.setAttribute('download', 'your-warcry-card.png');
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-        }
-
-        $(document).ready(function() {
-            var c=document.getElementById('canvas');
-            var ctx=c.getContext('2d');
-            ctx.beginPath();
-            ctx.arc(95,50,40,0,2*Math.PI);
-            // ctx.stroke();
-        });
+        // function saveCardAsImage() {
+        //     var element = document.createElement('a');
+        //     element.setAttribute('href', document.getElementById('canvas').toDataURL('image/png'));
+        //     element.setAttribute('download', 'your-warcry-card.png');
+        //     element.style.display = 'none';
+        //     document.body.appendChild(element);
+        //     element.click();
+        //     document.body.removeChild(element);
+        // }
+        //
+        // $(document).ready(function() {
+        //     var c=document.getElementById('canvas');
+        //     var ctx=c.getContext('2d');
+        //     ctx.beginPath();
+        //     ctx.arc(95,50,40,0,2*Math.PI);
+        //     // ctx.stroke();
+        // });
     </script>
 
 </body>
