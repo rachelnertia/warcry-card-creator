@@ -24,26 +24,16 @@ getContext = function() {
 }
 
 getBackgroundImage = function() {
-    return document.getElementById('bg-abilities');
+    if (document.getElementById('select-bg-dark-102').checked) {
+        return document.getElementById('bg-dark-102');
 
-    // if (document.getElementById('select-bg-abilities').checked) {
-    //     return document.getElementById('bg-abilities');
-    //
-    // } else if (document.getElementById('select-bg-abilities').checked) {
-    //     return document.getElementById('bg-abilities');
-    //
-    // } else if (document.getElementById('select-bg-abilities').checked) {
-    //     return document.getElementById('bg-abilities');
-    //
-    // } else if (document.getElementById('select-bg-abilities').checked) {
-    //     return document.getElementById('bg-abilities');
-    //
-    // } else if (document.getElementById('select-bg-abilities').checked) {
-    //     return document.getElementById('bg-abilities');
-    //
-    // } else if (document.getElementById('select-bg-abilities').checked) {
-    //     return document.getElementById('bg-abilities');
-    // }
+    } else if (document.getElementById('select-bg-dark-302').checked) {
+        return document.getElementById('bg-dark-302');
+
+    } else if (document.getElementById('select-bg-fire-102').checked) {
+        return document.getElementById('bg-fire-102');
+
+    }
 }
 
 drawBackground = function() {
@@ -453,17 +443,16 @@ function readControls()
 {
     var data = new Object;
     data.name = getName();
-    data.imageUrl = getModelImage();
-    data.imageProperties = getModelImageProperties();
+    // data.imageUrl = getModelImage();
+    // data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
-    data.toughness = document.getElementById("toughness").value;
-    data.wounds = document.getElementById("numWounds").value;
-    data.move = document.getElementById("movement").value;
-    data.pointCost = document.getElementById("pointCost").value;
+    // data.toughness = document.getElementById("toughness").value;
+    // data.wounds = document.getElementById("numWounds").value;
+    // data.move = document.getElementById("movement").value;
+    // data.pointCost = document.getElementById("pointCost").value;
     data.tagRunemarks = readTagRunemarks();
-    data.weapon1 = readWeaponControls("#weapon1");
-    data.weapon2 = readWeaponControls("#weapon2");
-
+    // data.weapon1 = readWeaponControls("#weapon1");
+    // data.weapon2 = readWeaponControls("#weapon2");
     return data;
 }
 
@@ -476,12 +465,10 @@ function drawFactionRunemark(image)
 
 render = function(fighterData) {
     drawBackground();
-
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
-
-    // getContext().font = "92px rodchenkoctt";
-    // getContext().fillStyle = "white";
+    getContext().font = "92px rodchenkoctt";
+    getContext().fillStyle = "white";
 
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "left";
@@ -504,19 +491,19 @@ render = function(fighterData) {
     // getContext().textAlign = "left";
     // getContext().fillStyle = "black";
 
-    if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
-    {
-        drawWeapon(fighterData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
-        drawWeapon(fighterData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
-    }
-    else if (fighterData.weapon1.enabled)
-    {
-        drawWeapon(fighterData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
-    }
-    else if (fighterData.weapon2.enabled)
-    {
-        drawWeapon(fighterData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
-    }
+    // if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
+    // {
+    //     drawWeapon(fighterData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
+    //     drawWeapon(fighterData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
+    // }
+    // else if (fighterData.weapon1.enabled)
+    // {
+    //     drawWeapon(fighterData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
+    // }
+    // else if (fighterData.weapon2.enabled)
+    // {
+    //     drawWeapon(fighterData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
+    // }
     for (i = 0; i < fighterData.tagRunemarks.length; i++)
     {
         drawTagRunemark(i, fighterData.tagRunemarks[i]);
@@ -526,23 +513,23 @@ render = function(fighterData) {
 function writeControls(fighterData)
 {
     setName(fighterData.name);
-    setModelImage(fighterData.imageUrl);
-    setModelImageProperties(fighterData.imageProperties);
+    // setModelImage(fighterData.imageUrl);
+    // setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
     // $("#toughness")[0].value = fighterData.toughness;
     // $("#numWounds")[0].value = fighterData.wounds;
     // $("#movement")[0].value = fighterData.move;
     // $("#pointCost")[0].value = fighterData.pointCost;
     setSelectedTagRunemarks(fighterData.tagRunemarks);
-    writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
-    writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
+    // writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
+    // writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
 }
 
 function defaultFighterData() {
     var fighterData = new Object;
     fighterData.name = 'Default';
-    fighterData.imageUrl = null;
-    fighterData.imageProperties = getDefaultModelImageProperties();
+    // fighterData.imageUrl = null;
+    // fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
     // fighterData.toughness = 4;
     // fighterData.wounds = 15;
@@ -550,8 +537,8 @@ function defaultFighterData() {
     // fighterData.pointCost = 125;
     fighterData.tagRunemarks = new Array;
     fighterData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
-    fighterData.weapon1 = getDefaultWeaponData1();
-    fighterData.weapon2 = getDefaultWeaponData2();
+    // fighterData.weapon1 = getDefaultWeaponData1();
+    // fighterData.weapon2 = getDefaultWeaponData2();
     return fighterData;
 }
 
