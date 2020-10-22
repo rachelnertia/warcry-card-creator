@@ -94,38 +94,27 @@ drawAbility = function(id, pixelPosition) {
 
     // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
     var textblock = (function() {
-        var txt = name + ': ' + text,
-            lines = txt.split('\n');
+        var txt = '';
+
+        if (double.checked) {
+            var txt = '[Double] ' + name + ': ' + text;
+        } else if (triple.checked) {
+            var txt = '[Triple] ' + name + ': ' + text;
+        } else if (quad.checked) {
+            var txt = '[Quad] ' + name + ': ' + text;
+        } else {
+            var txt = name + ': ' + text;
+        }
+
+        var lines = txt.split('\n');
 
         for (var i = 0; i < lines.length; i++) {
             writeScaled(
                 lines[i],
-                {x: pixelPosition.x, y: pixelPosition.y+(i*30)}
+                {x: pixelPosition.x, y: pixelPosition.y+(i*35)}
             );
         }
     })();
-
-    if (double.checked) {
-        writeScaled(
-            '[Double] ' + textblock,
-            {x: pixelPosition.x, y: pixelPosition.y}
-        );
-    } else if (triple.checked) {
-        writeScaled(
-            '[Triple] ' + textblock,
-            {x: pixelPosition.x, y: pixelPosition.y}
-        );
-    } else if (quad.checked) {
-        writeScaled(
-            '[Quad] ' + textblock,
-            {x: pixelPosition.x, y: pixelPosition.y}
-        );
-    } else {
-        writeScaled(
-            textblock,
-            {x: pixelPosition.x, y: pixelPosition.y}
-        );
-    }
 }
 
 
@@ -134,61 +123,61 @@ drawAbility = function(id, pixelPosition) {
 
 
 
-getWeaponStatblockImage = function() {
-    return document.getElementById("weapon-profile");
-}
+// getWeaponStatblockImage = function() {
+//     return document.getElementById("weapon-profile");
+// }
 
-drawWeaponStatblock = function(pixelPosition) {
-    var image = getWeaponStatblockImage();
-    var scaledPosition = scalePixelPosition(pixelPosition);
-    // var scaledSize = scalePixelPosition({x: image.width, y: image.height});
-    // getContext().drawImage(
-    //     image,
-    //     scaledPosition.x,
-    //     scaledPosition.y,
-    //     scaledSize.x,
-    //     scaledSize.y);
-}
+// drawWeaponStatblock = function(pixelPosition) {
+//     var image = getWeaponStatblockImage();
+//     var scaledPosition = scalePixelPosition(pixelPosition);
+//     // var scaledSize = scalePixelPosition({x: image.width, y: image.height});
+//     // getContext().drawImage(
+//     //     image,
+//     //     scaledPosition.x,
+//     //     scaledPosition.y,
+//     //     scaledSize.x,
+//     //     scaledSize.y);
+// }
 
-drawWeapon = function(weaponData, pixelPosition) {
-    drawWeaponStatblock(pixelPosition);
+// drawWeapon = function(weaponData, pixelPosition) {
+//     drawWeaponStatblock(pixelPosition);
+//
+//     var statsPosY = pixelPosition.y + 95;
+//
+//     var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
+//
+//     getContext().textAlign = "center";
+//
+//     writeScaled(range, {x: pixelPosition.x + 250, y: statsPosY});
+//
+//     writeScaled(
+//         weaponData.attacks,
+//         {x: pixelPosition.x + 440, y: statsPosY});
+//
+//     writeScaled(
+//         weaponData.strength,
+//         {x: pixelPosition.x + 620, y: statsPosY});
+//
+//     writeScaled(
+//         weaponData.damageBase + "/" + weaponData.damageCrit,
+//         {x: pixelPosition.x + 790, y: statsPosY});
+//
+//     var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
+//     var size = scalePixelPosition({x: 120, y: 120});
+//     drawImageSrc(position, size, weaponData.runemark);
+// }
 
-    var statsPosY = pixelPosition.y + 95;
-
-    var range = (weaponData.rangeMin > 0 ? (weaponData.rangeMin + "-") : "") + weaponData.rangeMax;
-
-    getContext().textAlign = "center";
-
-    writeScaled(range, {x: pixelPosition.x + 250, y: statsPosY});
-
-    writeScaled(
-        weaponData.attacks,
-        {x: pixelPosition.x + 440, y: statsPosY});
-
-    writeScaled(
-        weaponData.strength,
-        {x: pixelPosition.x + 620, y: statsPosY});
-
-    writeScaled(
-        weaponData.damageBase + "/" + weaponData.damageCrit,
-        {x: pixelPosition.x + 790, y: statsPosY});
-
-    var position = scalePixelPosition({x: pixelPosition.x + 20, y: pixelPosition.y + 30});
-    var size = scalePixelPosition({x: 120, y: 120});
-    drawImageSrc(position, size, weaponData.runemark);
-}
-
-function getWeapon(weaponId) {
-    return $(weaponId).find("#weaponEnabled")[0].checked ? $(weaponId) : null;
-}
-
-function getWeapon1() {
-    return getWeapon("#weapon1");
-}
-
-function getWeapon2() {
-    return getWeapon("#weapon2");
-}
+// function getWeapon(weaponId) {
+//     return $(weaponId).find("#weaponEnabled")[0].checked ? $(weaponId) : null;
+// }
+//
+// function getWeapon1() {
+//     return getWeapon("#weapon1");
+// }
+//
+// function getWeapon2() {
+//     return getWeapon("#weapon2");
+// }
 
 function getLabel(element)
 {
@@ -381,66 +370,66 @@ function setModelImageProperties(modelImageProperties)
     // $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
 }
 
-function getDefaultWeaponData()
-{
-    var weaponData = new Object;
-    weaponData.enabled = true;
-    weaponData.rangeMin = 0;
-    weaponData.rangeMax = 1;
-    weaponData.attacks = 1;
-    weaponData.strength = 3;
-    weaponData.damageBase = 1;
-    weaponData.damageCrit = 2;
-    weaponData.runemark = null;
-    return weaponData;
-}
-
-function getDefaultWeaponData1()
-{
-    var data = getDefaultWeaponData();
-    data.enabled = true;
-    return data;
-}
-
-function getDefaultWeaponData2()
-{
-    var data = getDefaultWeaponData();
-    data.enabled = false;
-    return data;
-}
-
-function readWeaponControls(weaponId)
-{
-    var weaponData = new Object;
-    var weaponDiv = $(weaponId);
-    // weaponData.enabled = weaponDiv.find("#weaponEnabled")[0].checked;
-    // weaponData.rangeMin = weaponDiv.find("#rangeMin")[0].value;
-    // weaponData.rangeMax = weaponDiv.find("#rangeMax")[0].value;
-    // weaponData.attacks = weaponDiv.find("#attacks")[0].value;
-    // weaponData.strength = weaponDiv.find("#strength")[0].value;
-    // weaponData.damageBase = weaponDiv.find("#damageBase")[0].value;
-    // weaponData.damageCrit = weaponDiv.find("#damageCrit")[0].value;
-    weaponData.runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]);
-    return weaponData;
-}
-
-function writeWeaponControls(weaponId, weaponData, weaponName)
-{
-    weaponDiv = $(weaponId);
-    // weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
-    // weaponDiv.find("#weaponInputs")[0].style.display = weaponData.enabled ? "block" : "none";
-    // weaponDiv.find("#rangeMin")[0].value = weaponData.rangeMin;
-    // weaponDiv.find("#rangeMax")[0].value = weaponData.rangeMax;
-    // weaponDiv.find("#attacks")[0].value = weaponData.attacks;
-    // weaponDiv.find("#strength")[0].value = weaponData.strength;
-    // weaponDiv.find("#damageBase")[0].value = weaponData.damageBase;
-    // weaponDiv.find("#damageCrit")[0].value = weaponData.damageCrit;
-    setSelectedRunemark(
-        weaponDiv.find("#weaponRunemarkSelect")[0],
-        weaponData.runemark,
-        weaponName,
-        "white");
-}
+// function getDefaultWeaponData()
+// {
+//     var weaponData = new Object;
+//     weaponData.enabled = true;
+//     weaponData.rangeMin = 0;
+//     weaponData.rangeMax = 1;
+//     weaponData.attacks = 1;
+//     weaponData.strength = 3;
+//     weaponData.damageBase = 1;
+//     weaponData.damageCrit = 2;
+//     weaponData.runemark = null;
+//     return weaponData;
+// }
+//
+// function getDefaultWeaponData1()
+// {
+//     var data = getDefaultWeaponData();
+//     data.enabled = true;
+//     return data;
+// }
+//
+// function getDefaultWeaponData2()
+// {
+//     var data = getDefaultWeaponData();
+//     data.enabled = false;
+//     return data;
+// }
+//
+// function readWeaponControls(weaponId)
+// {
+//     var weaponData = new Object;
+//     var weaponDiv = $(weaponId);
+//     // weaponData.enabled = weaponDiv.find("#weaponEnabled")[0].checked;
+//     // weaponData.rangeMin = weaponDiv.find("#rangeMin")[0].value;
+//     // weaponData.rangeMax = weaponDiv.find("#rangeMax")[0].value;
+//     // weaponData.attacks = weaponDiv.find("#attacks")[0].value;
+//     // weaponData.strength = weaponDiv.find("#strength")[0].value;
+//     // weaponData.damageBase = weaponDiv.find("#damageBase")[0].value;
+//     // weaponData.damageCrit = weaponDiv.find("#damageCrit")[0].value;
+//     weaponData.runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]);
+//     return weaponData;
+// }
+//
+// function writeWeaponControls(weaponId, weaponData, weaponName)
+// {
+//     weaponDiv = $(weaponId);
+//     // weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
+//     // weaponDiv.find("#weaponInputs")[0].style.display = weaponData.enabled ? "block" : "none";
+//     // weaponDiv.find("#rangeMin")[0].value = weaponData.rangeMin;
+//     // weaponDiv.find("#rangeMax")[0].value = weaponData.rangeMax;
+//     // weaponDiv.find("#attacks")[0].value = weaponData.attacks;
+//     // weaponDiv.find("#strength")[0].value = weaponData.strength;
+//     // weaponDiv.find("#damageBase")[0].value = weaponData.damageBase;
+//     // weaponDiv.find("#damageCrit")[0].value = weaponData.damageCrit;
+//     setSelectedRunemark(
+//         weaponDiv.find("#weaponRunemarkSelect")[0],
+//         weaponData.runemark,
+//         weaponName,
+//         "white");
+// }
 
 function readTagRunemarks()
 {
@@ -523,8 +512,8 @@ function readControls()
     // data.move = document.getElementById("movement").value;
     // data.pointCost = document.getElementById("pointCost").value;
     data.tagRunemarks = readTagRunemarks();
-    data.weapon1 = readWeaponControls("#weapon1");
-    data.weapon2 = readWeaponControls("#weapon2");
+    // data.weapon1 = readWeaponControls("#weapon1");
+    // data.weapon2 = readWeaponControls("#weapon2");
     return data;
 }
 
@@ -554,12 +543,12 @@ render = function(fighterData) {
 
     // drawToughness(fighterData.toughness);
 
-    drawAbility(1, {x: 400, y:  250});
-    drawAbility(2, {x: 400, y:  425});
-    drawAbility(3, {x: 400, y:  600});
-    drawAbility(4, {x: 400, y:  775});
-    drawAbility(5, {x: 400, y:  950});
-    drawAbility(6, {x: 400, y: 1125});
+    drawAbility(1, {x: 400, y:  225});
+    drawAbility(2, {x: 400, y:  400});
+    drawAbility(3, {x: 400, y:  575});
+    drawAbility(4, {x: 400, y:  750});
+    drawAbility(5, {x: 400, y:  925});
+    drawAbility(6, {x: 400, y: 1100});
 
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "center";
@@ -616,8 +605,8 @@ function writeControls(fighterData)
     // $("#movement")[0].value = fighterData.move;
     // $("#pointCost")[0].value = fighterData.pointCost;
     setSelectedTagRunemarks(fighterData.tagRunemarks);
-    writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
-    writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
+    // writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
+    // writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
 }
 
 function defaultFighterData() {
@@ -647,8 +636,8 @@ function defaultFighterData() {
     // fighterData.pointCost = 125;
     fighterData.tagRunemarks = new Array;
     fighterData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
-    fighterData.weapon1 = getDefaultWeaponData1();
-    fighterData.weapon2 = getDefaultWeaponData2();
+    // fighterData.weapon1 = getDefaultWeaponData1();
+    // fighterData.weapon2 = getDefaultWeaponData2();
     return fighterData;
 }
 
