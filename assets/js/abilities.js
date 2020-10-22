@@ -84,7 +84,6 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 
 
 drawAbility = function(id, pixelPosition) {
-
     getContext().font = '28px Georgia, serif';
 
     var double = document.getElementById('ability' + id + '-double'),
@@ -93,35 +92,41 @@ drawAbility = function(id, pixelPosition) {
         name   = document.getElementById('ability' + id + '-name').value,
         text   = document.getElementById('ability' + id + '-text').value;
 
+    // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
+    var textblock = (function() {
+        var txt = name + ': ' + text,
+            lines = txt.split('\n');
+
+        for (var i = 0; i < lines.length; i++) {
+            writeScaled(
+                lines[i],
+                {x: pixelPosition.x, y: pixelPosition.y+(i*30)}
+            );
+        }
+    })();
+
     if (double.checked) {
         writeScaled(
-            '[Double] ' + name + ': ' + text,
+            '[Double] ' + textblock,
             {x: pixelPosition.x, y: pixelPosition.y}
         );
-
     } else if (triple.checked) {
         writeScaled(
-            '[Triple] ' + name + ': ' + text,
+            '[Triple] ' + textblock,
             {x: pixelPosition.x, y: pixelPosition.y}
         );
-
     } else if (quad.checked) {
         writeScaled(
-            '[Quad] ' + name + ': ' + text,
+            '[Quad] ' + textblock,
             {x: pixelPosition.x, y: pixelPosition.y}
         );
-
     } else {
         writeScaled(
-            name + ': ' + text,
+            textblock,
             {x: pixelPosition.x, y: pixelPosition.y}
         );
     }
 }
-
-
-
-
 
 
 
@@ -549,24 +554,6 @@ render = function(fighterData) {
 
     // drawToughness(fighterData.toughness);
 
-    // getContext().font = 'bold 28px Georgia, serif';
-    //
-    // drawAbility1Name(fighterData.ability1Name);
-    // drawAbility2Name(fighterData.ability2Name);
-    // drawAbility3Name(fighterData.ability3Name);
-    // drawAbility4Name(fighterData.ability4Name);
-    // drawAbility5Name(fighterData.ability5Name);
-    // drawAbility6Name(fighterData.ability6Name);
-    //
-    // getContext().font = '28px Georgia, serif';
-    //
-    // drawAbility1Text(fighterData.ability1Text);
-    // drawAbility2Text(fighterData.ability2Text);
-    // drawAbility3Text(fighterData.ability3Text);
-    // drawAbility4Text(fighterData.ability4Text);
-    // drawAbility5Text(fighterData.ability5Text);
-    // drawAbility6Text(fighterData.ability6Text);
-
     drawAbility(1, {x: 400, y:  250});
     drawAbility(2, {x: 400, y:  425});
     drawAbility(3, {x: 400, y:  600});
@@ -647,12 +634,12 @@ function defaultFighterData() {
     fighterData.ability5Name = 'Fifth ability name';
     fighterData.ability6Name = 'Sixth ability name';
 
-    fighterData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
-    fighterData.ability2Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
-    fighterData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
-    fighterData.ability4Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
-    fighterData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
-    fighterData.ability6Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
+    fighterData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    fighterData.ability2Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    fighterData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    fighterData.ability4Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    fighterData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    fighterData.ability6Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
 
     // fighterData.toughness = 4;
     // fighterData.wounds = 15;
