@@ -85,6 +85,8 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
 
 drawAbility = function(id, pixelPosition) {
     getContext().font = '28px Georgia, serif';
+    getContext().fillStyle = 'black';
+    getContext().textAlign = 'left';
 
     var double = document.getElementById('ability' + id + '-double'),
         triple = document.getElementById('ability' + id + '-triple'),
@@ -115,6 +117,13 @@ drawAbility = function(id, pixelPosition) {
             );
         }
     })();
+}
+
+drawCardTitle = function(value) {
+    getContext().font = '92px rodchenkoctt';
+    getContext().fillStyle = 'white';
+    getContext().textAlign = 'center';
+    writeScaled(value, {x: (1772/2), y: 135});
 }
 
 
@@ -491,6 +500,9 @@ function readControls()
     data.name = getName();
     data.imageUrl = getModelImage();
     data.imageProperties = getModelImageProperties();
+
+    data.cardTitle = document.getElementById('card-title').value;
+
     data.factionRunemark = getSelectedFactionRunemark();
 
     data.ability1Name = document.getElementById('ability1-name').value;
@@ -527,6 +539,9 @@ function drawFactionRunemark(image)
 render = function(fighterData) {
     drawBackground();
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
+
+    drawCardTitle(fighterData.cardTitle);
+
     drawFactionRunemark(fighterData.factionRunemark);
 
     // getContext().font = "92px rodchenkoctt";
@@ -584,6 +599,10 @@ function writeControls(fighterData)
     setName(fighterData.name);
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
+
+    // setCardTitle(fighterData.cardTitle);
+    $('#card-title')[0].value = fighterData.cardTitle;
+
     setSelectedFactionRunemark(fighterData.factionRunemark);
 
      $('#ability1-name')[0].value = fighterData.ability1Name;
@@ -614,6 +633,9 @@ function defaultFighterData() {
     fighterData.name = 'Default';
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
+
+    fighterData.cardTitle = 'Iron Golem';
+
     fighterData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
 
     fighterData.ability1Name = 'First ability name';
@@ -773,8 +795,8 @@ async function saveFighterData(fighterData)
         {
             fighterData.tagRunemarks[i] = await handleImageUrlFromDisk(fighterData.tagRunemarks[i]);
         }
-        fighterData.weapon1.runemark = await handleImageUrlFromDisk(fighterData.weapon1.runemark);
-        fighterData.weapon2.runemark = await handleImageUrlFromDisk(fighterData.weapon2.runemark);
+        // fighterData.weapon1.runemark = await handleImageUrlFromDisk(fighterData.weapon1.runemark);
+        // fighterData.weapon2.runemark = await handleImageUrlFromDisk(fighterData.weapon2.runemark);
 
         finishSaving();
     }
