@@ -23,26 +23,31 @@
                     <div class="collapse" id="abilitiesCollapseThreeOne">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="ability1-name">Name</label>
-                                <input class="form-control" id="ability1-name" oninput="onAnyChange()" type="text">
-                            </div>
-                            <div class="form-group">
+                                {% comment %}
                                 <label for="ability1-runemark">Runemark</label>
                                 <select class="form-control" id="ability1-runemark" name="ability1-runemark">
                                     <option selected>Choose a runemark</option>
                                 </select>
+                                {% endcomment %}
+                                <div id="tagRunemarkSelect_abilitiesCollapseThreeOne" class="d-flex flex-wrap">
+                                    {% include fighters/fighterRunemarkSelect.html %}
+                                </div>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability1-double" name="ability1-dice" type="radio" value="double">
+                                <input class="form-check-input" id="ability1-double" name="ability1-dice" oninput="onAnyChange()" type="radio" value="double">
                                 <label class="form-check-label" for="ability1-double">Double</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability1-triple" name="ability1-dice" type="radio" value="triple">
+                                <input class="form-check-input" id="ability1-triple" name="ability1-dice" oninput="onAnyChange()" type="radio" value="triple">
                                 <label class="form-check-label" for="ability1-triple">Triple</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability1-quad" name="ability1-dice" type="radio" value="quad">
+                                <input class="form-check-input" id="ability1-quad" name="ability1-dice" oninput="onAnyChange()" type="radio" value="quad">
                                 <label class="form-check-label" for="ability1-quad">Quad</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="ability1-name">Name</label>
+                                <input class="form-control" id="ability1-name" oninput="onAnyChange()" type="text">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="ability1-text">Text</label>
@@ -63,26 +68,31 @@
                     <div class="collapse" id="abilitiesCollapseThreeTwo">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="ability2-name">Name</label>
-                                <input class="form-control" id="ability2-name" oninput="onAnyChange()" type="text">
-                            </div>
-                            <div class="form-group">
+                                {% comment %}
                                 <label for="ability2-runemark">Runemark</label>
                                 <select class="form-control" id="ability2-runemark" name="ability2-runemark">
                                     <option selected>Choose a runemark</option>
                                 </select>
+                                {% endcomment %}
+                                <div id="tagRunemarkSelect_abilitiesCollapseThreeTwo" class="d-flex flex-wrap">
+                                    {% include fighters/fighterRunemarkSelect.html %}
+                                </div>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability2-double" name="ability2-dice" type="radio" value="double">
+                                <input class="form-check-input" id="ability2-double" name="ability2-dice" oninput="onAnyChange()" type="radio" value="double">
                                 <label class="form-check-label" for="ability2-double">Double</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability2-triple" name="ability2-dice" type="radio" value="triple">
+                                <input class="form-check-input" id="ability2-triple" name="ability2-dice" oninput="onAnyChange()" type="radio" value="triple">
                                 <label class="form-check-label" for="ability2-triple">Triple</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability2-quad" name="ability2-dice" type="radio" value="quad">
+                                <input class="form-check-input" id="ability2-quad" name="ability2-dice" oninput="onAnyChange()" type="radio" value="quad">
                                 <label class="form-check-label" for="ability2-quad">Quad</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="ability2-name">Name</label>
+                                <input class="form-control" id="ability2-name" oninput="onAnyChange()" type="text">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="ability2-text">Text</label>
@@ -103,26 +113,31 @@
                     <div class="collapse" id="abilitiesCollapseThreeThree">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="ability3-name">Name</label>
-                                <input class="form-control" id="ability3-name" oninput="onAnyChange()" type="text">
-                            </div>
-                            <div class="form-group">
+                                {% comment %}
                                 <label for="ability3-runemark">Runemark</label>
                                 <select class="form-control" id="ability3-runemark" name="ability3-runemark">
                                     <option selected>Choose a runemark</option>
                                 </select>
+                                {% endcomment %}
+                                <div id="tagRunemarkSelect_abilitiesCollapseThreeThree" class="d-flex flex-wrap">
+                                    {% include fighters/fighterRunemarkSelect.html %}
+                                </div>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability3-double" name="ability3-dice" type="radio" value="double">
+                                <input class="form-check-input" id="ability3-double" name="ability3-dice" oninput="onAnyChange()" type="radio" value="double">
                                 <label class="form-check-label" for="ability3-double">Double</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability3-triple" name="ability3-dice" type="radio" value="triple">
+                                <input class="form-check-input" id="ability3-triple" name="ability3-dice" oninput="onAnyChange()" type="radio" value="triple">
                                 <label class="form-check-label" for="ability3-triple">Triple</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability3-quad" name="ability3-dice" type="radio" value="quad">
+                                <input class="form-check-input" id="ability3-quad" name="ability3-dice" oninput="onAnyChange()" type="radio" value="quad">
                                 <label class="form-check-label" for="ability3-quad">Quad</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="ability3-name">Name</label>
+                                <input class="form-control" id="ability3-name" oninput="onAnyChange()" type="text">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="ability3-text">Text</label>
@@ -143,26 +158,31 @@
                     <div class="collapse" id="abilitiesCollapseThreeFour">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="ability4-name">Name</label>
-                                <input class="form-control" id="ability4-name" oninput="onAnyChange()" type="text">
-                            </div>
-                            <div class="form-group">
+                                {% comment %}
                                 <label for="ability4-runemark">Runemark</label>
                                 <select class="form-control" id="ability4-runemark" name="ability4-runemark">
                                     <option selected>Choose a runemark</option>
                                 </select>
+                                {% endcomment %}
+                                <div id="tagRunemarkSelect_abilitiesCollapseThreeFour" class="d-flex flex-wrap">
+                                    {% include fighters/fighterRunemarkSelect.html %}
+                                </div>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability4-double" name="ability4-dice" type="radio" value="double">
+                                <input class="form-check-input" id="ability4-double" name="ability4-dice" oninput="onAnyChange()" type="radio" value="double">
                                 <label class="form-check-label" for="ability4-double">Double</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability4-triple" name="ability4-dice" type="radio" value="triple">
+                                <input class="form-check-input" id="ability4-triple" name="ability4-dice" oninput="onAnyChange()" type="radio" value="triple">
                                 <label class="form-check-label" for="ability4-triple">Triple</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability4-quad" name="ability4-dice" type="radio" value="quad">
+                                <input class="form-check-input" id="ability4-quad" name="ability4-dice" oninput="onAnyChange()" type="radio" value="quad">
                                 <label class="form-check-label" for="ability4-quad">Quad</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="ability4-name">Name</label>
+                                <input class="form-control" id="ability4-name" oninput="onAnyChange()" type="text">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="ability4-text">Text</label>
@@ -183,26 +203,31 @@
                     <div class="collapse" id="abilitiesCollapseThreeFifth">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="ability5-name">Name</label>
-                                <input class="form-control" id="ability5-name" oninput="onAnyChange()" type="text">
-                            </div>
-                            <div class="form-group">
+                                {% comment %}
                                 <label for="ability5-runemark">Runemark</label>
                                 <select class="form-control" id="ability5-runemark" name="ability5-runemark">
                                     <option selected>Choose a runemark</option>
                                 </select>
+                                {% endcomment %}
+                                <div id="tagRunemarkSelect_abilitiesCollapseThreeFifth" class="d-flex flex-wrap">
+                                    {% include fighters/fighterRunemarkSelect.html %}
+                                </div>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability5-double" name="ability5-dice" type="radio" value="double">
+                                <input class="form-check-input" id="ability5-double" name="ability5-dice" oninput="onAnyChange()" type="radio" value="double">
                                 <label class="form-check-label" for="ability5-double">Double</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability5-triple" name="ability5-dice" type="radio" value="triple">
+                                <input class="form-check-input" id="ability5-triple" name="ability5-dice" oninput="onAnyChange()" type="radio" value="triple">
                                 <label class="form-check-label" for="ability5-triple">Triple</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability5-quad" name="ability5-dice" type="radio" value="quad">
+                                <input class="form-check-input" id="ability5-quad" name="ability5-dice" oninput="onAnyChange()" type="radio" value="quad">
                                 <label class="form-check-label" for="ability5-quad">Quad</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="ability5-name">Name</label>
+                                <input class="form-control" id="ability5-name" oninput="onAnyChange()" type="text">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="ability5-text">Text</label>
@@ -223,26 +248,31 @@
                     <div class="collapse" id="abilitiesCollapseThreeSixth">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="ability6-name">Name</label>
-                                <input class="form-control" id="ability6-name" oninput="onAnyChange()" type="text">
-                            </div>
-                            <div class="form-group">
+                                {% comment %}
                                 <label for="ability6-runemark">Runemark</label>
                                 <select class="form-control" id="ability6-runemark" name="ability5-runemark">
                                     <option selected>Choose a runemark</option>
                                 </select>
+                                {% endcomment %}
+                                <div id="tagRunemarkSelect_abilitiesCollapseThreeSixth" class="d-flex flex-wrap">
+                                    {% include fighters/fighterRunemarkSelect.html %}
+                                </div>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability6-double" name="ability6-dice" type="radio" value="double">
+                                <input class="form-check-input" id="ability6-double" name="ability6-dice" oninput="onAnyChange()" type="radio" value="double">
                                 <label class="form-check-label" for="ability6-double">Double</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability6-triple" name="ability6-dice" type="radio" value="triple">
+                                <input class="form-check-input" id="ability6-triple" name="ability6-dice" oninput="onAnyChange()" type="radio" value="triple">
                                 <label class="form-check-label" for="ability6-triple">Triple</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" id="ability6-quad" name="ability6-dice" type="radio" value="quad">
+                                <input class="form-check-input" id="ability6-quad" name="ability6-dice" oninput="onAnyChange()" type="radio" value="quad">
                                 <label class="form-check-label" for="ability6-quad">Quad</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="ability6-name">Name</label>
+                                <input class="form-control" id="ability6-name" oninput="onAnyChange()" type="text">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="ability6-text">Text</label>

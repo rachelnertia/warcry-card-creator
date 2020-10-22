@@ -61,21 +61,73 @@ drawCardElementFromInputId = function(inputId, pixelPosition) {
     drawCardElementFromInput(document.getElementById(inputId), pixelPosition);
 }
 
-drawToughness = function(value) {
-    writeScaled(value, {x: 545, y: 391});
+// drawToughness = function(value) {
+//     writeScaled(value, {x: 545, y: 391});
+// }
+//
+// drawWounds = function(value) {
+//     writeScaled(value, {x: 380, y: 510});
+// }
+//
+// drawMove = function(value) {
+//     writeScaled(value, {x: 220, y: 391});
+// }
+//
+// drawPointCost = function(value) {
+//     writeScaled(value, {x: 805, y: 160});
+// }
+
+
+
+
+
+
+
+drawAbility = function(id, pixelPosition) {
+
+    getContext().font = '28px Georgia, serif';
+
+    var double = document.getElementById('ability' + id + '-double'),
+        triple = document.getElementById('ability' + id + '-triple'),
+        quad   = document.getElementById('ability' + id + '-quad'),
+        name   = document.getElementById('ability' + id + '-name').value,
+        text   = document.getElementById('ability' + id + '-text').value;
+
+    if (double.checked) {
+        writeScaled(
+            '[Double] ' + name + ': ' + text,
+            {x: pixelPosition.x, y: pixelPosition.y}
+        );
+
+    } else if (triple.checked) {
+        writeScaled(
+            '[Triple] ' + name + ': ' + text,
+            {x: pixelPosition.x, y: pixelPosition.y}
+        );
+
+    } else if (quad.checked) {
+        writeScaled(
+            '[Quad] ' + name + ': ' + text,
+            {x: pixelPosition.x, y: pixelPosition.y}
+        );
+
+    } else {
+        writeScaled(
+            name + ': ' + text,
+            {x: pixelPosition.x, y: pixelPosition.y}
+        );
+    }
 }
 
-drawWounds = function(value) {
-    writeScaled(value, {x: 380, y: 510});
-}
 
-drawMove = function(value) {
-    writeScaled(value, {x: 220, y: 391});
-}
 
-drawPointCost = function(value) {
-    writeScaled(value, {x: 805, y: 160});
-}
+
+
+
+
+
+
+
 
 getWeaponStatblockImage = function() {
     return document.getElementById("weapon-profile");
@@ -84,13 +136,13 @@ getWeaponStatblockImage = function() {
 drawWeaponStatblock = function(pixelPosition) {
     var image = getWeaponStatblockImage();
     var scaledPosition = scalePixelPosition(pixelPosition);
-    var scaledSize = scalePixelPosition({x: image.width, y: image.height});
-    getContext().drawImage(
-        image,
-        scaledPosition.x,
-        scaledPosition.y,
-        scaledSize.x,
-        scaledSize.y);
+    // var scaledSize = scalePixelPosition({x: image.width, y: image.height});
+    // getContext().drawImage(
+    //     image,
+    //     scaledPosition.x,
+    //     scaledPosition.y,
+    //     scaledSize.x,
+    //     scaledSize.y);
 }
 
 drawWeapon = function(weaponData, pixelPosition) {
@@ -235,7 +287,7 @@ function drawTagRunemark(index, runemark) {
 
     var position = scalePixelPosition(positions[index]);
     var size = scalePixelPosition({x: 160, y: 160});
-    getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    // getContext().drawImage(img, position.x, position.y, size.x, size.y);
 
     position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
     size = scalePixelPosition({x: 130, y: 130});
@@ -276,10 +328,10 @@ function getModelImage()
 {
     var imageSelect = $("#imageSelect")[0];
 
-    if (imageSelect.files.length > 0)
-    {
-        return URL.createObjectURL(imageSelect.files[0]);
-    }
+    // if (imageSelect.files.length > 0)
+    // {
+    //     return URL.createObjectURL(imageSelect.files[0]);
+    // }
 
     return null;
 }
@@ -295,7 +347,7 @@ function setModelImage(image)
     }
     else
     {
-        imageSelect.value = null;
+        // imageSelect.value = null;
     }
 }
 
@@ -311,17 +363,17 @@ function getDefaultModelImageProperties()
 function getModelImageProperties()
 {
     return {
-        offsetX: $("#imageOffsetX")[0].valueAsNumber,
-        offsetY: $("#imageOffsetY")[0].valueAsNumber,
-        scalePercent: $("#imageScalePercent")[0].valueAsNumber
+        // offsetX: $("#imageOffsetX")[0].valueAsNumber,
+        // offsetY: $("#imageOffsetY")[0].valueAsNumber,
+        // scalePercent: $("#imageScalePercent")[0].valueAsNumber
     };
 }
 
 function setModelImageProperties(modelImageProperties)
 {
-    $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
-    $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
-    $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
+    // $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
+    // $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
+    // $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
 }
 
 function getDefaultWeaponData()
@@ -356,13 +408,13 @@ function readWeaponControls(weaponId)
 {
     var weaponData = new Object;
     var weaponDiv = $(weaponId);
-    weaponData.enabled = weaponDiv.find("#weaponEnabled")[0].checked;
-    weaponData.rangeMin = weaponDiv.find("#rangeMin")[0].value;
-    weaponData.rangeMax = weaponDiv.find("#rangeMax")[0].value;
-    weaponData.attacks = weaponDiv.find("#attacks")[0].value;
-    weaponData.strength = weaponDiv.find("#strength")[0].value;
-    weaponData.damageBase = weaponDiv.find("#damageBase")[0].value;
-    weaponData.damageCrit = weaponDiv.find("#damageCrit")[0].value;
+    // weaponData.enabled = weaponDiv.find("#weaponEnabled")[0].checked;
+    // weaponData.rangeMin = weaponDiv.find("#rangeMin")[0].value;
+    // weaponData.rangeMax = weaponDiv.find("#rangeMax")[0].value;
+    // weaponData.attacks = weaponDiv.find("#attacks")[0].value;
+    // weaponData.strength = weaponDiv.find("#strength")[0].value;
+    // weaponData.damageBase = weaponDiv.find("#damageBase")[0].value;
+    // weaponData.damageCrit = weaponDiv.find("#damageCrit")[0].value;
     weaponData.runemark = getSelectedRunemark(weaponDiv.find("#weaponRunemarkSelect")[0]);
     return weaponData;
 }
@@ -370,14 +422,14 @@ function readWeaponControls(weaponId)
 function writeWeaponControls(weaponId, weaponData, weaponName)
 {
     weaponDiv = $(weaponId);
-    weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
-    weaponDiv.find("#weaponInputs")[0].style.display = weaponData.enabled ? "block" : "none";
-    weaponDiv.find("#rangeMin")[0].value = weaponData.rangeMin;
-    weaponDiv.find("#rangeMax")[0].value = weaponData.rangeMax;
-    weaponDiv.find("#attacks")[0].value = weaponData.attacks;
-    weaponDiv.find("#strength")[0].value = weaponData.strength;
-    weaponDiv.find("#damageBase")[0].value = weaponData.damageBase;
-    weaponDiv.find("#damageCrit")[0].value = weaponData.damageCrit;
+    // weaponDiv.find("#weaponEnabled")[0].checked = weaponData.enabled;
+    // weaponDiv.find("#weaponInputs")[0].style.display = weaponData.enabled ? "block" : "none";
+    // weaponDiv.find("#rangeMin")[0].value = weaponData.rangeMin;
+    // weaponDiv.find("#rangeMax")[0].value = weaponData.rangeMax;
+    // weaponDiv.find("#attacks")[0].value = weaponData.attacks;
+    // weaponDiv.find("#strength")[0].value = weaponData.strength;
+    // weaponDiv.find("#damageBase")[0].value = weaponData.damageBase;
+    // weaponDiv.find("#damageCrit")[0].value = weaponData.damageCrit;
     setSelectedRunemark(
         weaponDiv.find("#weaponRunemarkSelect")[0],
         weaponData.runemark,
@@ -443,16 +495,31 @@ function readControls()
 {
     var data = new Object;
     data.name = getName();
-    // data.imageUrl = getModelImage();
-    // data.imageProperties = getModelImageProperties();
+    data.imageUrl = getModelImage();
+    data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
+
+    data.ability1Name = document.getElementById('ability1-name').value;
+    data.ability2Name = document.getElementById('ability2-name').value;
+    data.ability3Name = document.getElementById('ability3-name').value;
+    data.ability4Name = document.getElementById('ability4-name').value;
+    data.ability5Name = document.getElementById('ability5-name').value;
+    data.ability6Name = document.getElementById('ability6-name').value;
+
+    data.ability1Text = document.getElementById('ability1-text').value;
+    data.ability2Text = document.getElementById('ability2-text').value;
+    data.ability3Text = document.getElementById('ability3-text').value;
+    data.ability4Text = document.getElementById('ability4-text').value;
+    data.ability5Text = document.getElementById('ability5-text').value;
+    data.ability6Text = document.getElementById('ability6-text').value;
+
     // data.toughness = document.getElementById("toughness").value;
     // data.wounds = document.getElementById("numWounds").value;
     // data.move = document.getElementById("movement").value;
     // data.pointCost = document.getElementById("pointCost").value;
     data.tagRunemarks = readTagRunemarks();
-    // data.weapon1 = readWeaponControls("#weapon1");
-    // data.weapon2 = readWeaponControls("#weapon2");
+    data.weapon1 = readWeaponControls("#weapon1");
+    data.weapon2 = readWeaponControls("#weapon2");
     return data;
 }
 
@@ -467,8 +534,9 @@ render = function(fighterData) {
     drawBackground();
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
-    getContext().font = "92px rodchenkoctt";
-    getContext().fillStyle = "white";
+
+    // getContext().font = "92px rodchenkoctt";
+    // getContext().fillStyle = "white";
 
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "left";
@@ -480,6 +548,31 @@ render = function(fighterData) {
     // getContext().textAlign = "right";
 
     // drawToughness(fighterData.toughness);
+
+    // getContext().font = 'bold 28px Georgia, serif';
+    //
+    // drawAbility1Name(fighterData.ability1Name);
+    // drawAbility2Name(fighterData.ability2Name);
+    // drawAbility3Name(fighterData.ability3Name);
+    // drawAbility4Name(fighterData.ability4Name);
+    // drawAbility5Name(fighterData.ability5Name);
+    // drawAbility6Name(fighterData.ability6Name);
+    //
+    // getContext().font = '28px Georgia, serif';
+    //
+    // drawAbility1Text(fighterData.ability1Text);
+    // drawAbility2Text(fighterData.ability2Text);
+    // drawAbility3Text(fighterData.ability3Text);
+    // drawAbility4Text(fighterData.ability4Text);
+    // drawAbility5Text(fighterData.ability5Text);
+    // drawAbility6Text(fighterData.ability6Text);
+
+    drawAbility(1, {x: 400, y:  250});
+    drawAbility(2, {x: 400, y:  425});
+    drawAbility(3, {x: 400, y:  600});
+    drawAbility(4, {x: 400, y:  775});
+    drawAbility(5, {x: 400, y:  950});
+    drawAbility(6, {x: 400, y: 1125});
 
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "center";
@@ -504,41 +597,71 @@ render = function(fighterData) {
     // {
     //     drawWeapon(fighterData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
     // }
-    for (i = 0; i < fighterData.tagRunemarks.length; i++)
-    {
-        drawTagRunemark(i, fighterData.tagRunemarks[i]);
-    }
+    // for (i = 0; i < fighterData.tagRunemarks.length; i++)
+    // {
+    //     drawTagRunemark(i, fighterData.tagRunemarks[i]);
+    // }
 }
 
 function writeControls(fighterData)
 {
     setName(fighterData.name);
-    // setModelImage(fighterData.imageUrl);
-    // setModelImageProperties(fighterData.imageProperties);
+    setModelImage(fighterData.imageUrl);
+    setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
+
+     $('#ability1-name')[0].value = fighterData.ability1Name;
+     $('#ability2-name')[0].value = fighterData.ability2Name;
+     $('#ability3-name')[0].value = fighterData.ability3Name;
+     $('#ability4-name')[0].value = fighterData.ability4Name;
+     $('#ability5-name')[0].value = fighterData.ability5Name;
+     $('#ability6-name')[0].value = fighterData.ability6Name;
+
+     $('#ability1-text')[0].value = fighterData.ability1Text;
+     $('#ability2-text')[0].value = fighterData.ability2Text;
+     $('#ability3-text')[0].value = fighterData.ability3Text;
+     $('#ability4-text')[0].value = fighterData.ability4Text;
+     $('#ability5-text')[0].value = fighterData.ability5Text;
+     $('#ability6-text')[0].value = fighterData.ability6Text;
+
     // $("#toughness")[0].value = fighterData.toughness;
     // $("#numWounds")[0].value = fighterData.wounds;
     // $("#movement")[0].value = fighterData.move;
     // $("#pointCost")[0].value = fighterData.pointCost;
     setSelectedTagRunemarks(fighterData.tagRunemarks);
-    // writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
-    // writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
+    writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
+    writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
 }
 
 function defaultFighterData() {
     var fighterData = new Object;
     fighterData.name = 'Default';
-    // fighterData.imageUrl = null;
-    // fighterData.imageProperties = getDefaultModelImageProperties();
+    fighterData.imageUrl = null;
+    fighterData.imageProperties = getDefaultModelImageProperties();
     fighterData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
+
+    fighterData.ability1Name = 'First ability name';
+    fighterData.ability2Name = 'Second ability name';
+    fighterData.ability3Name = 'Third ability name';
+    fighterData.ability4Name = 'Fourth ability name';
+    fighterData.ability5Name = 'Fifth ability name';
+    fighterData.ability6Name = 'Sixth ability name';
+
+    fighterData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
+    fighterData.ability2Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
+    fighterData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
+    fighterData.ability4Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
+    fighterData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
+    fighterData.ability6Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.';
+
     // fighterData.toughness = 4;
     // fighterData.wounds = 15;
     // fighterData.move = 5;
     // fighterData.pointCost = 125;
     fighterData.tagRunemarks = new Array;
     fighterData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
-    // fighterData.weapon1 = getDefaultWeaponData1();
-    // fighterData.weapon2 = getDefaultWeaponData2();
+    fighterData.weapon1 = getDefaultWeaponData1();
+    fighterData.weapon2 = getDefaultWeaponData2();
     return fighterData;
 }
 
@@ -689,7 +812,7 @@ function getLatestFighterDataName()
 window.onload = function() {
     //window.localStorage.clear();
     var fighterData = loadLatestFighterData();
-    // writeControls(fighterData);
+    writeControls(fighterData);
     render(fighterData);
     refreshSaveSlots();
 }
@@ -788,7 +911,7 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor)
     </label>
     <input type="checkbox" style="display:none;" id="checkbox-${ imgSrc }" onchange="onTagRunemarkSelectionChanged(this, '${ bgColor }')">
     `;
-    grid.appendChild(div);
+    // grid.appendChild(div);
     return div;
 }
 
