@@ -125,7 +125,7 @@ drawCardSubtitle = function(value) {
     getContext().font = '28px Georgia, serif';
     getContext().fillStyle = 'white';
     getContext().textAlign = 'center';
-    writeScaled(value, {x: (1772/2), y: 100});
+    writeScaled(value, {x: (1772/2), y: 35});
 }
 
 drawCardTitle = function(value) {
