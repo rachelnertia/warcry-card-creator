@@ -304,23 +304,23 @@ function drawTagRunemark(index, runemark) {
     drawImageSrc(position, size, runemark);
 }
 
-function drawModel(imageUrl, imageProps)
-{
-    if (imageUrl != null)
-    {
-        var image = new Image();
-        image.onload = function(){
-            var position = scalePixelPosition({x: 590 + imageProps.offsetX, y: imageProps.offsetY});
-            var scale = imageProps.scalePercent/100.0;
-            var width = image.width * scale;
-            var height = image.height * scale;
-            getContext().drawImage(image, position.x, position.y, width, height);
-
-            URL.revokeObjectURL(image.src);
-        };
-        image.src = imageUrl;
-    }
-}
+// function drawModel(imageUrl, imageProps)
+// {
+//     if (imageUrl != null)
+//     {
+//         var image = new Image();
+//         image.onload = function(){
+//             var position = scalePixelPosition({x: 590 + imageProps.offsetX, y: imageProps.offsetY});
+//             var scale = imageProps.scalePercent/100.0;
+//             var width = image.width * scale;
+//             var height = image.height * scale;
+//             getContext().drawImage(image, position.x, position.y, width, height);
+//
+//             URL.revokeObjectURL(image.src);
+//         };
+//         image.src = imageUrl;
+//     }
+// }
 
 function getName()
 {
@@ -334,57 +334,57 @@ function setName(name)
     textInput.value = name;
 }
 
-function getModelImage()
-{
-    var imageSelect = $("#imageSelect")[0];
+// function getModelImage()
+// {
+//     var imageSelect = $("#imageSelect")[0];
+//
+//     // if (imageSelect.files.length > 0)
+//     // {
+//     //     return URL.createObjectURL(imageSelect.files[0]);
+//     // }
+//
+//     return null;
+// }
 
-    // if (imageSelect.files.length > 0)
-    // {
-    //     return URL.createObjectURL(imageSelect.files[0]);
-    // }
+// function setModelImage(image)
+// {
+//     var imageSelect = $("#imageSelect")[0];
+//
+//     if (image != null)
+//     {
+//         // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
+//         // imageSelect.files[0] = image;
+//     }
+//     else
+//     {
+//         // imageSelect.value = null;
+//     }
+// }
 
-    return null;
-}
+// function getDefaultModelImageProperties()
+// {
+//     return {
+//         offsetX: 0,
+//         offsetY: 0,
+//         scalePercent: 100
+//     };
+// }
 
-function setModelImage(image)
-{
-    var imageSelect = $("#imageSelect")[0];
+// function getModelImageProperties()
+// {
+//     return {
+//         // offsetX: $("#imageOffsetX")[0].valueAsNumber,
+//         // offsetY: $("#imageOffsetY")[0].valueAsNumber,
+//         // scalePercent: $("#imageScalePercent")[0].valueAsNumber
+//     };
+// }
 
-    if (image != null)
-    {
-        // TODO: Not sure how to do this. It might not even be possible! Leave it for now...
-        // imageSelect.files[0] = image;
-    }
-    else
-    {
-        // imageSelect.value = null;
-    }
-}
-
-function getDefaultModelImageProperties()
-{
-    return {
-        offsetX: 0,
-        offsetY: 0,
-        scalePercent: 100
-    };
-}
-
-function getModelImageProperties()
-{
-    return {
-        // offsetX: $("#imageOffsetX")[0].valueAsNumber,
-        // offsetY: $("#imageOffsetY")[0].valueAsNumber,
-        // scalePercent: $("#imageScalePercent")[0].valueAsNumber
-    };
-}
-
-function setModelImageProperties(modelImageProperties)
-{
-    // $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
-    // $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
-    // $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
-}
+// function setModelImageProperties(modelImageProperties)
+// {
+//     // $("#imageOffsetX")[0].value = modelImageProperties.offsetX;
+//     // $("#imageOffsetY")[0].value = modelImageProperties.offsetY;
+//     // $("#imageScalePercent")[0].value = modelImageProperties.scalePercent;
+// }
 
 // function getDefaultWeaponData()
 // {
@@ -505,8 +505,8 @@ function readControls()
 {
     var data = new Object;
     data.name = getName();
-    data.imageUrl = getModelImage();
-    data.imageProperties = getModelImageProperties();
+    // data.imageUrl = getModelImage();
+    // data.imageProperties = getModelImageProperties();
 
     data.cardSubtitle = document.getElementById('card-subtitle').value;
     data.cardTitle = document.getElementById('card-title').value;
@@ -541,38 +541,56 @@ function drawFactionRunemark(image) {
     drawImageSrc({x: 67.5, y: 67.5}, {x: 190, y: 190}, image);
 
     if (document.getElementById('ability1-toggle').checked) {
-        drawImageSrc({x: 400, y: 185}, {x: 160, y: 160}, image);
+        var positions = {x: 400, y: 185},
+            replacedImage = image.replace('white', 'black');
+        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability2-toggle').checked) {
-        drawImageSrc({x: 400, y: 362.5}, {x: 160, y: 160}, image);
+        var positions = {x: 400, y: 362.5},
+            replacedImage = image.replace('white', 'black');
+        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability3-toggle').checked) {
-        drawImageSrc({x: 400, y: 540}, {x: 160, y: 160}, image);
+        var positions = {x: 400, y: 540},
+            replacedImage = image.replace('white', 'black');
+        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability4-toggle').checked) {
-        drawImageSrc({x: 400, y: 717.5}, {x: 160, y: 160}, image);
+        var positions = {x: 400, y: 717.5},
+            replacedImage = image.replace('white', 'black');
+        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability5-toggle').checked) {
-        drawImageSrc({x: 400, y: 895}, {x: 160, y: 160}, image);
+        var positions = {x: 400, y: 895},
+            replacedImage = image.replace('white', 'black');
+        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability6-toggle').checked) {
-        drawImageSrc({x: 400, y: 1072.5}, {x: 160, y: 160}, image);
+        var positions = {x: 400, y: 1072.5},
+            replacedImage = image.replace('white', 'black');
+        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 }
 
-render = function(fighterData) {
+render = function(cardData) {
     drawBackground();
-    drawModel(fighterData.imageUrl, fighterData.imageProperties);
+    // drawModel(cardData.imageUrl, cardData.imageProperties);
 
-    drawCardSubtitle(fighterData.cardSubtitle);
-    drawCardTitle(fighterData.cardTitle);
+    drawCardSubtitle(cardData.cardSubtitle);
+    drawCardTitle(cardData.cardTitle);
 
-    drawFactionRunemark(fighterData.factionRunemark);
+    drawFactionRunemark(cardData.factionRunemark);
 
     // getContext().font = "92px rodchenkoctt";
     // getContext().fillStyle = "white";
@@ -580,13 +598,13 @@ render = function(fighterData) {
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "left";
 
-    // drawMove(fighterData.move);
-    // drawWounds(fighterData.wounds);
+    // drawMove(cardData.move);
+    // drawWounds(cardData.wounds);
 
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "right";
 
-    // drawToughness(fighterData.toughness);
+    // drawToughness(cardData.toughness);
 
     if (document.getElementById('ability1-toggle').checked) {
         drawAbility(1, {x: 600, y:  225});
@@ -615,122 +633,122 @@ render = function(fighterData) {
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "center";
 
-    // drawPointCost(fighterData.pointCost);
+    // drawPointCost(cardData.pointCost);
 
     // getContext().font = "70px rodchenkoctt";
     // getContext().textBaseline = "top";
     // getContext().textAlign = "left";
     // getContext().fillStyle = "black";
 
-    // if (fighterData.weapon1.enabled && fighterData.weapon2.enabled)
+    // if (cardData.weapon1.enabled && cardData.weapon2.enabled)
     // {
-    //     drawWeapon(fighterData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
-    //     drawWeapon(fighterData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
+    //     drawWeapon(cardData.weapon1, {x: 50, y: 750}); // Default was x:29, y:397
+    //     drawWeapon(cardData.weapon2, {x: 50, y: 950}); // Default was x:29, y:564
     // }
-    // else if (fighterData.weapon1.enabled)
+    // else if (cardData.weapon1.enabled)
     // {
-    //     drawWeapon(fighterData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
+    //     drawWeapon(cardData.weapon1, {x: 50, y: 850}); // Default was x:29, y:463
     // }
-    // else if (fighterData.weapon2.enabled)
+    // else if (cardData.weapon2.enabled)
     // {
-    //     drawWeapon(fighterData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
+    //     drawWeapon(cardData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
     // }
-    // for (i = 0; i < fighterData.tagRunemarks.length; i++)
+    // for (i = 0; i < cardData.tagRunemarks.length; i++)
     // {
-    //     drawTagRunemark(i, fighterData.tagRunemarks[i]);
+    //     drawTagRunemark(i, cardData.tagRunemarks[i]);
     // }
 }
 
-function writeControls(fighterData)
+function writeControls(cardData)
 {
-    setName(fighterData.name);
-    setModelImage(fighterData.imageUrl);
-    setModelImageProperties(fighterData.imageProperties);
+    setName(cardData.name);
+    // setModelImage(cardData.imageUrl);
+    // setModelImageProperties(cardData.imageProperties);
 
-    $('#card-subtitle')[0].value = fighterData.cardSubtitle;
-    $('#card-title')[0].value = fighterData.cardTitle;
+    $('#card-subtitle')[0].value = cardData.cardSubtitle;
+    $('#card-title')[0].value = cardData.cardTitle;
 
-    setSelectedFactionRunemark(fighterData.factionRunemark);
+    setSelectedFactionRunemark(cardData.factionRunemark);
 
-     $('#ability1-name')[0].value = fighterData.ability1Name;
-     $('#ability2-name')[0].value = fighterData.ability2Name;
-     $('#ability3-name')[0].value = fighterData.ability3Name;
-     $('#ability4-name')[0].value = fighterData.ability4Name;
-     $('#ability5-name')[0].value = fighterData.ability5Name;
-     $('#ability6-name')[0].value = fighterData.ability6Name;
+     $('#ability1-name')[0].value = cardData.ability1Name;
+     $('#ability2-name')[0].value = cardData.ability2Name;
+     $('#ability3-name')[0].value = cardData.ability3Name;
+     $('#ability4-name')[0].value = cardData.ability4Name;
+     $('#ability5-name')[0].value = cardData.ability5Name;
+     $('#ability6-name')[0].value = cardData.ability6Name;
 
-     $('#ability1-text')[0].value = fighterData.ability1Text;
-     $('#ability2-text')[0].value = fighterData.ability2Text;
-     $('#ability3-text')[0].value = fighterData.ability3Text;
-     $('#ability4-text')[0].value = fighterData.ability4Text;
-     $('#ability5-text')[0].value = fighterData.ability5Text;
-     $('#ability6-text')[0].value = fighterData.ability6Text;
+     $('#ability1-text')[0].value = cardData.ability1Text;
+     $('#ability2-text')[0].value = cardData.ability2Text;
+     $('#ability3-text')[0].value = cardData.ability3Text;
+     $('#ability4-text')[0].value = cardData.ability4Text;
+     $('#ability5-text')[0].value = cardData.ability5Text;
+     $('#ability6-text')[0].value = cardData.ability6Text;
 
-    // $("#toughness")[0].value = fighterData.toughness;
-    // $("#numWounds")[0].value = fighterData.wounds;
-    // $("#movement")[0].value = fighterData.move;
-    // $("#pointCost")[0].value = fighterData.pointCost;
-    setSelectedTagRunemarks(fighterData.tagRunemarks);
-    // writeWeaponControls("#weapon1", fighterData.weapon1, "weapon1");
-    // writeWeaponControls("#weapon2", fighterData.weapon2, "weapon2");
+    // $("#toughness")[0].value = cardData.toughness;
+    // $("#numWounds")[0].value = cardData.wounds;
+    // $("#movement")[0].value = cardData.move;
+    // $("#pointCost")[0].value = cardData.pointCost;
+    setSelectedTagRunemarks(cardData.tagRunemarks);
+    // writeWeaponControls("#weapon1", cardData.weapon1, "weapon1");
+    // writeWeaponControls("#weapon2", cardData.weapon2, "weapon2");
 }
 
-function defaultFighterData() {
-    var fighterData = new Object;
-    fighterData.name = 'Default';
-    fighterData.imageUrl = null;
-    fighterData.imageProperties = getDefaultModelImageProperties();
+function defaultCardData() {
+    var cardData = new Object;
+    cardData.name = 'Default';
+    // cardData.imageUrl = null;
+    // cardData.imageProperties = getDefaultModelImageProperties();
 
-    fighterData.cardSubtitle = 'Abilities';
-    fighterData.cardTitle = 'Iron Golem';
+    cardData.cardSubtitle = 'Abilities';
+    cardData.cardTitle = 'Iron Golem';
 
-    fighterData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
+    cardData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
 
-    fighterData.ability1Name = 'First ability name';
-    fighterData.ability2Name = 'Second ability name';
-    fighterData.ability3Name = 'Third ability name';
-    fighterData.ability4Name = 'Fourth ability name';
-    fighterData.ability5Name = 'Fifth ability name';
-    fighterData.ability6Name = 'Sixth ability name';
+    cardData.ability1Name = 'First ability name';
+    cardData.ability2Name = 'Second ability name';
+    cardData.ability3Name = 'Third ability name';
+    cardData.ability4Name = 'Fourth ability name';
+    cardData.ability5Name = 'Fifth ability name';
+    cardData.ability6Name = 'Sixth ability name';
 
-    fighterData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    fighterData.ability2Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    fighterData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    fighterData.ability4Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    fighterData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
-    fighterData.ability6Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability1Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability2Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability3Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability4Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability5Text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
+    cardData.ability6Text = 'Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit.\nAenean commodo ligula eget dolor.';
 
-    // fighterData.toughness = 4;
-    // fighterData.wounds = 15;
-    // fighterData.move = 5;
-    // fighterData.pointCost = 125;
-    fighterData.tagRunemarks = new Array;
-    fighterData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
-    // fighterData.weapon1 = getDefaultWeaponData1();
-    // fighterData.weapon2 = getDefaultWeaponData2();
-    return fighterData;
+    // cardData.toughness = 4;
+    // cardData.wounds = 15;
+    // cardData.move = 5;
+    // cardData.pointCost = 125;
+    cardData.tagRunemarks = new Array;
+    cardData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
+    // cardData.weapon1 = getDefaultWeaponData1();
+    // cardData.weapon2 = getDefaultWeaponData2();
+    return cardData;
 }
 
-function saveFighterDataMap(newMap)
+function saveCardDataMap(newMap)
 {
-    window.localStorage.setItem("fighterDataMap", JSON.stringify(newMap));
+    window.localStorage.setItem("cardDataMap", JSON.stringify(newMap));
 }
 
-function loadFighterDataMap()
+function loadCardDataMap()
 {
-    var storage = window.localStorage.getItem("fighterDataMap");
+    var storage = window.localStorage.getItem("cardDataMap");
     if (storage != null)
     {
         return JSON.parse(storage);
     }
     // Set up the map.
     var map = new Object;
-    map["Default"] = defaultFighterData();
-    saveFighterDataMap(map);
+    map["Default"] = defaultCardData();
+    saveCardDataMap(map);
     return map;
 }
 
-function loadLatestFighterData()
+function loadLatestCardData()
 {
     var latestFighterName = window.localStorage.getItem("latestFighterName");
     if (latestFighterName == null)
@@ -740,7 +758,7 @@ function loadLatestFighterData()
 
     console.log("Loading '" + latestFighterName + "'...");
 
-    var data = loadFighterData(latestFighterName);
+    var data = loadCardData(latestFighterName);
 
     if (data)
     {
@@ -755,29 +773,29 @@ function loadLatestFighterData()
     return data;
 }
 
-function saveLatestFighterData()
+function saveLatestCardData()
 {
-    var fighterData = readControls();
-    if (!fighterData.name)
+    var cardData = readControls();
+    if (!cardData.name)
     {
         return;
     }
 
-    window.localStorage.setItem("latestFighterName", fighterData.name);
-    saveFighterData(fighterData);
+    window.localStorage.setItem("latestFighterName", cardData.name);
+    saveCardData(cardData);
 }
 
-function loadFighterData(fighterDataName)
+function loadCardData(cardDataName)
 {
-    if (!fighterDataName)
+    if (!cardDataName)
     {
         return null;
     }
 
-    var map = loadFighterDataMap();
-    if (map[fighterDataName])
+    var map = loadCardDataMap();
+    if (map[cardDataName])
     {
-        return map[fighterDataName];
+        return map[cardDataName];
     }
 
     return null;
@@ -824,49 +842,49 @@ async function handleImageUrlFromDisk(imageUrl)
     return imageUrl;
 }
 
-async function saveFighterData(fighterData)
+async function saveCardData(cardData)
 {
     var finishSaving = function()
     {
-        var map = loadFighterDataMap();
-        map[fighterData.name] = fighterData;
-        window.localStorage.setItem("fighterDataMap", JSON.stringify(map));
+        var map = loadCardDataMap();
+        map[cardData.name] = cardData;
+        window.localStorage.setItem("cardDataMap", JSON.stringify(map));
     };
 
-    if (fighterData != null &&
-        fighterData.name)
+    if (cardData != null &&
+        cardData.name)
     {
         // handle images we may have loaded from disk...
-        fighterData.imageUrl = await handleImageUrlFromDisk(fighterData.imageUrl);
-        fighterData.factionRunemark = await handleImageUrlFromDisk(fighterData.factionRunemark);
-        for (i = 0; i < fighterData.tagRunemarks.length; i++)
+        cardData.imageUrl = await handleImageUrlFromDisk(cardData.imageUrl);
+        cardData.factionRunemark = await handleImageUrlFromDisk(cardData.factionRunemark);
+        for (i = 0; i < cardData.tagRunemarks.length; i++)
         {
-            fighterData.tagRunemarks[i] = await handleImageUrlFromDisk(fighterData.tagRunemarks[i]);
+            cardData.tagRunemarks[i] = await handleImageUrlFromDisk(cardData.tagRunemarks[i]);
         }
-        // fighterData.weapon1.runemark = await handleImageUrlFromDisk(fighterData.weapon1.runemark);
-        // fighterData.weapon2.runemark = await handleImageUrlFromDisk(fighterData.weapon2.runemark);
+        // cardData.weapon1.runemark = await handleImageUrlFromDisk(cardData.weapon1.runemark);
+        // cardData.weapon2.runemark = await handleImageUrlFromDisk(cardData.weapon2.runemark);
 
         finishSaving();
     }
 }
 
-function getLatestFighterDataName()
+function getLatestCardDataName()
 {
-    return "latestFighterData";
+    return "latestCardData";
 }
 
 window.onload = function() {
     //window.localStorage.clear();
-    var fighterData = loadLatestFighterData();
-    writeControls(fighterData);
-    render(fighterData);
+    var cardData = loadLatestCardData();
+    writeControls(cardData);
+    render(cardData);
     refreshSaveSlots();
 }
 
 onAnyChange = function() {
-    var fighterData = readControls();
-    render(fighterData);
-    saveLatestFighterData();
+    var cardData = readControls();
+    render(cardData);
+    saveLatestCardData();
 }
 
 function onWeaponControlsToggled(weaponCheckbox) {
@@ -981,9 +999,9 @@ function onClearCache()
 
 function onResetToDefault()
 {
-    var fighterData = defaultFighterData();
-    writeControls(fighterData);
-    render(fighterData);
+    var cardData = defaultCardData();
+    writeControls(cardData);
+    render(cardData);
 }
 
 function refreshSaveSlots()
@@ -991,14 +1009,14 @@ function refreshSaveSlots()
     // Remove all
     $('select').children('option').remove();
 
-    var fighterDataName = readControls().name;
+    var cardDataName = readControls().name;
 
-    var map = loadFighterDataMap();
+    var map = loadCardDataMap();
 
     for (let [key, value] of Object.entries(map)) {
         var selected = false;
-        if (fighterDataName &&
-            key == fighterDataName)
+        if (cardDataName &&
+            key == cardDataName)
         {
             selected = true;
         }
@@ -1009,32 +1027,32 @@ function refreshSaveSlots()
 
 function onSaveClicked()
 {
-    var fighterData = readControls();
-    console.log("Saving '" + fighterData.name + "'...");
-    saveFighterData(fighterData);
+    var cardData = readControls();
+    console.log("Saving '" + cardData.name + "'...");
+    saveCardData(cardData);
     refreshSaveSlots();
 }
 
 function onLoadClicked()
 {
-    var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
-    console.log("Loading '" + fighterDataName + "'...");
-    fighterData = loadFighterData(fighterDataName);
-    writeControls(fighterData);
-    render(fighterData);
+    var cardDataName = $('#saveSlotsSelect').find(":selected").text();
+    console.log("Loading '" + cardDataName + "'...");
+    cardData = loadCardData(cardDataName);
+    writeControls(cardData);
+    render(cardData);
     refreshSaveSlots();
 }
 
 function onDeleteClicked()
 {
-    var fighterDataName = $('#saveSlotsSelect').find(":selected").text();
+    var cardDataName = $('#saveSlotsSelect').find(":selected").text();
 
-    console.log("Deleting '" + fighterDataName + "'...");
+    console.log("Deleting '" + cardDataName + "'...");
 
-    var map = loadFighterDataMap();
-    delete map[fighterDataName];
+    var map = loadCardDataMap();
+    delete map[cardDataName];
 
-    saveFighterDataMap(map);
+    saveCardDataMap(map);
 
     refreshSaveSlots();
 }
