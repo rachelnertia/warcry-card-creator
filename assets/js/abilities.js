@@ -539,11 +539,32 @@ function readControls()
     return data;
 }
 
-function drawFactionRunemark(image)
-{
-    var position = scalePixelPosition({x: 67.5, y: 67.5});
-    var size = scalePixelPosition({x: 190, y: 190});
-    drawImageSrc(position, size, image);
+function drawFactionRunemark(image) {
+    drawImageSrc({x: 67.5, y: 67.5}, {x: 190, y: 190}, image);
+
+    if (document.getElementById('ability1-toggle').checked) {
+        drawImageSrc({x: 400, y: 185}, {x: 160, y: 160}, image);
+    }
+
+    if (document.getElementById('ability2-toggle').checked) {
+        drawImageSrc({x: 400, y: 362.5}, {x: 160, y: 160}, image);
+    }
+
+    if (document.getElementById('ability3-toggle').checked) {
+        drawImageSrc({x: 400, y: 540}, {x: 160, y: 160}, image);
+    }
+
+    if (document.getElementById('ability4-toggle').checked) {
+        drawImageSrc({x: 400, y: 717.5}, {x: 160, y: 160}, image);
+    }
+
+    if (document.getElementById('ability5-toggle').checked) {
+        drawImageSrc({x: 400, y: 895}, {x: 160, y: 160}, image);
+    }
+
+    if (document.getElementById('ability6-toggle').checked) {
+        drawImageSrc({x: 400, y: 1072.5}, {x: 160, y: 160}, image);
+    }
 }
 
 render = function(fighterData) {
@@ -569,12 +590,29 @@ render = function(fighterData) {
 
     // drawToughness(fighterData.toughness);
 
-    drawAbility(1, {x: 600, y:  225});
-    drawAbility(2, {x: 600, y:  400});
-    drawAbility(3, {x: 600, y:  575});
-    drawAbility(4, {x: 600, y:  750});
-    drawAbility(5, {x: 600, y:  925});
-    drawAbility(6, {x: 600, y: 1100});
+    if (document.getElementById('ability1-toggle').checked) {
+        drawAbility(1, {x: 600, y:  225});
+    }
+
+    if (document.getElementById('ability2-toggle').checked) {
+        drawAbility(2, {x: 600, y:  400});
+    }
+
+    if (document.getElementById('ability3-toggle').checked) {
+        drawAbility(3, {x: 600, y:  575});
+    }
+
+    if (document.getElementById('ability4-toggle').checked) {
+        drawAbility(4, {x: 600, y:  750});
+    }
+
+    if (document.getElementById('ability5-toggle').checked) {
+        drawAbility(5, {x: 600, y:  925});
+    }
+
+    if (document.getElementById('ability6-toggle').checked) {
+        drawAbility(6, {x: 600, y: 1100});
+    }
 
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "center";
