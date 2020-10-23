@@ -104,6 +104,8 @@ drawAbility = function(id, pixelPosition) {
             var txt = '[Triple] ' + name + ': ' + text;
         } else if (quad.checked) {
             var txt = '[Quad] ' + name + ': ' + text;
+        } else if (none.checked) {
+            var txt = '';
         } else {
             var txt = name + ': ' + text;
         }
@@ -117,6 +119,13 @@ drawAbility = function(id, pixelPosition) {
             );
         }
     })();
+}
+
+drawCardSubtitle = function(value) {
+    getContext().font = '28px Georgia, serif';
+    getContext().fillStyle = 'white';
+    getContext().textAlign = 'center';
+    writeScaled(value, {x: (1772/2), y: 100});
 }
 
 drawCardTitle = function(value) {
@@ -501,6 +510,7 @@ function readControls()
     data.imageUrl = getModelImage();
     data.imageProperties = getModelImageProperties();
 
+    data.cardSubtitle = document.getElementById('card-subtitle').value;
     data.cardTitle = document.getElementById('card-title').value;
 
     data.factionRunemark = getSelectedFactionRunemark();
@@ -540,6 +550,7 @@ render = function(fighterData) {
     drawBackground();
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
 
+    drawCardSubtitle(fighterData.cardSubtitle);
     drawCardTitle(fighterData.cardTitle);
 
     drawFactionRunemark(fighterData.factionRunemark);
@@ -600,7 +611,7 @@ function writeControls(fighterData)
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
 
-    // setCardTitle(fighterData.cardTitle);
+    $('#card-subitle')[0].value = fighterData.cardSubtitle;
     $('#card-title')[0].value = fighterData.cardTitle;
 
     setSelectedFactionRunemark(fighterData.factionRunemark);
@@ -634,6 +645,7 @@ function defaultFighterData() {
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
 
+    fighterData.cardSubtitle = 'Abilities';
     fighterData.cardTitle = 'Iron Golem';
 
     fighterData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
