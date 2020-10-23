@@ -569,12 +569,12 @@ render = function(fighterData) {
 
     // drawToughness(fighterData.toughness);
 
-    drawAbility(1, {x: 400, y:  225});
-    drawAbility(2, {x: 400, y:  400});
-    drawAbility(3, {x: 400, y:  575});
-    drawAbility(4, {x: 400, y:  750});
-    drawAbility(5, {x: 400, y:  925});
-    drawAbility(6, {x: 400, y: 1100});
+    drawAbility(1, {x: 600, y:  225});
+    drawAbility(2, {x: 600, y:  400});
+    drawAbility(3, {x: 600, y:  575});
+    drawAbility(4, {x: 600, y:  750});
+    drawAbility(5, {x: 600, y:  925});
+    drawAbility(6, {x: 600, y: 1100});
 
     // getContext().textBaseline = "middle";
     // getContext().textAlign = "center";
