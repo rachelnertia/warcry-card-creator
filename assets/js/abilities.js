@@ -289,20 +289,34 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc)
     }
 }
 
+
+
 function drawTagRunemark(index, runemark) {
-    var positions = [{x: 575, y: 550}, {x: 750, y: 550}, {x: 662.5, y: 400}];
+    var positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
+
+    // var positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
+    // var positions = [{x: 227.5, y: 362.5}, {x: 50, y: 362.5}];
+    // var positions = [{x: 227.5, y: 540}, {x: 50, y: 540}];
+    // var positions = [{x: 227.5, y: 717.5}, {x: 50, y: 717.5}];
+    // var positions = [{x: 227.5, y: 895}, {x: 50, y: 895}];
+    // var positions = [{x: 227.5, y: 1072.5}, {x: 50, y: 1072.5}];
+
     if (index >= positions.length) return;
 
-    var img = $("#circle")[0];
+    var img = $("#circle")[0],
+        position = scalePixelPosition(positions[index]),
+        size = scalePixelPosition({x: 160, y: 160});
 
-    var position = scalePixelPosition(positions[index]);
-    var size = scalePixelPosition({x: 160, y: 160});
-    // getContext().drawImage(img, position.x, position.y, size.x, size.y);
+    // position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
+    // size = scalePixelPosition({x: 130, y: 130});
+    position = scalePixelPosition({x: positions[index].x, y: positions[index].y});
 
-    position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
-    size = scalePixelPosition({x: 130, y: 130});
+    drawImage(position, {x: 165, y: 165}, $("#circle")[0]);
     drawImageSrc(position, size, runemark);
 }
+
+
+
 
 // function drawModel(imageUrl, imageProps)
 // {
@@ -447,59 +461,43 @@ function setName(name)
 //         "white");
 // }
 
-function readTagRunemarks()
-{
+
+
+function readTagRunemarks() {
     var array = new Array;
     // var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
     var checkedBoxes = $("[id^='tagRunemarkSelect_']").find('input:checked');
-    for (i = 0; i < checkedBoxes.length; i++)
-    {
+    for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
     }
     return array;
 }
 
-function setSelectedTagRunemarks(selectedRunemarksArray)
-{
-    // var tagRunemarksDiv = $("#tagRunemarkSelect");
-    var tagRunemarksDiv = $("[id^='tagRunemarkSelect_']")
-
-    // uncheck all
+function setSelectedTagRunemarks(selectedRunemarksArray){
+    // var tagRunemarksDiv = $('#tagRunemarkSelect');
+    var tagRunemarksDiv = $("[id^='tagRunemarkSelect_']");
     {
         var checked = tagRunemarksDiv.find('input:checked');
-        for (var i = 0; i < checked.length; i++)
-        {
+        for (var i = 0; i < checked.length; i++) {
             checked[i].checked = false;
         }
         var icons = tagRunemarksDiv.find('img');
-        for (var i = 0; i < icons.length; i++)
-        {
-            icons[i].style.backgroundColor = "white";
+        for (var i = 0; i < icons.length; i++) {
+            icons[i].style.backgroundColor = 'white';
         }
     }
-
-    for (var i = 0; i < selectedRunemarksArray.length; i++)
-    {
+    for (var i = 0; i < selectedRunemarksArray.length; i++) {
         var runemark = selectedRunemarksArray[i];
         var queryString = "img[src='"+ runemark +"']";
         var imgs = tagRunemarksDiv.find(queryString);
-        if (imgs.length > 0)
-        {
-            var checkbox = $(imgs[0].parentNode.parentNode).find("input")[0];
+        if (imgs.length > 0) {
+            var checkbox = $(imgs[0].parentNode.parentNode).find('input')[0];
             checkbox.checked = true;
-            // imgs[0].style.backgroundColor = "tomato";
             imgs[0].style.backgroundColor = "#00bc8c";
-        }
-        else
-        {
-            var newDiv =
-                addToImageCheckboxSelector(
-                    runemark,
-                    tagRunemarksDiv[0],
-                    "white");
-            // $(newDiv).find("img")[0].style.backgroundColor = "tomato";
-            $(newDiv).find("img")[0].style.backgroundColor = "#00bc8c";
-            $(newDiv).find("input")[0].checked = true;
+        } else {
+            var newDiv = addToImageCheckboxSelector(runemark, tagRunemarksDiv[0], 'white');
+            $(newDiv).find('img')[0].style.backgroundColor = "#00bc8c";
+            $(newDiv).find('input')[0].checked = true;
         }
     }
 }
@@ -534,7 +532,9 @@ function readControls()
     // data.wounds = document.getElementById("numWounds").value;
     // data.move = document.getElementById("movement").value;
     // data.pointCost = document.getElementById("pointCost").value;
+
     data.tagRunemarks = readTagRunemarks();
+
     // data.weapon1 = readWeaponControls("#weapon1");
     // data.weapon2 = readWeaponControls("#weapon2");
     return data;
@@ -657,11 +657,11 @@ render = function(cardData) {
     //     drawWeapon(cardData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
     // }
 
-    // for (i = 0; i < cardData.tagRunemarks.length; i++)
-    // {
-    //     drawTagRunemark(i, cardData.tagRunemarks[i]);
-    // }
-}
+    for (i = 0; i < cardData.tagRunemarks.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarks[i]);
+    }
+
+};
 
 function writeControls(cardData)
 {
@@ -692,7 +692,9 @@ function writeControls(cardData)
     // $("#numWounds")[0].value = cardData.wounds;
     // $("#movement")[0].value = cardData.move;
     // $("#pointCost")[0].value = cardData.pointCost;
+
     setSelectedTagRunemarks(cardData.tagRunemarks);
+
     // writeWeaponControls("#weapon1", cardData.weapon1, "weapon1");
     // writeWeaponControls("#weapon2", cardData.weapon2, "weapon2");
 }
@@ -726,8 +728,10 @@ function defaultCardData() {
     // cardData.wounds = 15;
     // cardData.move = 5;
     // cardData.pointCost = 125;
+
     cardData.tagRunemarks = new Array;
     cardData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
+
     // cardData.weapon1 = getDefaultWeaponData1();
     // cardData.weapon2 = getDefaultWeaponData2();
     return cardData;
