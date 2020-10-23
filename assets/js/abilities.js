@@ -450,7 +450,8 @@ function setName(name)
 function readTagRunemarks()
 {
     var array = new Array;
-    var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
+    // var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
+    var checkedBoxes = $("[id^='tagRunemarkSelect_']").find('input:checked');
     for (i = 0; i < checkedBoxes.length; i++)
     {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -460,7 +461,9 @@ function readTagRunemarks()
 
 function setSelectedTagRunemarks(selectedRunemarksArray)
 {
-    var tagRunemarksDiv = $("#tagRunemarkSelect");
+    // var tagRunemarksDiv = $("#tagRunemarkSelect");
+    var tagRunemarksDiv = $("[id^='tagRunemarkSelect_']")
+
     // uncheck all
     {
         var checked = tagRunemarksDiv.find('input:checked');
@@ -653,6 +656,7 @@ render = function(cardData) {
     // {
     //     drawWeapon(cardData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
     // }
+
     // for (i = 0; i < cardData.tagRunemarks.length; i++)
     // {
     //     drawTagRunemark(i, cardData.tagRunemarks[i]);
@@ -982,7 +986,8 @@ function addToImageCheckboxSelector(imgSrc, grid, bgColor)
 function onTagRunemarkFileSelect()
 {
     var imageSelect = $("#additionalTagMarkSelect")[0];
-    var selectGrid = $("#tagRunemarkSelect")[0];
+    // var selectGrid = $("#tagRunemarkSelect")[0];
+    var selectGrid = $("[id^='tagRunemarkSelect_']")[0];
 
     for (i = 0; i < imageSelect.files.length; i++)
     {

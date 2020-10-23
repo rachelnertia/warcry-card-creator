@@ -154,6 +154,7 @@ canvas {
 
 #factionRunemarkSelect label,
 #tagRunemarkSelect label,
+*[id^='tagRunemarkSelect_'] label,
 #weaponInputs label {
     margin: 0;
 }
