@@ -104,8 +104,6 @@ drawAbility = function(id, pixelPosition) {
             var txt = '[Triple] ' + name + ': ' + text;
         } else if (quad.checked) {
             var txt = '[Quad] ' + name + ': ' + text;
-        } else if (none.checked) {
-            var txt = '';
         } else {
             var txt = name + ': ' + text;
         }
