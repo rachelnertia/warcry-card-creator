@@ -611,7 +611,7 @@ function writeControls(fighterData)
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
 
-    $('#card-subitle')[0].value = fighterData.cardSubtitle;
+    $('#card-subtitle')[0].value = fighterData.cardSubtitle;
     $('#card-title')[0].value = fighterData.cardTitle;
 
     setSelectedFactionRunemark(fighterData.factionRunemark);
