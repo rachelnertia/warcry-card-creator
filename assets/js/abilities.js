@@ -88,22 +88,37 @@ drawAbility = function(id, pixelPosition) {
     getContext().fillStyle = 'black';
     getContext().textAlign = 'left';
 
-    var double = document.getElementById('ability' + id + '-double'),
-        triple = document.getElementById('ability' + id + '-triple'),
-        quad   = document.getElementById('ability' + id + '-quad'),
-        name   = document.getElementById('ability' + id + '-name').value,
-        text   = document.getElementById('ability' + id + '-text').value;
+    var double      = document.getElementById('ability' + id + '-double'),
+        triple      = document.getElementById('ability' + id + '-triple'),
+        quad        = document.getElementById('ability' + id + '-quad'),
+        name        = document.getElementById('ability' + id + '-name').value,
+        text        = document.getElementById('ability' + id + '-text').value,
+        transDouble = document.getElementById('card-translation-double').value,
+        transTriple = document.getElementById('card-translation-triple').value,
+        transQuad   = document.getElementById('card-translation-quad').value;
 
     // https://stackoverflow.com/a/35119260; http://jsfiddle.net/BaG4J/1/
     var textblock = (function() {
         var txt = '';
 
         if (double.checked) {
-            var txt = '[Double] ' + name + ': ' + text;
+            if (transDouble.length) {
+                var txt = '[' + transDouble + '] ' + name + ': ' + text;
+            } else {
+                var txt = '[Double] ' + name + ': ' + text;
+            }
         } else if (triple.checked) {
-            var txt = '[Triple] ' + name + ': ' + text;
+            if (transTriple.length) {
+                var txt = '[' + transTriple + '] ' + name + ': ' + text;
+            } else {
+                var txt = '[Triple] ' + name + ': ' + text;
+            }
         } else if (quad.checked) {
-            var txt = '[Quad] ' + name + ': ' + text;
+            if (transQuad.length) {
+                var txt = '[' + transQuad + '] ' + name + ': ' + text;
+            } else {
+                var txt = '[Quad] ' + name + ': ' + text;
+            }
         } else {
             var txt = name + ': ' + text;
         }
@@ -509,7 +524,7 @@ function readControls()
     // data.imageUrl = getModelImage();
     // data.imageProperties = getModelImageProperties();
 
-    data.cardSubtitle = document.getElementById('card-subtitle').value;
+    data.cardTranslationAbilities = document.getElementById('card-translation-abilities').value;
     data.cardTitle = document.getElementById('card-title').value;
 
     data.factionRunemark = getSelectedFactionRunemark();
@@ -590,7 +605,7 @@ render = function(cardData) {
     drawBackground();
     // drawModel(cardData.imageUrl, cardData.imageProperties);
 
-    drawCardSubtitle(cardData.cardSubtitle);
+    drawCardSubtitle(cardData.cardTranslationAbilities);
     drawCardTitle(cardData.cardTitle);
 
     drawFactionRunemark(cardData.factionRunemark);
@@ -669,8 +684,11 @@ function writeControls(cardData)
     // setModelImage(cardData.imageUrl);
     // setModelImageProperties(cardData.imageProperties);
 
-    $('#card-subtitle')[0].value = cardData.cardSubtitle;
     $('#card-title')[0].value = cardData.cardTitle;
+    $('#card-translation-abilities')[0].value = cardData.cardTranslationAbilities;
+    $('#card-translation-double')[0].value = cardData.cardTranslationDouble;
+    $('#card-translation-triple')[0].value = cardData.cardTranslationTriple;
+    $('#card-translation-quad')[0].value = cardData.cardTranslationQuad;
 
     setSelectedFactionRunemark(cardData.factionRunemark);
 
@@ -705,8 +723,11 @@ function defaultCardData() {
     // cardData.imageUrl = null;
     // cardData.imageProperties = getDefaultModelImageProperties();
 
-    cardData.cardSubtitle = 'Abilities';
     cardData.cardTitle = 'Iron Golem';
+    cardData.cardTranslationAbilities = 'Abilities';
+    cardData.cardTranslationDouble = 'Double';
+    cardData.cardTranslationTriple = 'Triple';
+    cardData.cardTranslationQuad = 'Quad';
 
     cardData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
 
