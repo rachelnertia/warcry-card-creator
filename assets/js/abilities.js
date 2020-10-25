@@ -119,8 +119,6 @@ drawAbility = function(id, pixelPosition) {
             } else {
                 var txt = '[Quad] ' + name + ': ' + text;
             }
-        } else {
-            var txt = name + ': ' + text;
         }
 
         var lines = txt.split('\n');
