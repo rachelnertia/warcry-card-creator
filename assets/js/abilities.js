@@ -132,7 +132,7 @@ drawAbility = function(id, pixelPosition) {
     })();
 }
 
-drawCardSubtitle = function(value) {
+drawCardTranslationAbilities = function(value) {
     getContext().font = '28px Georgia, serif';
     getContext().fillStyle = 'white';
     getContext().textAlign = 'center';
@@ -603,7 +603,7 @@ render = function(cardData) {
     drawBackground();
     // drawModel(cardData.imageUrl, cardData.imageProperties);
 
-    drawCardSubtitle(cardData.cardTranslationAbilities);
+    drawCardTranslationAbilities(cardData.cardTranslationAbilities);
     drawCardTitle(cardData.cardTitle);
 
     drawFactionRunemark(cardData.factionRunemark);
