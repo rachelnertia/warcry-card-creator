@@ -224,6 +224,7 @@ function getSelectedRunemark(radioDiv) {
     var checked = $(radioDiv).find('input:checked');
     if (checked.length > 0)
     {
+        //console.log(getImage(getLabel(checked[0])).getAttribute("src"));
         return getImage(getLabel(checked[0])).getAttribute("src");
     }
     return null;
@@ -306,15 +307,23 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc)
 
 
 
-function drawTagRunemark(index, runemark) {
-    var positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
+function drawTagRunemark(index, runemark, row) {
+    // draw the runemarks
+    var positions = []
 
-    // var positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
-    // var positions = [{x: 227.5, y: 362.5}, {x: 50, y: 362.5}];
-    // var positions = [{x: 227.5, y: 540}, {x: 50, y: 540}];
-    // var positions = [{x: 227.5, y: 717.5}, {x: 50, y: 717.5}];
-    // var positions = [{x: 227.5, y: 895}, {x: 50, y: 895}];
-    // var positions = [{x: 227.5, y: 1072.5}, {x: 50, y: 1072.5}];
+    if (row == 1) {
+        positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
+    } else if (row == 2) {
+        positions = [{x: 227.5, y: 362.5}, {x: 50, y: 362.5}];
+    } else if (row == 3) {
+        positions = [{x: 227.5, y: 540}, {x: 50, y: 540}];
+    } else if (row == 4) {
+        positions = [{x: 227.5, y: 717.5}, {x: 50, y: 717.5}];
+    } else if (row == 5) {
+        positions = [{x: 227.5, y: 895}, {x: 50, y: 895}];
+    } else if (row == 6) {
+        positions = [{x: 227.5, y: 1072.5}, {x: 50, y: 1072.5}];
+    }
 
     if (index >= positions.length) return;
 
@@ -482,6 +491,8 @@ function readTagRunemarks() {
     var array = new Array;
     // var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
     var checkedBoxes = $("[id^='tagRunemarkSelect_']").find('input:checked');
+    console.log(checkedBoxes);
+    // TODO: this!
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
     }
@@ -528,6 +539,7 @@ function readControls()
     data.cardTitle = document.getElementById('card-title').value;
 
     data.factionRunemark = getSelectedFactionRunemark();
+    console.log(data.factionRunemark);
 
     data.ability1Name = document.getElementById('ability1-name').value;
     data.ability2Name = document.getElementById('ability2-name').value;
@@ -673,7 +685,7 @@ render = function(cardData) {
     // }
 
     for (i = 0; i < cardData.tagRunemarks.length; i++) {
-        drawTagRunemark(i, cardData.tagRunemarks[i]);
+        drawTagRunemark(i, cardData.tagRunemarks[i], 6);
     }
 
 };
@@ -957,7 +969,8 @@ onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
 {
     // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
-
+    // TODO: Here we grab the checkbox
+    console.log(checkbox)
     onAnyChange();
 }
 
