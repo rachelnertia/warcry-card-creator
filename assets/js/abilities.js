@@ -119,8 +119,6 @@ drawAbility = function(id, pixelPosition) {
             } else {
                 var txt = '[Quad] ' + name + ': ' + text;
             }
-        } else {
-            var txt = name + ': ' + text;
         }
 
         var lines = txt.split('\n');
@@ -134,7 +132,7 @@ drawAbility = function(id, pixelPosition) {
     })();
 }
 
-drawCardSubtitle = function(value) {
+drawCardTranslationAbilities = function(value) {
     getContext().font = '28px Georgia, serif';
     getContext().fillStyle = 'white';
     getContext().textAlign = 'center';
@@ -224,6 +222,7 @@ function getSelectedRunemark(radioDiv) {
     var checked = $(radioDiv).find('input:checked');
     if (checked.length > 0)
     {
+        //console.log(getImage(getLabel(checked[0])).getAttribute("src"));
         return getImage(getLabel(checked[0])).getAttribute("src");
     }
     return null;
@@ -306,15 +305,23 @@ function drawImageSrc(scaledPosition, scaledSize, imageSrc)
 
 
 
-function drawTagRunemark(index, runemark) {
-    var positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
+function drawTagRunemark(index, runemark, row) {
+    // draw the runemarks
+    var positions = []
 
-    // var positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
-    // var positions = [{x: 227.5, y: 362.5}, {x: 50, y: 362.5}];
-    // var positions = [{x: 227.5, y: 540}, {x: 50, y: 540}];
-    // var positions = [{x: 227.5, y: 717.5}, {x: 50, y: 717.5}];
-    // var positions = [{x: 227.5, y: 895}, {x: 50, y: 895}];
-    // var positions = [{x: 227.5, y: 1072.5}, {x: 50, y: 1072.5}];
+    if (row == 1 && document.getElementById('ability1-toggle').checked) {
+        positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
+    } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
+        positions = [{x: 227.5, y: 362.5}, {x: 50, y: 362.5}];
+    } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
+        positions = [{x: 227.5, y: 540}, {x: 50, y: 540}];
+    } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
+        positions = [{x: 227.5, y: 717.5}, {x: 50, y: 717.5}];
+    } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
+        positions = [{x: 227.5, y: 895}, {x: 50, y: 895}];
+    } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
+        positions = [{x: 227.5, y: 1072.5}, {x: 50, y: 1072.5}];
+    }
 
     if (index >= positions.length) return;
 
@@ -326,7 +333,7 @@ function drawTagRunemark(index, runemark) {
     // size = scalePixelPosition({x: 130, y: 130});
     position = scalePixelPosition({x: positions[index].x, y: positions[index].y});
 
-    drawImage(position, {x: 165, y: 165}, $("#circle")[0]);
+    drawImage(position, {x: 165, y: 165}, img);
     drawImageSrc(position, size, runemark);
 }
 
@@ -477,11 +484,61 @@ function setName(name)
 // }
 
 
-
-function readTagRunemarks() {
+function readTagRunemarksOne() {
     var array = new Array;
-    // var checkedBoxes = $("#tagRunemarkSelect").find('input:checked');
-    var checkedBoxes = $("[id^='tagRunemarkSelect_']").find('input:checked');
+
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeOne").find('input:checked');
+
+    for (i = 0; i < checkedBoxes.length; i++) {
+        array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
+    }
+    return array;
+}
+function readTagRunemarksTwo() {
+    var array = new Array;
+
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeTwo").find('input:checked');
+
+    for (i = 0; i < checkedBoxes.length; i++) {
+        array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
+    }
+    return array;
+}
+function readTagRunemarksThree() {
+    var array = new Array;
+
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeThree").find('input:checked');
+
+    for (i = 0; i < checkedBoxes.length; i++) {
+        array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
+    }
+    return array;
+}
+function readTagRunemarksFour() {
+    var array = new Array;
+
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeFour").find('input:checked');
+
+    for (i = 0; i < checkedBoxes.length; i++) {
+        array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
+    }
+    return array;
+}
+function readTagRunemarksFive() {
+    var array = new Array;
+
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeFifth").find('input:checked');
+
+    for (i = 0; i < checkedBoxes.length; i++) {
+        array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
+    }
+    return array;
+}
+function readTagRunemarksSix() {
+    var array = new Array;
+
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeSixth").find('input:checked');
+
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
     }
@@ -548,7 +605,12 @@ function readControls()
     // data.move = document.getElementById("movement").value;
     // data.pointCost = document.getElementById("pointCost").value;
 
-    data.tagRunemarks = readTagRunemarks();
+    data.tagRunemarksOne = readTagRunemarksOne();
+    data.tagRunemarksTwo = readTagRunemarksTwo();
+    data.tagRunemarksThree = readTagRunemarksThree();
+    data.tagRunemarksFour = readTagRunemarksFour();
+    data.tagRunemarksFive = readTagRunemarksFive();
+    data.tagRunemarksSix = readTagRunemarksSix();
 
     // data.weapon1 = readWeaponControls("#weapon1");
     // data.weapon2 = readWeaponControls("#weapon2");
@@ -605,7 +667,7 @@ render = function(cardData) {
     drawBackground();
     // drawModel(cardData.imageUrl, cardData.imageProperties);
 
-    drawCardSubtitle(cardData.cardTranslationAbilities);
+    drawCardTranslationAbilities(cardData.cardTranslationAbilities);
     drawCardTitle(cardData.cardTitle);
 
     drawFactionRunemark(cardData.factionRunemark);
@@ -672,8 +734,23 @@ render = function(cardData) {
     //     drawWeapon(cardData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
     // }
 
-    for (i = 0; i < cardData.tagRunemarks.length; i++) {
-        drawTagRunemark(i, cardData.tagRunemarks[i]);
+    for (i = 0; i < cardData.tagRunemarksOne.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarksOne[i], 1);
+    }
+    for (i = 0; i < cardData.tagRunemarksTwo.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarksTwo[i], 2);
+    }
+    for (i = 0; i < cardData.tagRunemarksThree.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarksThree[i], 3);
+    }
+    for (i = 0; i < cardData.tagRunemarksFour.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarksFour[i], 4);
+    }
+    for (i = 0; i < cardData.tagRunemarksFive.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarksFive[i], 5);
+    }
+    for (i = 0; i < cardData.tagRunemarksSix.length; i++) {
+        drawTagRunemark(i, cardData.tagRunemarksSix[i], 6);
     }
 
 };
@@ -711,7 +788,16 @@ function writeControls(cardData)
     // $("#movement")[0].value = cardData.move;
     // $("#pointCost")[0].value = cardData.pointCost;
 
-    setSelectedTagRunemarks(cardData.tagRunemarks);
+    var runes_one = cardData.tagRunemarksOne,
+        runes_two = cardData.tagRunemarksTwo,
+        runes_three = cardData.tagRunemarksThree,
+        runes_four = cardData.tagRunemarksFour,
+        runes_five = cardData.tagRunemarksFive,
+        runes_six = cardData.tagRunemarksSix
+
+    var tagRuneMarks = $.merge(runes_one, runes_two, runes_three, runes_four, runes_five, runes_six)
+
+    setSelectedTagRunemarks(tagRuneMarks);
 
     // writeWeaponControls("#weapon1", cardData.weapon1, "weapon1");
     // writeWeaponControls("#weapon2", cardData.weapon2, "weapon2");
@@ -750,8 +836,8 @@ function defaultCardData() {
     // cardData.move = 5;
     // cardData.pointCost = 125;
 
-    cardData.tagRunemarks = new Array;
-    cardData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
+    cardData.tagRunemarksOne = new Array;
+    cardData.tagRunemarksOne.push('runemarks/black/fighters/berserker.svg');
 
     // cardData.weapon1 = getDefaultWeaponData1();
     // cardData.weapon2 = getDefaultWeaponData2();
@@ -886,10 +972,32 @@ async function saveCardData(cardData)
         // handle images we may have loaded from disk...
         cardData.imageUrl = await handleImageUrlFromDisk(cardData.imageUrl);
         cardData.factionRunemark = await handleImageUrlFromDisk(cardData.factionRunemark);
-        for (i = 0; i < cardData.tagRunemarks.length; i++)
+
+        for (i = 0; i < cardData.tagRunemarksOne.length; i++)
         {
-            cardData.tagRunemarks[i] = await handleImageUrlFromDisk(cardData.tagRunemarks[i]);
+            cardData.tagRunemarksOne[i] = await handleImageUrlFromDisk(cardData.tagRunemarksOne[i]);
         }
+        for (i = 0; i < cardData.tagRunemarksTwo.length; i++)
+        {
+            cardData.tagRunemarksTwo[i] = await handleImageUrlFromDisk(cardData.tagRunemarksTwo[i]);
+        }
+        for (i = 0; i < cardData.tagRunemarksThree.length; i++)
+        {
+            cardData.tagRunemarksThree[i] = await handleImageUrlFromDisk(cardData.tagRunemarksThree[i]);
+        }
+        for (i = 0; i < cardData.tagRunemarksFour.length; i++)
+        {
+            cardData.tagRunemarksFour[i] = await handleImageUrlFromDisk(cardData.tagRunemarksFour[i]);
+        }
+        for (i = 0; i < cardData.tagRunemarksFive.length; i++)
+        {
+            cardData.tagRunemarksFive[i] = await handleImageUrlFromDisk(cardData.tagRunemarksFive[i]);
+        }
+        for (i = 0; i < cardData.tagRunemarksSix.length; i++)
+        {
+            cardData.tagRunemarksSix[i] = await handleImageUrlFromDisk(cardData.tagRunemarksSix[i]);
+        }
+
         // cardData.weapon1.runemark = await handleImageUrlFromDisk(cardData.weapon1.runemark);
         // cardData.weapon2.runemark = await handleImageUrlFromDisk(cardData.weapon2.runemark);
 
@@ -957,7 +1065,6 @@ onTagRunemarkSelectionChanged = function(checkbox, backgroundColor)
 {
     // getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "tomato" : backgroundColor;
     getImage(getLabel(checkbox)).style.backgroundColor = checkbox.checked ? "#00bc8c" : backgroundColor;
-
     onAnyChange();
 }
 
