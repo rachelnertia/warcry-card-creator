@@ -310,17 +310,17 @@ function drawTagRunemark(index, runemark, row) {
     var positions = []
 
     if (row == 1 && document.getElementById('ability1-toggle').checked) {
-        positions = [{x: 227.5, y: 185}, {x: 50, y: 185}];
+        positions = [{x: 227.5, y: 185}, {x: 400, y: 185}];
     } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-        positions = [{x: 227.5, y: 362.5}, {x: 50, y: 362.5}];
+        positions = [{x: 227.5, y: 362.5}, {x: 400, y: 362.5}];
     } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-        positions = [{x: 227.5, y: 540}, {x: 50, y: 540}];
+        positions = [{x: 227.5, y: 540}, {x: 400, y: 540}];
     } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-        positions = [{x: 227.5, y: 717.5}, {x: 50, y: 717.5}];
+        positions = [{x: 227.5, y: 717.5}, {x: 400, y: 717.5}];
     } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-        positions = [{x: 227.5, y: 895}, {x: 50, y: 895}];
+        positions = [{x: 227.5, y: 895}, {x: 400, y: 895}];
     } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-        positions = [{x: 227.5, y: 1072.5}, {x: 50, y: 1072.5}];
+        positions = [{x: 227.5, y: 1072.5}, {x: 400, y: 1072.5}];
     }
 
     if (index >= positions.length) return;
@@ -621,42 +621,42 @@ function drawFactionRunemark(image) {
     drawImageSrc({x: 67.5, y: 67.5}, {x: 190, y: 190}, image);
 
     if (document.getElementById('ability1-toggle').checked) {
-        var positions = {x: 400, y: 185},
+        var positions = {x: 50, y: 185},
             replacedImage = image.replace('white', 'black');
         drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
         drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability2-toggle').checked) {
-        var positions = {x: 400, y: 362.5},
+        var positions = {x: 50, y: 362.5},
             replacedImage = image.replace('white', 'black');
         drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
         drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability3-toggle').checked) {
-        var positions = {x: 400, y: 540},
+        var positions = {x: 50, y: 540},
             replacedImage = image.replace('white', 'black');
         drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
         drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability4-toggle').checked) {
-        var positions = {x: 400, y: 717.5},
+        var positions = {x: 50, y: 717.5},
             replacedImage = image.replace('white', 'black');
         drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
         drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability5-toggle').checked) {
-        var positions = {x: 400, y: 895},
+        var positions = {x: 50, y: 895},
             replacedImage = image.replace('white', 'black');
         drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
         drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
     }
 
     if (document.getElementById('ability6-toggle').checked) {
-        var positions = {x: 400, y: 1072.5},
+        var positions = {x: 50, y: 1072.5},
             replacedImage = image.replace('white', 'black');
         drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
         drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
