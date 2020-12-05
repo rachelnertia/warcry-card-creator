@@ -734,10 +734,6 @@ render = function(cardData) {
     //     drawWeapon(cardData.weapon2, {x: 50, y: 850}); // Default was x:29, y:463
     // }
 
-    console.log('dump:' + cardData.tagRunemarksOne.length);
-    console.log('dump:' + cardData.tagRunemarksTwo.length);
-
-
     for (i = 0; i < cardData.tagRunemarksOne.length; i++) {
         drawTagRunemark(i, cardData.tagRunemarksOne[i], 1);
     }
@@ -792,7 +788,16 @@ function writeControls(cardData)
     // $("#movement")[0].value = cardData.move;
     // $("#pointCost")[0].value = cardData.pointCost;
 
-    setSelectedTagRunemarks(cardData.tagRunemarks);
+    var runes_one = cardData.tagRunemarksOne,
+        runes_two = cardData.tagRunemarksTwo,
+        runes_three = cardData.tagRunemarksThree,
+        runes_four = cardData.tagRunemarksFour,
+        runes_five = cardData.tagRunemarksFive,
+        runes_six = cardData.tagRunemarksSix
+
+    var tagRuneMarks = $.merge(runes_one, runes_two, runes_three, runes_four, runes_five, runes_six)
+
+    setSelectedTagRunemarks(tagRuneMarks);
 
     // writeWeaponControls("#weapon1", cardData.weapon1, "weapon1");
     // writeWeaponControls("#weapon2", cardData.weapon2, "weapon2");
