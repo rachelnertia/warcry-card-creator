@@ -839,6 +839,12 @@ function defaultCardData() {
     cardData.tagRunemarksOne = new Array;
     cardData.tagRunemarksOne.push('runemarks/black/fighters/berserker.svg');
 
+    cardData.tagRunemarksTwo = new Array;
+    cardData.tagRunemarksThree = new Array;
+    cardData.tagRunemarksFour = new Array;
+    cardData.tagRunemarksFive = new Array;
+    cardData.tagRunemarksSix = new Array;
+
     // cardData.weapon1 = getDefaultWeaponData1();
     // cardData.weapon2 = getDefaultWeaponData2();
     return cardData;
