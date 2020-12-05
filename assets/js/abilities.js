@@ -618,7 +618,7 @@ function readControls()
 }
 
 function drawFactionRunemark(image) {
-    drawImageSrc({x: 67.5, y: 67.5}, {x: 190, y: 190}, image);
+    drawImageSrc({x: 57.5, y: 57.5}, {x: 100, y: 100}, image);
 
     if (document.getElementById('ability1-toggle').checked) {
         var positions = {x: 50, y: 185},
