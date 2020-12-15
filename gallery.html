@@ -35,10 +35,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" onclick="onClearCache()">Fighters</a>
+                        <a class="nav-link" href="index.html">Fighters</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="abilities.html" onclick="onClearCache()">Abilities</a>
+                        <a class="nav-link" href="abilities.html">Abilities</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -47,7 +47,7 @@
                         <a class="nav-link" href="issues.html">Issues</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="downloads.html">Downloads</a>
@@ -57,14 +57,12 @@
 
         </nav>
 
-        {% include tabs/tabContentAbilities.html %}
+        {% include tabs/tabContentGallery.html %}
 
     </div>
 
     <script src="assets/vendors/jquery.js"></script>
-    <script src="assets/vendors/popper.min.js"></script>
     <script src="assets/vendors/bootstrap.min.js"></script>
-    <script src="assets/js/abilities.js"></script>
 
 </body>
 
