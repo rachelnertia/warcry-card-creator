@@ -816,7 +816,7 @@ function defaultCardData() {
     cardData.cardTranslationTriple = 'Triple';
     cardData.cardTranslationQuad = 'Quad';
 
-    cardData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
+    cardData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
 
     cardData.ability1Name = 'First ability name';
     cardData.ability2Name = 'Second ability name';
@@ -838,7 +838,7 @@ function defaultCardData() {
     // cardData.pointCost = 125;
 
     cardData.tagRunemarksOne = new Array;
-    cardData.tagRunemarksOne.push('runemarks/black/fighters/berserker.svg');
+    cardData.tagRunemarksOne.push('runemarks/black/fighters-berserker.svg');
 
     cardData.tagRunemarksTwo = new Array;
     cardData.tagRunemarksThree = new Array;

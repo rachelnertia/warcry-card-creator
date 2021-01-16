@@ -541,13 +541,13 @@ function defaultFighterData() {
     fighterData.name = 'Default';
     fighterData.imageUrl = null;
     fighterData.imageProperties = getDefaultModelImageProperties();
-    fighterData.factionRunemark = 'runemarks/white/factions/iron-golem.svg';
+    fighterData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
     fighterData.toughness = 4;
     fighterData.wounds = 15;
     fighterData.move = 5;
     fighterData.pointCost = 125;
     fighterData.tagRunemarks = new Array;
-    fighterData.tagRunemarks.push('runemarks/black/fighters/berserker.svg');
+    fighterData.tagRunemarks.push('runemarks/black/fighters-berserker.svg');
     fighterData.weapon1 = getDefaultWeaponData1();
     fighterData.weapon2 = getDefaultWeaponData2();
     return fighterData;
