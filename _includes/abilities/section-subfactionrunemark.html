@@ -1,0 +1,23 @@
+<div class="card">
+
+    <div class="card-header" id="abilitiesHeadingThree">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#abilitiesCollapseThree" aria-expanded="false" aria-controls="abilitiesCollapseThree">
+                Sub-Faction runemark
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="abilitiesCollapseTwo">
+        <div class="card-body">
+
+            <div id="subfactionRunemarkSelect" class="d-flex flex-wrap">
+                {% include fighters/fighterRunemarkSelectBladeborn.html %}
+
+                {% include abilities/factionRunemarkSelectNone.html %}
+            </div>
+
+        </div>
+    </div>
+
+</div>
