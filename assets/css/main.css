@@ -153,6 +153,7 @@ canvas {
 }
 
 #factionRunemarkSelect label,
+#subfactionRunemarkSelect label,
 #tagRunemarkSelect label,
 *[id^='tagRunemarkSelect_'] label,
 #weaponInputs label {
