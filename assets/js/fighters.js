@@ -213,6 +213,14 @@ function setSelectedFactionRunemark(runemark) {
     setSelectedRunemark($('#factionRunemarkSelect')[0], runemark, "faction", "black");
 }
 
+function getSelectedSubfactionRunemark() {
+    return getSelectedRunemark($('#subfactionRunemarkSelect')[0]);
+}
+
+function setSelectedSubfactionRunemark(runemark) {
+    setSelectedRunemark($('#subfactionRunemarkSelect')[0], runemark, "subfaction", "black");
+}
+
 function drawImage(scaledPosition, scaledSize, image)
 {
     if (image != null)
@@ -457,6 +465,7 @@ function readControls()
     data.imageUrl = getModelImage();
     data.imageProperties = getModelImageProperties();
     data.factionRunemark = getSelectedFactionRunemark();
+    data.subfactionRunemark = getSelectedSubfactionRunemark();
     data.toughness = document.getElementById("toughness").value;
     data.wounds = document.getElementById("numWounds").value;
     data.move = document.getElementById("movement").value;
@@ -474,12 +483,16 @@ function drawFactionRunemark(image)
     var size = scalePixelPosition({x: 190, y: 190});
     drawImageSrc(position, size, image);
 }
-
+function drawSubfactionRunemark(image)
+{
+    //implement here
+}
 render = function(fighterData) {
     drawBackground();
 
     drawModel(fighterData.imageUrl, fighterData.imageProperties);
     drawFactionRunemark(fighterData.factionRunemark);
+    drawSubfactionRunemark(fighterData.subfactionRunemark);
 
     getContext().font = "92px rodchenkoctt";
     getContext().fillStyle = "white";
@@ -530,6 +543,7 @@ function writeControls(fighterData)
     setModelImage(fighterData.imageUrl);
     setModelImageProperties(fighterData.imageProperties);
     setSelectedFactionRunemark(fighterData.factionRunemark);
+    setSelectedSubfactionRunemark(fighterData.subfactionRunemark);
     $("#toughness")[0].value = fighterData.toughness;
     $("#numWounds")[0].value = fighterData.wounds;
     $("#movement")[0].value = fighterData.move;
@@ -684,6 +698,7 @@ async function saveFighterData(fighterData)
         // handle images we may have loaded from disk...
         fighterData.imageUrl = await handleImageUrlFromDisk(fighterData.imageUrl);
         fighterData.factionRunemark = await handleImageUrlFromDisk(fighterData.factionRunemark);
+        fighterData.subfactionRunemark = await handleImageUrlFromDisk(fighterData.subfactionRunemark);
         for (i = 0; i < fighterData.tagRunemarks.length; i++)
         {
             fighterData.tagRunemarks[i] = await handleImageUrlFromDisk(fighterData.tagRunemarks[i]);
@@ -739,7 +754,6 @@ onRunemarkSelectionChanged = function(radioButton, backgroundColor)
 {
     var radioSection = radioButton.parentNode.parentNode;
     var allRadioButtons = $('input', radioSection);
-
     for (i = 0; i < allRadioButtons.length; i++)
     {
         getImage(getLabel(allRadioButtons[i])).style.backgroundColor = backgroundColor;
@@ -779,6 +793,17 @@ onFactionRunemarkFileSelect = function()
     for (i = 0; i < imageSelect.files.length; i++)
     {
         addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "faction", "black");
+    }
+}
+
+onSubfactionRunemarkFileSelect = function()
+{
+    var imageSelect = $("#additionalSubfactionMarkSelect")[0];
+    var selectGrid = $("#subfactionRunemarkSelect")[0];
+
+    for (i = 0; i < imageSelect.files.length; i++)
+    {
+        addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "subfaction", "black");
     }
 }
 
