@@ -485,7 +485,9 @@ function drawFactionRunemark(image)
 }
 function drawSubfactionRunemark(image)
 {
-    //implement here
+    var position = scalePixelPosition({x: 267.5, y: 27.5});
+    var size = scalePixelPosition({x: 120, y: 120});
+    drawImageSrc(position, size, image);
 }
 render = function(fighterData) {
     drawBackground();
