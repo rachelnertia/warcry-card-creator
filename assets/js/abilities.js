@@ -273,7 +273,7 @@ function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
 }
 */
 function setSelectedFactionRunemark(runemark){
-    var factionRunemarksDiv = $("[id^='factionRunemarkSelect_']");
+    var factionRunemarksDiv = $("#factionRunemarkSelect");
     {
         var checked = factionRunemarksDiv.find('input:checked');
         for (var i = 0; i < checked.length; i++) {
@@ -281,7 +281,7 @@ function setSelectedFactionRunemark(runemark){
         }
         var icons = factionRunemarksDiv.find('img');
         for (var i = 0; i < icons.length; i++) {
-            icons[i].style.backgroundColor = 'white';
+            icons[i].style.backgroundColor = 'black';
         }
     }
         var queryString = "img[src='"+ runemark +"']";
@@ -291,13 +291,13 @@ function setSelectedFactionRunemark(runemark){
             checkbox.checked = true;
             imgs[0].style.backgroundColor = "#00bc8c";
         } else {
-            var newDiv = addToImageCheckboxSelector(runemark, factionRunemarksDiv[0], 'white');
+            var newDiv = addToImageCheckboxSelector(runemark, factionRunemarksDiv[0], 'black');
             $(newDiv).find('img')[0].style.backgroundColor = "#00bc8c";
             $(newDiv).find('input')[0].checked = true;
         }
 }
 function setSelectedSubfactionRunemark(runemark){
-    var subfactionRunemarksDiv = $("[id^='subfactionRunemarkSelect_']");
+    var subfactionRunemarksDiv = $("#subfactionRunemarkSelect");
     {
         var checked = subfactionRunemarksDiv.find('input:checked');
         for (var i = 0; i < checked.length; i++) {
@@ -305,7 +305,7 @@ function setSelectedSubfactionRunemark(runemark){
         }
         var icons = subfactionRunemarksDiv.find('img');
         for (var i = 0; i < icons.length; i++) {
-            icons[i].style.backgroundColor = 'white';
+            icons[i].style.backgroundColor = 'black';
         }
     }
         var queryString = "img[src='"+ runemark +"']";
@@ -315,7 +315,7 @@ function setSelectedSubfactionRunemark(runemark){
             checkbox.checked = true;
             imgs[0].style.backgroundColor = "#00bc8c";
         } else {
-            var newDiv = addToImageCheckboxSelector(runemark, subfactionRunemarksDiv[0], 'white');
+            var newDiv = addToImageCheckboxSelector(runemark, subfactionRunemarksDiv[0], 'black');
             $(newDiv).find('img')[0].style.backgroundColor = "#00bc8c";
             $(newDiv).find('input')[0].checked = true;
         }
