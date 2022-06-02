@@ -918,7 +918,7 @@ function defaultCardData() {
     cardData.cardTranslationQuad = 'Quad';
 
     cardData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
-    cardData.subfactionRunemark = 'subfaction-runemarks/none/blank.gif';
+    cardData.subfactionRunemark = 'assets/img/blank.gif';
 
     cardData.ability1Name = 'First ability name';
     cardData.ability2Name = 'Second ability name';
