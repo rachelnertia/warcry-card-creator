@@ -360,30 +360,30 @@ function drawTagRunemark(index, runemark, row) {
     var positions = []
 
     if (row == 1 && document.getElementById('ability1-toggle').checked) {
-        positions = [{x: 227.5, y: 185}, {x: 400, y: 185}];
+        positions = [{x: 175, y: 225}, {x: 285, y: 225}, {x: 395, y: 225}, {x: 505, y: 225}];
     } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-        positions = [{x: 227.5, y: 362.5}, {x: 400, y: 362.5}];
+        positions = [{x: 175, y: 410}, {x: 285, y: 410}, {x: 395, y: 410}, {x: 505, y: 410}];
     } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-        positions = [{x: 227.5, y: 540}, {x: 400, y: 540}];
+        positions = [{x: 175, y: 580}, {x: 285, y: 580}, {x: 395, y: 580}, {x: 505, y: 580}];
     } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-        positions = [{x: 227.5, y: 717.5}, {x: 400, y: 717.5}];
+        positions = [{x: 175, y: 760}, {x: 285, y: 760}, {x: 395, y: 760}, {x: 505, y: 760}];
     } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-        positions = [{x: 227.5, y: 895}, {x: 400, y: 895}];
+        positions = [{x: 175, y: 940}, {x: 285, y: 940}, {x: 395, y: 940}, {x: 505, y: 940}];
     } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-        positions = [{x: 227.5, y: 1072.5}, {x: 400, y: 1072.5}];
+        positions = [{x: 175, y: 1115}, {x: 285, y: 1115}, {x: 395, y: 1115}, {x: 505, y: 1115}];
     }
 
     if (index >= positions.length) return;
 
     var img = $("#circle")[0],
         position = scalePixelPosition(positions[index]),
-        size = scalePixelPosition({x: 160, y: 160});
+        size = scalePixelPosition({x: 90, y: 90});
 
     // position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
     // size = scalePixelPosition({x: 130, y: 130});
     position = scalePixelPosition({x: positions[index].x, y: positions[index].y});
 
-    drawImage(position, {x: 165, y: 165}, img);
+    drawImage(position, {x: 90, y: 90}, img);
     drawImageSrc(position, size, runemark);
 }
 
@@ -670,96 +670,96 @@ function readControls()
 
 function drawFactionRunemark(image) {
     // drawImageSrc({x: 57.5, y: 57.5}, {x: 100, y: 100}, image);
-    drawImageSrc({x: 92.5, y: 40}, {x: 135, y: 135}, image);
+    drawImageSrc({x: 92.5, y: 35}, {x: 135, y: 135}, image);
 	if(getSelectedSubfactionRunemark() == null || getSelectedSubfactionRunemark() == 'assets/img/blank.gif'){
 		if (document.getElementById('ability1-toggle').checked) {
-			var positions = {x: 50, y: 185},
+			var positions = {x: 60, y: 225},
 				replacedImage = image.replace('white', 'black');
-			drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-			drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
 		}
 
 		if (document.getElementById('ability2-toggle').checked) {
-			var positions = {x: 50, y: 362.5},
+			var positions = {x: 60, y: 405},
 				replacedImage = image.replace('white', 'black');
-			drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-			drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
 		}
 
 		if (document.getElementById('ability3-toggle').checked) {
-			var positions = {x: 50, y: 540},
+			var positions = {x: 60, y: 575},
 				replacedImage = image.replace('white', 'black');
-			drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-			drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
 		}
 
 		if (document.getElementById('ability4-toggle').checked) {
-			var positions = {x: 50, y: 717.5},
+			var positions = {x: 60, y: 755},
 				replacedImage = image.replace('white', 'black');
-			drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-			drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
 		}
 
 		if (document.getElementById('ability5-toggle').checked) {
-			var positions = {x: 50, y: 895},
+			var positions = {x: 60, y: 935},
 				replacedImage = image.replace('white', 'black');
-			drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-			drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
 		}
 
 		if (document.getElementById('ability6-toggle').checked) {
-			var positions = {x: 50, y: 1072.5},
+			var positions = {x: 60, y: 1110},
 				replacedImage = image.replace('white', 'black');
-			drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-			drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
 		}
 	}
 
 }
 function drawSubfactionRunemark(image) {
-    // drawImageSrc({x: 57.5, y: 57.5}, {x: 100, y: 100}, image);
-    drawImageSrc({x: 227.5, y: 40}, {x: 135, y: 135}, image);
+    // drawImageSrc({x: 57.5, y: 57.5}, {x: 90, y: 90}, image);
+    drawImageSrc({x: 224, y: 58}, {x: 90, y: 90}, image);
 
     if (document.getElementById('ability1-toggle').checked) {
-        var positions = {x: 50, y: 185},
+        var positions = {x: 65, y: 225},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability2-toggle').checked) {
-        var positions = {x: 50, y: 362.5},
+        var positions = {x: 65, y: 410},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability3-toggle').checked) {
-        var positions = {x: 50, y: 540},
+        var positions = {x: 65, y: 580},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability4-toggle').checked) {
-        var positions = {x: 50, y: 717.5},
+        var positions = {x: 65, y: 760},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability5-toggle').checked) {
-        var positions = {x: 50, y: 895},
+        var positions = {x: 65, y: 940},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability6-toggle').checked) {
-        var positions = {x: 50, y: 1072.5},
+        var positions = {x: 65, y: 1115},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 100, y: 100}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 85, y: 85}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 }
 
