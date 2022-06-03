@@ -1,6 +1,6 @@
 {
-    "name": "NECKRHINOS",
-    "short_name": "NECKRHINOS",
+    "name": "Warcry CC",
+    "short_name": "Warcry CC",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#ff0000",
+    "background_color": "#ff0000",
     "display": "standalone"
 }
