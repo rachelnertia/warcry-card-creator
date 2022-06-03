@@ -229,7 +229,7 @@ function getSelectedRunemark(radioDiv) {
     }
     return null;
 }
-
+/*
 function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
 {
     // uncheck all
@@ -271,13 +271,61 @@ function setSelectedRunemark(radioDiv, runemark, radioGroupName, bgColor)
         }
     }
 }
-
+*/
+function setSelectedFactionRunemark(runemark){
+    var factionRunemarksDiv = $("#factionRunemarkSelect");
+    {
+        var checked = factionRunemarksDiv.find('input:checked');
+        for (var i = 0; i < checked.length; i++) {
+            checked[i].checked = false;
+        }
+        var icons = factionRunemarksDiv.find('img');
+        for (var i = 0; i < icons.length; i++) {
+            icons[i].style.backgroundColor = 'black';
+        }
+    }
+        var queryString = "img[src='"+ runemark +"']";
+        var imgs = factionRunemarksDiv.find(queryString);
+        if (imgs.length > 0) {
+            var checkbox = $(imgs[0].parentNode.parentNode).find('input')[0];
+            checkbox.checked = true;
+            imgs[0].style.backgroundColor = "#00bc8c";
+        } else {
+            var newDiv = addToImageCheckboxSelector(runemark, factionRunemarksDiv[0], 'black');
+            $(newDiv).find('img')[0].style.backgroundColor = "#00bc8c";
+            $(newDiv).find('input')[0].checked = true;
+        }
+}
+function setSelectedSubfactionRunemark(runemark){
+    var subfactionRunemarksDiv = $("#subfactionRunemarkSelect");
+    {
+        var checked = subfactionRunemarksDiv.find('input:checked');
+        for (var i = 0; i < checked.length; i++) {
+            checked[i].checked = false;
+        }
+        var icons = subfactionRunemarksDiv.find('img');
+        for (var i = 0; i < icons.length; i++) {
+            icons[i].style.backgroundColor = 'black';
+        }
+    }
+        var queryString = "img[src='"+ runemark +"']";
+        var imgs = subfactionRunemarksDiv.find(queryString);
+        if (imgs.length > 0) {
+            var checkbox = $(imgs[0].parentNode.parentNode).find('input')[0];
+            checkbox.checked = true;
+            imgs[0].style.backgroundColor = "#00bc8c";
+        } else {
+            var newDiv = addToImageCheckboxSelector(runemark, subfactionRunemarksDiv[0], 'black');
+            $(newDiv).find('img')[0].style.backgroundColor = "#00bc8c";
+            $(newDiv).find('input')[0].checked = true;
+        }
+}
 function getSelectedFactionRunemark() {
     return getSelectedRunemark($('#factionRunemarkSelect')[0]);
 }
 
-function setSelectedFactionRunemark(runemark) {
-    setSelectedRunemark($('#factionRunemarkSelect')[0], runemark, "faction", "black");
+function getSelectedSubfactionRunemark() {
+    return getSelectedRunemark($('#subfactionRunemarkSelect')[0]);
 }
 
 function drawImage(scaledPosition, scaledSize, image)
@@ -312,30 +360,30 @@ function drawTagRunemark(index, runemark, row) {
     var positions = []
 
     if (row == 1 && document.getElementById('ability1-toggle').checked) {
-        positions = [{x: 227.5, y: 185}, {x: 400, y: 185}];
+        positions = [{x: 175, y: 225}, {x: 285, y: 225}, {x: 395, y: 225}, {x: 505, y: 225}];
     } else if (row == 2 && document.getElementById('ability2-toggle').checked) {
-        positions = [{x: 227.5, y: 362.5}, {x: 400, y: 362.5}];
+        positions = [{x: 175, y: 410}, {x: 285, y: 410}, {x: 395, y: 410}, {x: 505, y: 410}];
     } else if (row == 3 && document.getElementById('ability3-toggle').checked) {
-        positions = [{x: 227.5, y: 540}, {x: 400, y: 540}];
+        positions = [{x: 175, y: 580}, {x: 285, y: 580}, {x: 395, y: 580}, {x: 505, y: 580}];
     } else if (row == 4 && document.getElementById('ability4-toggle').checked) {
-        positions = [{x: 227.5, y: 717.5}, {x: 400, y: 717.5}];
+        positions = [{x: 175, y: 760}, {x: 285, y: 760}, {x: 395, y: 760}, {x: 505, y: 760}];
     } else if (row == 5 && document.getElementById('ability5-toggle').checked) {
-        positions = [{x: 227.5, y: 895}, {x: 400, y: 895}];
+        positions = [{x: 175, y: 940}, {x: 285, y: 940}, {x: 395, y: 940}, {x: 505, y: 940}];
     } else if (row == 6 && document.getElementById('ability6-toggle').checked) {
-        positions = [{x: 227.5, y: 1072.5}, {x: 400, y: 1072.5}];
+        positions = [{x: 175, y: 1115}, {x: 285, y: 1115}, {x: 395, y: 1115}, {x: 505, y: 1115}];
     }
 
     if (index >= positions.length) return;
 
     var img = $("#circle")[0],
         position = scalePixelPosition(positions[index]),
-        size = scalePixelPosition({x: 160, y: 160});
+        size = scalePixelPosition({x: 90, y: 90});
 
     // position = scalePixelPosition({x: positions[index].x + 15, y: positions[index].y + 15});
     // size = scalePixelPosition({x: 130, y: 130});
     position = scalePixelPosition({x: positions[index].x, y: positions[index].y});
 
-    drawImage(position, {x: 165, y: 165}, img);
+    drawImage(position, {x: 90, y: 90}, img);
     drawImageSrc(position, size, runemark);
 }
 
@@ -486,10 +534,10 @@ function setName(name)
 // }
 
 
-function readTagRunemarksOne() {
+function readtagRunemarksOne() {
     var array = new Array;
 
-    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeOne").find('input:checked');
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourOne").find('input:checked');
 
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -499,7 +547,7 @@ function readTagRunemarksOne() {
 function readTagRunemarksTwo() {
     var array = new Array;
 
-    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeTwo").find('input:checked');
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourTwo").find('input:checked');
 
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -509,7 +557,7 @@ function readTagRunemarksTwo() {
 function readTagRunemarksThree() {
     var array = new Array;
 
-    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeThree").find('input:checked');
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourThree").find('input:checked');
 
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -519,7 +567,7 @@ function readTagRunemarksThree() {
 function readTagRunemarksFour() {
     var array = new Array;
 
-    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeFour").find('input:checked');
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourFour").find('input:checked');
 
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -529,7 +577,7 @@ function readTagRunemarksFour() {
 function readTagRunemarksFive() {
     var array = new Array;
 
-    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeFifth").find('input:checked');
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourFifth").find('input:checked');
 
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -539,7 +587,7 @@ function readTagRunemarksFive() {
 function readTagRunemarksSix() {
     var array = new Array;
 
-    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseThreeSixth").find('input:checked');
+    var checkedBoxes = $("#tagRunemarkSelect_abilitiesCollapseFourSixth").find('input:checked');
 
     for (i = 0; i < checkedBoxes.length; i++) {
         array.push(getImage(getLabel(checkedBoxes[i])).getAttribute("src"));
@@ -587,6 +635,7 @@ function readControls()
     data.cardTitle = document.getElementById('card-title').value;
 
     data.factionRunemark = getSelectedFactionRunemark();
+    data.subfactionRunemark = getSelectedSubfactionRunemark();
 
     data.ability1Name = document.getElementById('ability1-name').value;
     data.ability2Name = document.getElementById('ability2-name').value;
@@ -607,7 +656,7 @@ function readControls()
     // data.move = document.getElementById("movement").value;
     // data.pointCost = document.getElementById("pointCost").value;
 
-    data.tagRunemarksOne = readTagRunemarksOne();
+    data.tagRunemarksOne = readtagRunemarksOne();
     data.tagRunemarksTwo = readTagRunemarksTwo();
     data.tagRunemarksThree = readTagRunemarksThree();
     data.tagRunemarksFour = readTagRunemarksFour();
@@ -621,48 +670,96 @@ function readControls()
 
 function drawFactionRunemark(image) {
     // drawImageSrc({x: 57.5, y: 57.5}, {x: 100, y: 100}, image);
-    drawImageSrc({x: 92.5, y: 50}, {x: 75, y: 75}, image);
+    drawImageSrc({x: 92.5, y: 35}, {x: 135, y: 135}, image);
+	if(getSelectedSubfactionRunemark() == null || getSelectedSubfactionRunemark() == 'assets/img/blank.gif'){
+		if (document.getElementById('ability1-toggle').checked) {
+			var positions = {x: 60, y: 225},
+				replacedImage = image.replace('white', 'black');
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
+		}
+
+		if (document.getElementById('ability2-toggle').checked) {
+			var positions = {x: 60, y: 405},
+				replacedImage = image.replace('white', 'black');
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
+		}
+
+		if (document.getElementById('ability3-toggle').checked) {
+			var positions = {x: 60, y: 575},
+				replacedImage = image.replace('white', 'black');
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
+		}
+
+		if (document.getElementById('ability4-toggle').checked) {
+			var positions = {x: 60, y: 755},
+				replacedImage = image.replace('white', 'black');
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
+		}
+
+		if (document.getElementById('ability5-toggle').checked) {
+			var positions = {x: 60, y: 935},
+				replacedImage = image.replace('white', 'black');
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
+		}
+
+		if (document.getElementById('ability6-toggle').checked) {
+			var positions = {x: 60, y: 1110},
+				replacedImage = image.replace('white', 'black');
+			drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+			drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
+		}
+	}
+
+}
+function drawSubfactionRunemark(image) {
+    // drawImageSrc({x: 57.5, y: 57.5}, {x: 90, y: 90}, image);
+    drawImageSrc({x: 224, y: 58}, {x: 90, y: 90}, image);
 
     if (document.getElementById('ability1-toggle').checked) {
-        var positions = {x: 50, y: 185},
+        var positions = {x: 65, y: 225},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability2-toggle').checked) {
-        var positions = {x: 50, y: 362.5},
+        var positions = {x: 65, y: 410},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability3-toggle').checked) {
-        var positions = {x: 50, y: 540},
+        var positions = {x: 65, y: 580},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability4-toggle').checked) {
-        var positions = {x: 50, y: 717.5},
+        var positions = {x: 65, y: 760},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability5-toggle').checked) {
-        var positions = {x: 50, y: 895},
+        var positions = {x: 65, y: 940},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 
     if (document.getElementById('ability6-toggle').checked) {
-        var positions = {x: 50, y: 1072.5},
+        var positions = {x: 65, y: 1115},
             replacedImage = image.replace('white', 'black');
-        drawImage(positions, {x: 165, y: 165}, $("#circle")[0]);
-        drawImageSrc(positions, {x: 160, y: 160}, replacedImage);
+        drawImage(positions, {x: 90, y: 90}, $("#circle")[0]);
+        drawImageSrc(positions, {x: 90, y: 90}, replacedImage);
     }
 }
 
@@ -674,6 +771,7 @@ render = function(cardData) {
     drawCardTitle(cardData.cardTitle);
 
     drawFactionRunemark(cardData.factionRunemark);
+    drawSubfactionRunemark(cardData.subfactionRunemark);
 
     // getContext().font = "92px rodchenkoctt";
     // getContext().fillStyle = "white";
@@ -764,27 +862,29 @@ function writeControls(cardData)
     // setModelImage(cardData.imageUrl);
     // setModelImageProperties(cardData.imageProperties);
 
-    $('#card-title')[0].value = cardData.cardTitle;
-    $('#card-translation-abilities')[0].value = cardData.cardTranslationAbilities;
-    $('#card-translation-double')[0].value = cardData.cardTranslationDouble;
-    $('#card-translation-triple')[0].value = cardData.cardTranslationTriple;
-    $('#card-translation-quad')[0].value = cardData.cardTranslationQuad;
+    $('#card-title').value = cardData.cardTitle;
+    $('#card-translation-abilities').value = cardData.cardTranslationAbilities;
+    $('#card-translation-double').value = cardData.cardTranslationDouble;
+    $('#card-translation-triple').value = cardData.cardTranslationTriple;
+    $('#card-translation-quad').value = cardData.cardTranslationQuad;
 
     setSelectedFactionRunemark(cardData.factionRunemark);
 
-     $('#ability1-name')[0].value = cardData.ability1Name;
-     $('#ability2-name')[0].value = cardData.ability2Name;
-     $('#ability3-name')[0].value = cardData.ability3Name;
-     $('#ability4-name')[0].value = cardData.ability4Name;
-     $('#ability5-name')[0].value = cardData.ability5Name;
-     $('#ability6-name')[0].value = cardData.ability6Name;
+    setSelectedSubfactionRunemark(cardData.subfactionRunemark);
 
-     $('#ability1-text')[0].value = cardData.ability1Text;
-     $('#ability2-text')[0].value = cardData.ability2Text;
-     $('#ability3-text')[0].value = cardData.ability3Text;
-     $('#ability4-text')[0].value = cardData.ability4Text;
-     $('#ability5-text')[0].value = cardData.ability5Text;
-     $('#ability6-text')[0].value = cardData.ability6Text;
+     $('#ability1-name').value = cardData.ability1Name;
+     $('#ability2-name').value = cardData.ability2Name;
+     $('#ability3-name').value = cardData.ability3Name;
+     $('#ability4-name').value = cardData.ability4Name;
+     $('#ability5-name').value = cardData.ability5Name;
+     $('#ability6-name').value = cardData.ability6Name;
+
+     $('#ability1-text').text(cardData.ability1Text);
+     $('#ability2-text').text(cardData.ability2Text);
+     $('#ability3-text').text(cardData.ability3Text);
+     $('#ability4-text').text(cardData.ability4Text);
+     $('#ability5-text').text(cardData.ability5Text);
+     $('#ability6-text').text(cardData.ability6Text);
 
     // $("#toughness")[0].value = cardData.toughness;
     // $("#numWounds")[0].value = cardData.wounds;
@@ -797,7 +897,6 @@ function writeControls(cardData)
         runes_four = cardData.tagRunemarksFour,
         runes_five = cardData.tagRunemarksFive,
         runes_six = cardData.tagRunemarksSix
-
     var tagRuneMarks = $.merge(runes_one, runes_two, runes_three, runes_four, runes_five, runes_six)
 
     setSelectedTagRunemarks(tagRuneMarks);
@@ -819,6 +918,7 @@ function defaultCardData() {
     cardData.cardTranslationQuad = 'Quad';
 
     cardData.factionRunemark = 'runemarks/white/factions-chaos-iron-golems.svg';
+    cardData.subfactionRunemark = 'assets/img/blank.gif';
 
     cardData.ability1Name = 'First ability name';
     cardData.ability2Name = 'Second ability name';
@@ -981,6 +1081,7 @@ async function saveCardData(cardData)
         // handle images we may have loaded from disk...
         cardData.imageUrl = await handleImageUrlFromDisk(cardData.imageUrl);
         cardData.factionRunemark = await handleImageUrlFromDisk(cardData.factionRunemark);
+        cardData.subfactionRunemark = await handleImageUrlFromDisk(cardData.subfactionRunemark);
 
         for (i = 0; i < cardData.tagRunemarksOne.length; i++)
         {
@@ -1097,6 +1198,17 @@ onFactionRunemarkFileSelect = function()
     for (i = 0; i < imageSelect.files.length; i++)
     {
         addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "faction", "black");
+    }
+}
+
+onSubfactionRunemarkFileSelect = function()
+{
+    var imageSelect = $("#additionalSubfactionMarkSelect")[0];
+    var selectGrid = $("#subfactionRunemarkSelect")[0];
+
+    for (i = 0; i < imageSelect.files.length; i++)
+    {
+        addToImageRadioSelector(URL.createObjectURL(imageSelect.files[i]), selectGrid, "subfaction", "black");
     }
 }
 
