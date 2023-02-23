@@ -1,0 +1,26 @@
+<div class="card">
+
+    <div class="card-header" id="fightersHeadingThree">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseThree" aria-expanded="false" aria-controls="fightersCollapseThree">
+                Faction runemark
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="fightersCollapseThree">
+        <div class="card-body">
+
+            <div id="factionRunemarkSelect" class="d-flex flex-wrap">
+                {% include fighters/factionRunemarkSelectChaos.html %}
+                {% include fighters/factionRunemarkSelectDeath.html %}
+                {% include fighters/factionRunemarkSelectDestruction.html %}
+                {% include fighters/factionRunemarkSelectOrder.html %}
+                {% include fighters/factionRunemarkSelectMonsters.html %}
+                {% include abilities/factionRunemarkSelectNone.html %}
+            </div>
+
+        </div>
+    </div>
+
+</div>

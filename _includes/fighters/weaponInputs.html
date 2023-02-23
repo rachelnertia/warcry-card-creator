@@ -1,0 +1,52 @@
+<label class="sr-only" for="weaponRunemarkSelect">Weapon runemark</label>
+<div id="weaponRunemarkSelect" class="d-flex flex-wrap">
+    {% capture foo %}{{ include.weapon }}{% endcapture %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-axe.svg" title="Axe" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-bident.svg" title="Bident" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-blast.svg" title="Blast" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-claws.svg" title="Claws" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-club.svg" title="Club" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-dagger.svg" title="Dagger" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-fangs.svg" title="Fangs" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-hammer.svg" title="Hammer" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-hook.svg" title="Hook" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-mace.svg" title="Mace" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-ranged-weapon.svg" title="Ranged weapon" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-reach-weapon.svg" title="Reach weapon" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-scythe.svg" title="Scythe" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-spear.svg" title="Spear" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-sword.svg" title="Sword" %}
+    {% include runemarkSelectRadio.html radioGroup=foo backgroundColor="white" imgSrc="runemarks/black/weapons-unarmed.svg" title="Unarmed" %}
+</div>
+
+<div class="form-row mt-4">
+    <div class="col-sm-4 form-group">
+        <label for="rangeMin">Range (Min)</label>
+        <input class="form-control" type="number" id="rangeMin" name="rangeMin" min="0" max="999" value="0" oninput="onWeaponMinRangeChanged(this)">
+    </div>
+    <div class="col-sm-4 form-group">
+        <label for="rangeMax">Range (Max)</label>
+        <input class="form-control" type="number" id="rangeMax" name="rangeMax" min="0" max="999" value="1" oninput="onWeaponMaxRangeChanged(this)">
+    </div>
+    <div class="col-sm-4 form-group">
+        <label for="attacks">Attacks</label>
+        <input class="form-control" type="number" id="attacks" name="attacks" min="0" max="999" value="1" oninput="onAnyChange()">
+    </div>
+    <div class="col-sm-4 form-group">
+        <label for="strength">Strength</label>
+        <input class="form-control" type="number" id="strength" name="strength" min="1" max="99" value="3" oninput="onAnyChange()">
+    </div>
+    <div class="col-sm-4 form-group">
+        <label for="damageBase">Damage (Base)</label>
+        <input class="form-control" type="number" id="damageBase" name="damageBase" min="0" max="999" value="1" oninput="onAnyChange()">
+    </div>
+    <div class="col-sm-4 form-group">
+        <label for="damageCrit">Damage (Critical)</label>
+        <input class="form-control" type="number" id="damageCrit" name="damageCrit" min="0" max="999" value="2" oninput="onAnyChange()">
+    </div>
+</div>
+
+<div class="mt-4">
+    <label for="additionalWeaponMarkSelect">Load custom icon</label>
+    <input class="form-control-file" id="additionalWeaponMarkSelect" oninput="onWeaponRunemarkFileSelect(this,'{{ include.weapon }}')" type="file">
+</div>

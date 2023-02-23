@@ -1,0 +1,25 @@
+<div class="mt-4">
+    <button type="submit" class="btn btn-success" id="clearCacheButton" onclick="onClearCache()">
+        Reset all
+    </button>
+    <button type="submit" class="btn btn-success" id="saveCanvasButton" onclick="saveCardAsImage()">
+        Save card as image
+    </button>
+</div>
+
+<div class="input-group mt-4">
+    <div class="input-group-prepend">
+        <button type="button" class="btn btn-secondary" disabled id="saveButton" onclick="onSaveClicked()" value="Save">Save</button>
+    </div>
+    <label class="sr-only" for="slotNameInput">Name</label>
+    <input class="form-control" disabled id="saveNameInput" type="text">
+</div>
+
+<div class="input-group mb-6 mt-2">
+    <div class="input-group-prepend">
+        <button type="button" class="btn btn-secondary" disabled id="" onclick="onLoadClicked()" value="Load">Load</button>
+        <button type="button" class="btn btn-secondary" disabled id="" onclick="onLoadClicked()" value="Delete">Delete</button>
+    </div>
+    <label class="sr-only" for="saveSlotsSelect">Local file</label>
+    <select class="form-control" disabled id="saveSlotsSelect"></select>
+</div>

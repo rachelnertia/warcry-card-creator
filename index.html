@@ -1,296 +1,68 @@
 ---
 # this is an empty front matter
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style>
-      @font-face {
-        font-family: 'rodchenkoctt';
-        src: url('rodchenkoctt.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-      }
-      label {
-        cursor: pointer;
-      }
-    </style>
-    
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, shrink-to-fit=no, user-scalable=no, width=device-width">
+    <title>Warcry Card Creator 2.0 – Fighters and Abilities</title>
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#ff0000">
+    <meta name="msapplication-TileColor" content="#ff0000">
+    <meta name="theme-color" content="#ff0000">
+</head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body>
+    <div class="font-hack sr-only" style="font-family:'rodchenkoctt';visibility:hidden;">Nothing to see here, move along…</div>
 
-    <title>Warcry Fighter Card Creator (ALPHA)</title>
-  </head>
-  <body>    
-    <div class="font-hack" style="font-family:'rodchenkoctt'; visibility: hidden">nothing to see here, move along</div>
-    
-    <img id="cardBackground" style="display: none" src="card-bg.png">
-    <img id="weaponStatBlock" style="display: none" src="statblock.png">
-    <img id="runemarkBg" style="display: none" src="runemark-bg.png">
-    
-    <div class="container">
-      <canvas id="myCanvas" width="630" height="450" style="
-        border:1px solid #000000;
-        width: 100%;
-        max-width: max-content;
-        height: auto;">
-        There should be a Canvas here.
-      </canvas>
-    </div>
-    
-    <br/>
+    <div class="container-fluid">
 
-    <div class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-    ">
-      <div style="display: grid; grid-template-columns: auto auto auto">
-        <label for="slotNameInput">Name:</label>
-        <input type="text" id="saveNameInput">
-        <input type="button" id="saveButton" value="Save"   onclick="onSaveClicked()">
-      </div>
-      
-      <br/>
-      
-      <div style="display: grid; grid-template-columns: auto auto auto auto">
-        <label for="saveSlotsSelect">Local File:</label>
-        <select id="saveSlotsSelect">
-        </select>
-        <input type="button" value="Load" onclick="onLoadClicked()">
-        <input type="button" value="Delete" onclick="onDeleteClicked()">
-      </div>
+        <nav class="mt-2 navbar navbar-expand-lg p-0">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html" onclick="onClearCache()">Fighters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="abilities.html">Abilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="issues.html">Issues</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="downloads.html">Downloads</a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+        {% include tabs/tabContentFighters.html %}
+
     </div>
 
-    </br>
+    <script src="assets/vendors/jquery.js"></script>
+    <script src="assets/vendors/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap.min.js"></script>
+    <script src="assets/js/fighters.js"></script>
 
-    <div class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-    ">
-      <label for="imageSelect">Choose Image:</label>
-      <input type="file" id="imageSelect" oninput="onAnyChange()" style="padding-bottom: 10px;"> 
-      <br>
-
-      <div style="display: grid; grid-template-columns: auto auto auto auto auto auto;">
-        <label for="imageOffsetX">Offset X:</label>
-        <input type="number" id="imageOffsetX" oninput="onAnyChange()" value="0" style="max-width: 50px;"> 
-
-        <label for="imageOffsetY">Offset Y:</label>
-        <input type="number" id="imageOffsetY" oninput="onAnyChange()" value="0" style="max-width: 50px;"> 
-        
-        <label for="imageScalePercent">Scale %:</label>
-        <input type="number" id="imageScalePercent" oninput="onAnyChange()" min="0" max="300" value="100" style="max-width: 50px;"> 
-      </div>
-    </div>
-    
-    <br/>
-
-    <div class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-    ">
-      <label for="factionRunemarkSelect">Faction Runemark:</label>
-      <div id="factionRunemarkSelect" class="d-flex flex-wrap">
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/iron-golems.svg" title="Iron Golems" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/untamed-beasts.svg" title="Untamed Beasts" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/corvus-cabal.svg" title="Corvus Cabal" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/cypher-lords.svg" title="Cypher Lords" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/the-unmade.svg" title="The Unmade" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/scions-of-the-flame.svg" title="Scions of the Flame" %} 
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/spire-tyrants.svg" title="Spire Tyrants" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/warbands/splintered-fang.svg" title="Splintered Fang" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/khorne-demons.svg" title="Khorne (demons)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/khorne-humans.svg" title="Khorne (humans)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/tzeentch-demons.svg" title="Tzeentch (demons)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/tzeentch-humans.svg" title="Tzeentch (humans)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/nurgle-demons.svg" title="Nurgle (demons)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/nurgle-humans.svg" title="Nurgle (humans)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/slaanesh.svg" title="Slaanesh" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/slaves-to-darkness.svg" title="Slaves to Darkness" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/beasts-of-chaos.svg" title="Beasts of Chaos" %}        
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/chaos/skaven.svg" title="Skaven" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/death/legions-of-nagash.svg" title="Legions of Nagash" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/death/nighthaunt.svg" title="Nighthaunt" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/death/flesh-eater-courts.svg" title="Flesh Eater Courts" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/ironjawz.svg" title="Ironjawz" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/bonesplitterz.svg" title="Bonesplitterz" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/gloomspite-gitz.svg" title="Gloomspite Gitz" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/destruction/ogor-mawtribes.svg" title="Ogor Mawtribes" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/sacrosanct-chamber.svg" title="Stormcast Eternals Sacrosanct Chamber" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/vanguard-chamber.svg" title="Stormcast Eternals Vanguard Chamber" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/warrior-chamber.svg" title="Stormcast Eternals Warrior Chamber" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/daughters-of-khaine.svg" title="Daughters of Khaine" %} 
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/idoneth-deepkin.svg" title="Idoneth Deepkin" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/fyreslayers.svg" title="Fyreslayers" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/kharadron-overlords.svg" title="Kharadron Overlords" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/seraphon.svg" title="Seraphon" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/order/sylvaneth.svg" title="Sylvaneth" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/chaotic-beasts.svg" title="Chaotic Beast" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/death-monster.svg" title="Monster (Death)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/destruction-monster.svg" title="Monster (Destruction)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/monsters/order-monster.svg" title="Monster (Order)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-khorne.svg" title="Khorne (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-tzeentch.svg" title="Tzeentch (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-nurgle.svg" title="Nurgle (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-slaves-to-darkness.svg" title="Slaves to Darkness (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-beasts-of-chaos.svg" title="Beasts of Chaos (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-skaven.svg" title="Skaven (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-legions-of-nagash.svg" title="Legions of Nagash (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-nighthaunt.svg" title="Nighthaunt (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-flesh-eater-courts.svg" title="Flesh Eater Courts (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-ironjawz.svg" title="Ironjawz (allies)" %}        
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-bonesplitterz.svg" title="Bonesplitterz (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-gloomspite-gitz.svg" title="Gloomspite Gitz (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-warrior-chamber.svg" title="Stormcast Eternals Warrior Chamber (allies)" %}                
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-daughters-of-khaine.svg" title="Daughters of Khaine (allies)" %}
-        {% include runemarkSelectRadio.html radioGroup="faction" backgroundColor="black" imgSrc="runemarks/factions/allies/allies-idoneth-deepkin.svg" title="Idoneth Deepkin (allies)" %}
-      </div>
-      <label for="additionalFactionMarkSelect">Load Runemark:</label>
-      <input type="file" id="additionalFactionMarkSelect" oninput="onFactionRunemarkFileSelect()"> 
-    </div>
-
-    <br/>
-
-    <div class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-      display: grid;
-      grid-template-columns: auto auto auto auto;
-    ">
-      <label for="numWounds">Wounds:</label>
-      <input type="number" id="numWounds" name="numWounds" min="1" max="1000", value="10", style="max-width: 50px;", oninput="onAnyChange()">
-      
-      <label for="toughness">Toughness:</label>
-      <input type="number" id="toughness" name="toughness" min="0" max="100", value="3", style="max-width: 50px;", oninput="onAnyChange()">
-      
-      <label for="movement">Movement:</label>
-      <input type="number" id="movement" name="movement" min="0" max="100", value="4", style="max-width: 50px;", oninput="onAnyChange()">
-      
-      <label for="pointCost">Point Cost:</label>
-      <input type="number" id="pointCost" name="pointCost" min="0" max="9999", value="100", style="max-width: 50px;", oninput="onAnyChange()">
-    </div>
-
-    <br/>
-
-    <div class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-    ">
-      <label for="tagRunemarkSelect">Tag Runemarks:</label>
-      <div id="tagRunemarkSelect" class="d-flex flex-wrap">
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/agile.svg" title="Agile" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/champion.svg" title="Champion" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/beast.svg" title="Beast" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/berzerker.svg" title="Berzerker" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/brute.svg" title="Brute" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/bulwark.svg" title="Bulwark" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/destroyer.svg" title="Destroyer" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/elite.svg" title="Elite" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/fly.svg" title="Fly" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/gargantuan.svg" title="Gargantuan" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/icon-bearer.svg" title="Icon Bearer" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/leader.svg" title="Leader" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/minion.svg" title="Minion" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/mount.svg" title="Mount" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/mystic.svg" title="Mystic" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/scout.svg" title="Scout" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/sentience.svg" title="Sentience" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/thrall.svg" title="Thrall" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/trapper.svg" title="Trapper" %}
-          {% include runemarkSelectCheckbox.html backgroundColor="white" imgSrc="runemarks/black/warrior.svg" title="Warrior" %}
-      </div>
-      <label for="additionalTagMarkSelect">Load Runemark:</label>
-      <input type="file" id="additionalTagMarkSelect" oninput="onTagRunemarkFileSelect()"> 
-    </div>
-    
-    <br/>
-
-    <div id="weapon1" class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-    ">
-      <input type="checkbox", id="weaponEnabled" oninput="onWeaponControlsToggled(this)" checked>Weapon 1</input>
-      <div id="weaponInputs" style="display:block">
-        {% include weaponInputs.html weapon="weapon1" %}
-      </div>
-    </div>
-
-    <br/>
-
-    <div id="weapon2" class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-    ">
-      <input type="checkbox", id="weaponEnabled" oninput="onWeaponControlsToggled(this)">Weapon 2</input>
-      <div id="weaponInputs" style="display:none">
-        {% include weaponInputs.html weapon="weapon2" %}
-      </div>
-    </div>
-
-    <br/>
-
-    <div class="container" style="
-      border: 1px solid #00000080;
-      background-color: #c8c8c880; 
-      padding: 20px; 
-      border-radius: 2px;
-    ">
-      <div style="display:grid; grid-template-columns: auto auto">
-        <input type="button" value="Clear All Saves!!!" id="clearCacheButton" onclick="onClearCache()">
-      </div>
-    </div>
-
-    <br/>
-
-    <div class="container">
-      <small>
-        <p>
-          Here you can create your own fighter cards for use in <a href="https://ageofsigmar.com/warcry/">Warcry</a> - simply modify the fighter's stats, runemarks and picture as you see fit, then save the resulting image.
-        </p>
-        <p>
-          <b>Warning! This is an unfinished work-in-progress, with more features and a better interface on the way!</b>
-        </p>
-        <p>
-          If you find a bug or have any suggestions please get in touch with me on <a href="https://www.twitter.com/nershly">Twitter</a> or create an issue on the GitHub repo <a href="https://github.com/rachelnertia/warcry-card-creator">here</a>. This is an open-source project: feel free to fork it, make pull requests, and do whatever you wish with it!
-        </p>
-      </small>
-    </div>
-
-    <br/>
-
-    <div class="container">
-      <small>
-        <p>
-          <b>Disclaimer:</b> This web application is in no way endorsed or sanctioned by Games Workshop - it is entirely unofficial in every sense. Imagary, logos, colour schemes etc have been sourced/borrowed from a variety of locations and I take absolutely no credit for their creation. Should the owner wish to authorise or cease useage then please contact me.
-        </p>
-        <p>
-          GW, Games Workshop, Warhammer, Warhammer Age of Sigmar, Warcry and all associated logos, illustrations, images, names, creatures, races, locations and the distinctive likenesses thereof are either ® or TM, and/or © Games Workshop Limited, variably registered around the world.
-        </p>
-      </small>
-    </div>
-
-    <script src="scripts/jquery-3.4.1.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="scripts/main.js"></script>
-
-  </body>
+</body>
 
 </html>

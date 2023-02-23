@@ -1,0 +1,61 @@
+<div class="card">
+
+    <div class="card-header" id="fightersHeadingSeven">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseSeven" aria-expanded="false" aria-controls="fightersCollapseSeven">
+                Weapons
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="fightersCollapseSeven">
+        <div class="card-body">
+            <div class="accordion">
+
+                <div class="card">
+                    <div class="card-header" id="fightersHeadingSevenOne">
+                        <h2 class="h5 mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseSevenOne" aria-expanded="false" aria-controls="fightersCollapseSevenOne">
+                                First weapon
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="fightersCollapseSevenOne">
+                        <div class="card-body">
+                            <div id="weapon1">
+                                <input checked class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
+                                <label class="form-check-label" for="weaponEnabled">Add to card</label>
+                                <div class="mt-4" id="weaponInputs" style="display: block;">
+                                    {% include fighters/weaponInputs.html weapon="weapon1" %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="fightersHeadingSevenTwo">
+                        <h2 class="h5 mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseSevenTwo" aria-expanded="false" aria-controls="fightersCollapseSevenTwo">
+                                Second weapon
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="collapse" id="fightersCollapseSevenTwo">
+                        <div class="card-body">
+                            <div id="weapon2">
+                                <input class="form-check-input" id="weaponEnabled" oninput="onWeaponControlsToggled(this)" type="checkbox">
+                                <label class="form-check-label" for="weaponEnabled">Add to card</label>
+                                <div class="mt-4" id="weaponInputs" style="display: none;">
+                                    {% include fighters/weaponInputs.html weapon="weapon2" %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,1 +1,16 @@
-/_site
+*.backup
+*.bak
+*.desktop
+*.pdf
+.DS_Store
+.lock
+bower_components
+Icon
+node_modules
+package-lock.json
+test
+tests
+Thumbs.db
+
+_site
+.jekyll-cache

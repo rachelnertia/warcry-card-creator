@@ -1,0 +1,38 @@
+<div class="card">
+
+    <div class="card-header" id="abilitiesHeadingOne">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#abilitiesCollapseOne" aria-expanded="false" aria-controls="abilitiesCollapseOne">
+                Background
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="abilitiesCollapseOne">
+        <div class="card-body">
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="select-bg-dark-102" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-dark-102">Dark 1 A</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="select-bg-dark-302" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-dark-302">Dark 2 A</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input checked class="form-check-input" id="select-bg-fire-102" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-fire-102">Fire 1 A</label>
+            </div>
+
+            {% comment %}
+            <div class="form-group mt-4">
+                <label for="abilities-upload-bg">Load custom background</label>
+                <input disabled aria-describedby="fileHelp" class="form-control-file" id="abilities-upload-bg" oninput="onAnyChange()" type="file">
+                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+            </div>
+            {% endcomment %}
+
+        </div>
+    </div>
+
+</div>

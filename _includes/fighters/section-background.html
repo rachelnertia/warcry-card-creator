@@ -1,0 +1,50 @@
+<div class="card">
+
+    <div class="card-header" id="fightersHeadingOne">
+        <h2 class="h5 mb-0">
+            <button class="btn btn-link" data-toggle="collapse" data-target="#fightersCollapseOne" aria-expanded="false" aria-controls="fightersCollapseOne">
+                Background
+            </button>
+        </h2>
+    </div>
+
+    <div class="collapse" id="fightersCollapseOne">
+        <div class="card-body">
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="select-bg-dark-102" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-dark-102">Dark 1 A</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="select-bg-dark-112" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-dark-112">Dark 1 B</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="select-bg-dark-302" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-dark-302">Dark 2 A</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="select-bg-dark-312" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-dark-312">Dark 2 B</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input checked class="form-check-input" id="select-bg-fire-102" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-fire-102">Fire 1 A</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" id="select-bg-fire-112" name="toggle-backgrounds" oninput="onAnyChange()" type="radio">
+                <label class="form-check-label" for="select-bg-fire-112">Fire 1 B</label>
+            </div>
+
+            {% comment %}
+            <div class="form-group mt-4">
+                <label for="backgroundSelect">Load custom background</label>
+                <input disabled aria-describedby="fileHelp" class="form-control-file" id="backgroundSelect" oninput="onAnyChange()" type="file">
+                <!-- <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
+            </div>
+            {% endcomment %}
+
+        </div>
+    </div>
+
+</div>

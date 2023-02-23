@@ -1,0 +1,214 @@
+@import url("../vendors/bootswatch-darkly.min.css") (prefers-color-scheme: dark);
+@import url("../vendors/bootswatch-flatly.min.css") (prefers-color-scheme: light);
+
+@font-face {
+    font-family: "rodchenkoctt";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/rodchenkoctt.eot");
+    src: url("../fonts/rodchenkoctt.eot?#iefix") format("embedded-opentype"),
+         url("../fonts/rodchenkoctt.woff2") format("woff2"),
+         url("../fonts/rodchenkoctt.woff") format("woff"),
+         url("../fonts/rodchenkoctt.ttf") format("truetype"),
+         url("../fonts/rodchenkoctt.svg#rodchenkoctt") format("svg");
+}
+
+/* @media (prefers-color-scheme: dark) {
+    a, .btn-link { color: tomato; }
+}
+@media (prefers-color-scheme: light) {
+    a, .btn-link { color: tomato; }
+}
+
+@media (prefers-color-scheme: dark) {
+    a:hover, .btn-link:hover { color: #cc4f38; }
+}
+@media (prefers-color-scheme: light) {
+    a:hover, .btn-link:hover { color: #cc4f38; }
+} */
+
+canvas {
+    height: auto;
+    width: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+    canvas {
+        background: #303030;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    canvas {
+        background: #e9ecef;
+    }
+}
+
+[disabled] {
+    cursor: not-allowed;
+}
+
+.mb-6 {
+    margin-bottom: 6rem !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navbar-toggler {
+        color: rgba(255,255,255,.5);
+        border-color: rgba(255,255,255,.1);
+    }
+    .navbar .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.6%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .navbar-toggler {
+        color: rgba(0,0,0,.5);
+        border-color: rgba(0,0,0,.1);
+    }
+    .navbar .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2834, 34, 34, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+}
+
+@media (min-width: 991px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+.nav-tabs {
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .nav-tabs .nav-link {
+        border: 0;
+    }
+}
+
+.navbar-toggler {
+    padding: 0;
+}
+
+#octocat svg {
+    border-radius: 50%;
+}
+
+@media (prefers-color-scheme: dark) {
+    #octocat svg {
+        border: 1px solid white;
+        fill: white;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    #octocat svg {
+        border: 1px solid black;
+        fill: black;
+    }
+}
+
+.scroll-area {
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.scroll-area-fade {
+    max-height: 666px;
+    position: relative;
+}
+
+.scroll-area-fade:before {
+    bottom: 0;
+    content: "";
+    height: 100px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+    .scroll-area-fade:before {
+        background: rgb(34,34,34);
+        background: -moz-linear-gradient(bottom, rgba(34,34,34,1) 0%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(to top, rgba(34,34,34,1) 0%,rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='transparent',GradientType=1);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .scroll-area-fade:before {
+        background: rgb(255,255,255);
+        background: -moz-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='transparent',GradientType=1);
+    }
+}
+
+#factionRunemarkSelect label,
+#subfactionRunemarkSelect label,
+#tagRunemarkSelect label,
+*[id^='tagRunemarkSelect_'] label,
+#weaponInputs label {
+    margin: 0;
+}
+
+/* .flex-wrap > div {
+    border: 1px solid white;
+}
+
+.flex-wrap label {
+    margin: 0;
+} */
+
+/* #weapon1 .heading,
+#weapon2 .heading {
+    position: relative;
+}
+
+#weapon1 .heading:before,
+#weapon2 .heading:before {
+    background: rgba(0,0,0,0.5);
+    content: "";
+    height: 1px;
+    left: -50px;
+    position: absolute;
+    top: -1px;
+    width: 50px;
+} */
+
+/* .tooltip-inner {
+    background: tomato !important;
+    background: #00bc8c !important;
+}
+
+.bs-tooltip-top .arrow:before,
+.bs-tooltip-auto[x-placement^="top"] .arrow:before {
+    border-top-color: tomato;
+    border-top-color: #00bc8c;
+}
+
+.bs-tooltip-right .arrow:before,
+.bs-tooltip-auto[x-placement^="right"] .arrow:before {
+    border-right-color: tomato;
+    border-right-color: #00bc8c;
+}
+
+.bs-tooltip-bottom .arrow:before,
+.bs-tooltip-auto[x-placement^="bottom"] .arrow:before {
+    border-bottom-color: tomato;
+    border-bottom-color: #00bc8c;
+}
+
+.bs-tooltip-left .arrow:before,
+.bs-tooltip-auto[x-placement^="left"] .arrow:before {
+    border-left-color: tomato;
+    border-left-color: #00bc8c;
+} */
