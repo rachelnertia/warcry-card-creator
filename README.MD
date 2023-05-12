@@ -2,7 +2,7 @@
 
 ****
 
-Newer version by [@Stevrak](https://stevrak.github.io/warcry_legions)
+Newer versions by [@barrysheppard](https://barrysheppard.github.io/warcry-card-creator/) and [@stevrak](https://stevrak.github.io/warcry_legions).
 
 ****
 
